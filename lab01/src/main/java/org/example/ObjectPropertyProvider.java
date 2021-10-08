@@ -3,6 +3,7 @@ package org.example;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class ObjectPropertyProvider {
 
     public List<Method> getPublicGetters(Class<?> clazz){
+
         Method[] methods = clazz.getMethods();
         List<Method> getters = null;
 
@@ -24,10 +26,12 @@ public class ObjectPropertyProvider {
             }
         }
         return getters;
+        return Arrays.stream(clazz.getDeclaredMethods()).toList();
     }
 
 
     public List<Method> getPublicSetters(Class<?> clazz){
+
         Method[] methods = clazz.getMethods();
         List<Method> setters = null;
 
@@ -42,6 +46,8 @@ public class ObjectPropertyProvider {
             }
         }
         return setters;
+
+        return Arrays.stream(clazz.getDeclaredMethods()).toList();
     }
 
 

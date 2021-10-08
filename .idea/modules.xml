@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/JAZ_st_2021_gr5.iml" filepath="$PROJECT_DIR$/.idea/JAZ_st_2021_gr5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab01/reflectionsdemo.iml" filepath="$PROJECT_DIR$/lab01/reflectionsdemo.iml" />
+    </modules>
+  </component>
+</project>

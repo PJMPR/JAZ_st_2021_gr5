@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Kuba Nowacki
+=======
+Adam Urbanowicz
+>>>>>>> 1265b9a5aed8d2062918b99e319c607fb84b3d0f

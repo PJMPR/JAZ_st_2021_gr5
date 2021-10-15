@@ -7,8 +7,6 @@ import java.lang.annotation.ElementType;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface NotNull(field field){
-    if(field.isNull()){
-        String message() Default "field is null";
-    }
+public @interface NotNull{
+    String message() default "field is null";
 }

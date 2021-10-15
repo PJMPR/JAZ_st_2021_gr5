@@ -7,7 +7,7 @@ import java.lang.annotation.ElementType;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Regex{
-    String pattern();
-    String message() default "regex error";
+public @interface Range{
+    int min();
+    int max();
 }

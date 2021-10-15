@@ -21,8 +21,6 @@ public class Validator {
         result.setValidatedObject(object);
         result.setValid(true);
 
-        result.getNotValidFields().put("name",new ArrayList<String>());
-        result.getNotValidFields().get("name").add("message");
 
         for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
@@ -36,33 +34,39 @@ public class Validator {
         }
 
         for (Field field : notNullFields) {
-            if(field.get(object) == null){
-                if(result.getNotValidFields().containsKey(field.getName())){
-                    result.getNotValidFields().get(field.getName()).add(field.getAnnotation(NotNull.class).message());
-                }else {
-                    result.getNotValidFields().put(field.getName(),new ArrayList<String>());
-                    result.getNotValidFields().get(field.getName()).add(field.getAnnotation(NotNull.class).message());
+            if (field.get(object) == null) {
+                if (!result.getNotValidFields().containsKey(field.getName())) {
+                    result.getNotValidFields().put(field.getName(), new ArrayList<String>());
                 }
+                result.getNotValidFields().get(field.getName()).add(field.getAnnotation(NotNull.class).message());
                 result.setValid(false);
             }
         }
 
-        for(Field f : regexFields){
-            if(!f.get(object).toString().matches(f.getAnnotation(Regex.class).pattern())){
+        for (Field field : regexFields) {
+            if (!field.get(object).toString().matches(field.getAnnotation(Regex.class).pattern())) {
+                if (!result.getNotValidFields().containsKey(field.getName())) {
+                    result.getNotValidFields().put(field.getName(), new ArrayList<String>());
+                }
+                result.getNotValidFields().get(field.getName()).add(field.getAnnotation(Regex.class).message());
                 result.setValid(false);
             }
         }
 
-        for (Field f : rangeFields) {
-            int max = f.getAnnotation(Range.class).max();
-            int min = f.getAnnotation(Range.class).min();
+        for (Field field : rangeFields) {
+            int max = field.getAnnotation(Range.class).max();
+            int min = field.getAnnotation(Range.class).min();
 
-            int objVal = (Integer)f.get(object);
+            int objVal = (Integer) field.get(object);
 
-            if(objVal > max || objVal<min ){
+            if (objVal > max || objVal < min) {
+                if (!result.getNotValidFields().containsKey(field.getName())) {
+                    result.getNotValidFields().put(field.getName(), new ArrayList<String>());
+                }
+                result.getNotValidFields().get(field.getName()).add("number is out of range ["+min+","+max+"]");
                 result.setValid(false);
             }
         }
-
+        return result;
     }
 }

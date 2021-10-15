@@ -10,14 +10,22 @@ import java.util.List;
 
 public class Validator {
 
+    @NotNull
+    public String s;
+
     public <TClass> ValidationResult validate(TClass object) throws IllegalAccessException {
       ValidationResult validationResult=new ValidationResult();
       Field[] fieldList= object.getClass().getFields();
         for (Field f:fieldList) {
+            System.out.println(f.isAnnotationPresent(NotNull.class));
             if(f.isAnnotationPresent(NotNull.class)){
                 if(f.get(this)==null){
                     validationResult.setValid(false);
+                    System.out.println("null");
+                }else {
+                    System.out.println("not null");
                 }
+
             }
 
         }
@@ -25,8 +33,7 @@ public class Validator {
 
         return null;
     }
-    @NotNull
-    public String s;
+
 
     public static void main(String[] args)throws IllegalAccessException {
         Validator validator=new Validator();

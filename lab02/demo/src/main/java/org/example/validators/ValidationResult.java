@@ -30,4 +30,7 @@ public class ValidationResult{
         return notValidFields;
     }
 
+    public void setNotValidFields(Map<String, List<String>> notValidFields){
+        this.notValidFields = notValidFields;
+    }
 }

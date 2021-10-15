@@ -15,13 +15,16 @@ public class ObjectPropertyProvider {
        List<Method> getters_list= new ArrayList<Method>();
         for (Method method:list) {
             if(method.getModifiers()== Modifier.PUBLIC){
-                if(method.getParameterCount()==0){
-                    String name =method.getName();
-                    String field_name = name.substring(3).toLowerCase();
-                    String return_type= method.getReturnType().toString().toLowerCase();
-                    if(field_name.equals(return_type)){
-                        getters_list.add(method);
+                if(method.getName().startsWith("get")||method.getName().startsWith("is")){
+                    if(method.getParameterCount()==0){
+                        String name =method.getName();
+                        String field_name = name.substring(3).toLowerCase();
+                        String return_type= method.getReturnType().getTypeName().toString().toLowerCase();
+                        if(field_name.equals(return_type)){
+                            getters_list.add(method);
+                        }
                     }
+
                 }
             }
         }
@@ -51,8 +54,11 @@ public class ObjectPropertyProvider {
 
     public List<Field> getFieldsForPublicProperties(Class<?> clazz){
 
-        return Arrays.stream(clazz.getDeclaredFields()).toList();
+        List<Field> list = Arrays.stream(clazz.getDeclaredFields()).toList();
+        List<Field> field_list = new ArrayList<>();
 
+        //TODO
+        return field_list;
     }
 
 

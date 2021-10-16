@@ -6,4 +6,5 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 public @interface NotNull {
     String message() default "field is null";
+    String message2() default "field is empty";
 }

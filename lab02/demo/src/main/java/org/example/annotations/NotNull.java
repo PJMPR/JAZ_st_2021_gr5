@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 public @interface NotNull {
 
     String message() default "field is null";
+
 }
 

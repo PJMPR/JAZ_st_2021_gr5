@@ -1,6 +1,5 @@
 package org.example.annotations;
 
-import org.example.validators.Validator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

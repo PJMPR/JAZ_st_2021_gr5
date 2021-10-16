@@ -30,4 +30,8 @@ public class ValidationResult{
         return notValidFields;
     }
 
+    public void putNonValidField(String field, List<String> errorMessages) {
+        notValidFields.put(field, errorMessages);
+    }
+
 }

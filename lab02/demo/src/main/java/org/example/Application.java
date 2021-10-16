@@ -9,9 +9,11 @@ public class Application {
 
         Sample obj = new Sample();
         System.out.println(
-        Sample.class.getDeclaredField("name").get(obj)==null);
+                Sample.class.getDeclaredField("name").get(obj) == null);
 
     }
 }
 
-class Sample{ String name;}
+class Sample {
+    String name;
+}

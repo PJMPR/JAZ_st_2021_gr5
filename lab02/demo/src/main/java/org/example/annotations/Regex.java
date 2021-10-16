@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 
 public @interface Regex {
     String pattern();
-    String msg() default "regex error";
+    String message() default "regex error";
 }

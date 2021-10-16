@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Validator {
 
-    public <TClass> ValidationResult validate(TClass object){
+    public <TClass> ValidationResult validate(TClass object) {
         ValidationResult result = new ValidationResult();
         result.setValidatedObject(object);
         result.setValid(true);
@@ -21,7 +21,7 @@ public class Validator {
             //if @Range
             if (field.isAnnotationPresent(Range.class)) {
                 try {
-                    int i = (int)field.get(object);
+                    int i = (int) field.get(object);
                     int min = field.getDeclaredAnnotation(Range.class).min();
                     int max = field.getDeclaredAnnotation(Range.class).max();
 
@@ -49,7 +49,7 @@ public class Validator {
             //if @NotNull
             if (field.isAnnotationPresent(NotNull.class)) {
                 try {
-                    if (Objects.isNull(field.get(object))) {
+                    if (field.get(object) == null) {
                         errors.add(field.getAnnotation(NotNull.class).message());
                         result.setValid(false);
                     }

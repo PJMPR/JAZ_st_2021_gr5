@@ -10,6 +10,8 @@ import java.lang.annotation.Target;
 
 public @interface Range {
     int min() default 0;
+
     int max() default 10;
+
     String message() default "Number is out of range";
 }

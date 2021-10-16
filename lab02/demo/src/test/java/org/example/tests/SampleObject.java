@@ -5,15 +5,15 @@ import org.example.annotations.*;
 public class SampleObject {
 
    @NotNull
-   public String name;
+    private String name;
 
 
     @NotNull
     @Regex(pattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$", message = "email should be in correct format")
-    public String email;
+    private String email;
 
     @Range(min=0, max=10)
-    public int number;
+    private int number;
 
     public SampleObject(String name, String email, int number) {
         this.name = name;

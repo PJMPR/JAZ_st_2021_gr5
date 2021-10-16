@@ -18,6 +18,7 @@ public class Validator {
         Field[] fieldList = object.getClass().getDeclaredFields();
         for (int i = 0; i < fieldList.length; i++) {
             Field f =fieldList[i];
+            f.setAccessible(true);
             if (f.isAnnotationPresent(NotNull.class)) {
                 if (f.get(object) == null) {
                     validationResult.setValid(false);

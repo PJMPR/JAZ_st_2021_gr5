@@ -51,6 +51,7 @@ public class Validator {
                 try {
                     if (field.get(object) == null) {
                         errors.add(field.getAnnotation(NotNull.class).message());
+                        errors.add(field.getAnnotation(NotNull.class).message2());
                         result.setValid(false);
                     }
                 } catch (IllegalAccessException e) {

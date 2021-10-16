@@ -13,5 +13,5 @@ public @interface Range {
 
     int max() default 10;
 
-    String message() default "Number is out of range";
+    String message() default "number is out of range [0,10]";
 }

@@ -31,8 +31,8 @@ public class TestValidator {
         assertThat(result.getValidatedObject(), notNullValue());
         assertThat(result.getNotValidFields().keySet(), hasSize(1));
         assertThat(result.getNotValidFields().keySet(), contains("name"));
-        assertThat(result.getNotValidFields().get("name"), hasSize(1));
-        assertThat(result.getNotValidFields().get("name"), contains("Field is null"));
+        assertThat(result.getNotValidFields().get("name"), hasSize(2));
+        assertThat(result.getNotValidFields().get("name"), contains("field is null", "field is empty"));
 
 
     }
@@ -60,7 +60,7 @@ public class TestValidator {
         assertThat(result.getNotValidFields().keySet(), hasSize(1));
         assertThat(result.getNotValidFields().keySet(), contains("number"));
         assertThat(result.getNotValidFields().get("number"), hasSize(1));
-        assertThat(result.getNotValidFields().get("number"), contains("Number is out of range"));
+        assertThat(result.getNotValidFields().get("number"), contains("number is out of range [0,10]"));
 
         SampleObject sample2 = new SampleObject("jan", "jan@wp.pl", 11);
         ValidationResult result2 = validator.validate(sample);
@@ -69,6 +69,6 @@ public class TestValidator {
         assertThat(result2.getNotValidFields().keySet(), hasSize(1));
         assertThat(result2.getNotValidFields().keySet(), contains("number"));
         assertThat(result2.getNotValidFields().get("number"), hasSize(1));
-        assertThat(result2.getNotValidFields().get("number"), contains("Number is out of range"));
+        assertThat(result2.getNotValidFields().get("number"), contains("number is out of range [0,10]"));
     }
 }

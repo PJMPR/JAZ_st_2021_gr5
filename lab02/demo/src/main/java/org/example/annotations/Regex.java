@@ -11,5 +11,5 @@ import java.lang.annotation.Target;
 public @interface Regex {
     String pattern() default "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
-    String message() default "Regex error";
+    String message() default "regex error";
 }

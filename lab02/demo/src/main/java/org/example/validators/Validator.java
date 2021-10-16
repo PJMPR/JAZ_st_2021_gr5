@@ -13,17 +13,21 @@ public class Validator {
 
 
     public <TClass> ValidationResult validate(TClass object) throws IllegalAccessException {
-        Field[] fields = object.getClass().getDeclaredFields();
-        ArrayList<Field> notNullFields = new ArrayList<>();
-        ArrayList<Field> regexFields = new ArrayList<>();
-        ArrayList<Field> rangeFields = new ArrayList<>();
-
-
         ValidationResult result = new ValidationResult();
         result.setValidatedObject(object);
         result.setValid(true);
 
+
+        ArrayList<Field> notNullFields = new ArrayList<>();
+        ArrayList<Field> regexFields = new ArrayList<>();
+        ArrayList<Field> rangeFields = new ArrayList<>();
+
+        Field[] fields = object.getClass().getDeclaredFields();
+
         for (Field f : fields) {
+
+            f.setAccessible(true);
+
             if (f.isAnnotationPresent(NotNull.class)) {
                 notNullFields.add(f);
             }
@@ -35,24 +39,14 @@ public class Validator {
             }
         }
 
-
-//        for (int i = 0; i < fields.length; i++) {
-//            Field f = fields[i];
-//            if (f.isAnnotationPresent(NotNull.class)) {
-//                notNullFields[i] = f;
-//            } else if (f.isAnnotationPresent(Regex.class)) {
-//                regexFields[i] = f;
-//            } else if (f.isAnnotationPresent(Range.class)) {
-//                rangeFields[i] = f;
-//            }
-//        }
-
         for (Field field : notNullFields) {
+
             if (field.get(object) == null) {
                 if (!result.getNotValidFields().containsKey(field.getName())) {
                     result.getNotValidFields().put(field.getName(), new ArrayList<String>());
                 }
                 result.getNotValidFields().get(field.getName()).add(field.getAnnotation(NotNull.class).message());
+                result.getNotValidFields().get(field.getName()).add(field.getAnnotation(NotNull.class).message2());
                 result.setValid(false);
             }
         }

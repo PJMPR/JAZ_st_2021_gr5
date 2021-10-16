@@ -2,7 +2,7 @@ package org.example.tests;
 
 import org.example.validators.ValidationResult;
 import org.example.validators.Validator;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Order;
 
 

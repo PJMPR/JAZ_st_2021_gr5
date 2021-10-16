@@ -7,31 +7,45 @@ import org.example.annotations.Regex;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Validator {
 
 
     public <TClass> ValidationResult validate(TClass object) throws IllegalAccessException {
         Field[] fields = object.getClass().getDeclaredFields();
-        Field[] notNullFields = new Field[fields.length];
-        Field[] regexFields = new Field[fields.length];
-        Field[] rangeFields = new Field[fields.length];
+        ArrayList<Field> notNullFields = new ArrayList<>();
+        ArrayList<Field> regexFields = new ArrayList<>();
+        ArrayList<Field> rangeFields = new ArrayList<>();
+
 
         ValidationResult result = new ValidationResult();
         result.setValidatedObject(object);
         result.setValid(true);
 
-
-        for (int i = 0; i < fields.length; i++) {
-            Field f = fields[i];
+        for (Field f : fields) {
             if (f.isAnnotationPresent(NotNull.class)) {
-                notNullFields[i] = f;
-            } else if (f.isAnnotationPresent(Regex.class)) {
-                regexFields[i] = f;
-            } else if (f.isAnnotationPresent(Range.class)) {
-                rangeFields[i] = f;
+                notNullFields.add(f);
+            }
+            if (f.isAnnotationPresent(Regex.class)) {
+                regexFields.add(f);
+            }
+            if (f.isAnnotationPresent(Range.class)) {
+                rangeFields.add(f);
             }
         }
+
+
+//        for (int i = 0; i < fields.length; i++) {
+//            Field f = fields[i];
+//            if (f.isAnnotationPresent(NotNull.class)) {
+//                notNullFields[i] = f;
+//            } else if (f.isAnnotationPresent(Regex.class)) {
+//                regexFields[i] = f;
+//            } else if (f.isAnnotationPresent(Range.class)) {
+//                rangeFields[i] = f;
+//            }
+//        }
 
         for (Field field : notNullFields) {
             if (field.get(object) == null) {
@@ -63,7 +77,7 @@ public class Validator {
                 if (!result.getNotValidFields().containsKey(field.getName())) {
                     result.getNotValidFields().put(field.getName(), new ArrayList<String>());
                 }
-                result.getNotValidFields().get(field.getName()).add("number is out of range ["+min+","+max+"]");
+                result.getNotValidFields().get(field.getName()).add("number is out of range [" + min + "," + max + "]");
                 result.setValid(false);
             }
         }

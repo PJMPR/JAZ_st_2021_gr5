@@ -22,6 +22,7 @@ public class TestQueryProcessor {
         params.setAgeFrom(20);
         params.setAgeTo(40);
         params.setIncomeFrom(2000);
+        params.setIncomeTo(60000); // ja
         params.setPage(new Page(9,1));
         params.getSelectedGenders().add(Gender.FEMALE);
         params.getSelectedGenders().add(Gender.OTHER);
@@ -67,4 +68,58 @@ public class TestQueryProcessor {
                 People.JanAnrusowski,
                 People.JanKowalski));
     }
+// ja
+    @Test
+    public void test_should_check_if_search_by_age_works(){
+
+        SearchParameters params = new SearchParameters();
+        params.setAgeFrom(30);
+        params.setAgeTo(60);
+        Results results = new QueryProcessor().GetResults(params);
+
+        assertThat(results.getItems(), hasSize(6));
+        assertThat(results.getItems(),hasItems(
+                People.MateuszNowak,
+                People.JanAnrusowski,
+                People.ZdzislawSzydlowski,
+                People.MariaKowalewicz,
+                People.ConchitaWurst,
+                People.JanKowalski
+                ));
+    }
+// ja
+    @Test
+    public void test_should_check_if_search_by_gender_works(){
+
+        SearchParameters params = new SearchParameters();
+        params.getSelectedGenders().add(Gender.FEMALE);
+        Results results = new QueryProcessor().GetResults(params);
+
+        assertThat(results.getItems(), hasSize(4));
+        assertThat(results.getItems(),hasItems(
+                People.AnetaUrban,
+                People.DanutaKowalska,
+                People.MariaKowalewicz,
+                People.AnnaBuda
+                ));
+    }
+// ja
+    @Test
+    public void test_should_check_if_search_by_income_works(){
+
+        SearchParameters params = new SearchParameters();
+        params.setIncomeFrom(500);
+        params.setIncomeTo(1500);
+        Results results = new QueryProcessor().GetResults(params);
+
+        assertThat(results.getItems(), hasSize(5));
+        assertThat(results.getItems(),hasItems(
+                People.JanuszKowalski,
+                People.JanKowalski,
+                People.MariaKowalewicz,
+                People.JanAnrusowski,
+                People.DanutaKowalska
+        ));
+    }
+
 }

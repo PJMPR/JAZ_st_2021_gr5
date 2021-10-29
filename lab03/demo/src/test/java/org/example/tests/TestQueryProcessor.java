@@ -41,4 +41,30 @@ public class TestQueryProcessor {
         assertThat(result.getFunctionResults(),  hasSize(3));
     }
 
+    @Test
+    public void test_should_check_if_paging_works()
+    {
+        SearchParameters params = new SearchParameters();
+        params.setPage(new Page(3, 2));
+        Results results = new QueryProcessor().GetResults(params);
+        assertThat(results.getResult(), hasSize(3));
+        assertThat(results.getResult(),hasItems(
+                People.AnnaBuda,
+                People.ConchitaWurst,
+                People.AnnaBuda
+        ));
+    }
+
+    @Test
+    public void test_should_check_if_search_by_name_works(){
+
+        SearchParameters params = new SearchParameters();
+        params.setName("Jan");
+        Results results = new QueryProcessor().GetResults(params);
+
+        assertThat(results.getResult(), hasSize(2));
+        assertThat(results.getResult(),hasItems(
+                People.JanAnrusowski,
+                People.JanKowalski));
+    }
 }

@@ -9,7 +9,7 @@ public class QueryProcessor {
     public Results GetResults(SearchParameters parameters){
         Results result = new Results();
 
-        result.setResult(People.Data);
+        result.setItems(People.Data);
 
         return result;
     }

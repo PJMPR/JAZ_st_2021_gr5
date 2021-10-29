@@ -7,17 +7,17 @@ import java.util.List;
 
 public class Results {
 
-    private List<Person> result = new ArrayList<>();
+    private List<Person> items = new ArrayList<>();
     private List<FunctionResult> functionResults = new ArrayList<>();
     private int pages;
     private int currentPage;
 
-    public List<Person> getResult() {
-        return result;
+    public List<Person> getItems() {
+        return items;
     }
 
-    public void setResult(List<Person> result) {
-        this.result = result;
+    public void setItems(List<Person> items) {
+        this.items = items;
     }
 
     public List<FunctionResult> getFunctionResults() {

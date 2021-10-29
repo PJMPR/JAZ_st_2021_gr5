@@ -11,3 +11,8 @@ zrobic stronnicowanie (za pomoca strumieni latwo),
 
 zrobic cos z funkcjami liczacymi, pytanie tylko co
 
+
+cos co sprawdza jakie parametry sa ustawione,
+
+przelecenie sie po parametrach
+

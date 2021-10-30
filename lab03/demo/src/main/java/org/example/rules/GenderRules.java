@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 public class GenderRules implements Rules{
     @Override
-    public void myRules(Results results, SearchParameters searchParams) {
-        if (searchParams.getSelectedGenders() != null) {
+    public void myRules(Results results, SearchParameters searchParameters) {
+        if (searchParameters.getSelectedGenders() != null) {
             results.setItems(results.getItems().stream()
-                        .filter(person -> searchParams.getSelectedGenders().contains(person.getGender()))
+                        .filter(person -> searchParameters.getSelectedGenders().contains(person.getGender()))
                         .collect(Collectors.toList()));
         }
     }

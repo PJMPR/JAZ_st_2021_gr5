@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 public class AgeRules2 implements Rules{
     @Override
-    public void myRules(Results results, SearchParameters searchParams) {
-        if (searchParams.getAgeTo() > 0) {
+    public void myRules(Results results, SearchParameters searchParameters) {
+        if (searchParameters.getAgeTo() > 0) {
             results.setItems(results.getItems().stream()
-                        .filter(person -> person.getAge() <= searchParams.getAgeTo())
+                        .filter(person -> person.getAge() <= searchParameters.getAgeTo())
                         .collect(Collectors.toList()));
         }
     }

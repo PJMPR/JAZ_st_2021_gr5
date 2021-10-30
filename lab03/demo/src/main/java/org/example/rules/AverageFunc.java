@@ -12,13 +12,13 @@ import java.util.List;
 
 public class AverageFunc implements Rules{
     @Override
-    public void myRules(Results results, SearchParameters searchParams) {
+    public void myRules(Results results, SearchParameters searchParameters) {
         List<FunctionResult> fResultList = new ArrayList<>();
         FunctionResult fResult;
         double avg;
 
         List<FunctionsParameters> functionsParameters =
-                searchParams.getFunctions().stream()
+                searchParameters.getFunctions().stream()
                     .filter(fParameters -> fParameters.getFunction().equals(Funcs.AVARAGE)).toList();
 
         for (FunctionsParameters func : functionsParameters) {

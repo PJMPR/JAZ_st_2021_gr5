@@ -51,7 +51,7 @@ public class TestQueryProcessor {
         assertThat(results.getItems(),hasItems(
                 People.AnnaBuda,
                 People.ConchitaWurst,
-                People.AnnaBuda
+                People.AnetaUrban
         ));
     }
 
@@ -59,7 +59,7 @@ public class TestQueryProcessor {
     public void test_should_check_if_search_by_name_works(){
 
         SearchParameters params = new SearchParameters();
-        params.setName("Jan");
+        params.setName("jan");
         Results results = new QueryProcessor().GetResults(params);
 
         assertThat(results.getItems(), hasSize(2));

@@ -3,7 +3,10 @@ package org.example.queries;
 import org.example.model.Gender;
 import org.example.model.People;
 import org.example.model.Person;
+import org.example.queries.results.FunctionResult;
 import org.example.queries.results.Results;
+import org.example.queries.search.Funcs;
+import org.example.queries.search.FunctionsParameters;
 import org.example.queries.search.SearchParameters;
 
 import java.util.*;
@@ -17,16 +20,54 @@ public class QueryProcessor {
         setPeople(result, parameters);
         setPages(result, parameters);
         setPeopleOnPage(result, parameters);
-        
+        setFunctions(result, parameters);
 
         return result;
     }
+
+    private void setFunctions(Results result, SearchParameters parameters) {
+        ArrayList<FunctionResult> functionResults = new ArrayList<>();
+        for (FunctionsParameters functionsParameters:
+                parameters.getFunctions()) {
+            FunctionResult functionResult = new FunctionResult();
+            functionResult.setFunction(functionsParameters.getFunction());
+            functionResult.setFieldName(functionsParameters.getFieldName());
+            functionResult.setValue(functionValue(result, functionsParameters));
+            functionResults.add(functionResult);
+        }
+        result.setFunctionResults(functionResults);
+    }
+
+    private double functionValue(Results result, FunctionsParameters functionsParameters) {
+        if(functionsParameters.getFunction() == Funcs.AVARAGE){
+            return averageValue(result, functionsParameters.getFieldName());
+        }else if(functionsParameters.getFunction() == Funcs.SUM){
+            return sumValue(result, functionsParameters.getFieldName());
+        }else{
+            return 0;
+        }
+    }
+
+    private double averageValue(Results result, String fieldName) {
+        return sumValue(result, fieldName)/result.getItems().size();
+    }
+
+    private double sumValue(Results result, String fieldName) {
+        if (fieldName.toLowerCase(Locale.ROOT).equals("age")){
+            return result.getItems().stream().mapToDouble(Person::getAge).sum();
+        }else if (fieldName.toLowerCase(Locale.ROOT).equals("income")){
+            return result.getItems().stream().mapToDouble(Person::getIncome).sum();
+        }else {
+            return 0;
+        }
+    }
+
 
     private void setPeopleOnPage(Results result, SearchParameters parameters) {
         if(parameters.getPage() != null) {
             int pageSize = parameters.getPage().getSize();
             int pageNumber = result.getCurrentPage();
-            ArrayList<Person> people = new ArrayList();
+            ArrayList<Person> people = new ArrayList<>();
 
             int nextPerson = 0;
             if (pageNumber > 1){

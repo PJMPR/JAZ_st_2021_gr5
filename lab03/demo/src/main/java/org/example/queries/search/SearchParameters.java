@@ -87,4 +87,5 @@ public class SearchParameters {
     public void setPage(Page page) {
         this.page = page;
     }
+
 }

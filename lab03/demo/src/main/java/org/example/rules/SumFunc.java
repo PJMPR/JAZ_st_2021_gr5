@@ -24,7 +24,7 @@ public class SumFunc implements Rules {
 
         for (FunctionsParameters func : functionsParameters) {
             fResult = new FunctionResult();
-            sum = 0;
+            sum = 0.0;
             if (func.getFieldName().equals("income")) {
                 sum = results.getItems().stream()
                         .mapToDouble(Person::getIncome)

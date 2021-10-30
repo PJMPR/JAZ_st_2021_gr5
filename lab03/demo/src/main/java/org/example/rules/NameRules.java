@@ -1,6 +1,7 @@
 package org.example.rules;
 
 import org.example.queries.results.Results;
+import org.example.rules.Rules;
 import org.example.queries.search.SearchParameters;
 
 import java.util.stream.Collectors;

@@ -23,7 +23,7 @@ public class AverageFunc implements Rules{
 
         for (FunctionsParameters func : functionsParameters) {
             fResult = new FunctionResult();
-            avg = 0;
+            avg = 0.0;
             if (func.getFieldName().equals("income")) {
                 avg = results.getItems().stream()
                         .mapToDouble(Person::getIncome)

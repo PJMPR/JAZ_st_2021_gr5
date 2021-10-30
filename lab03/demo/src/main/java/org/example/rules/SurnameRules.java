@@ -10,7 +10,7 @@ public class SurnameRules implements Rules {
     public void myRules(Results results, SearchParameters searchParameters) {
         if (searchParameters.getSurname() != null) {
             results.setItems(results.getItems().stream()
-                    .filter(person -> person.getSurname().equalsIgnoreCase(searchParameters.getSurname()))
+                    .filter(person -> searchParameters.getSurname().equalsIgnoreCase(person.getSurname()))
                     .collect(Collectors.toList())
             );
         }

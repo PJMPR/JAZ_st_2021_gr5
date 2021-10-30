@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+// na pewno mozna te klase jakos przeksztalcic,
+// ale niestety nie mialem pomyslu (a raczej wystarczajaco duzo czasu) jak :/
 
-public class ApplyFunctions { // na pewno mozna te klase jakos przeksztalcic, ale niestety nie mialem pomyslu jak :/
-    public void applyFunctions(Results results, SearchParameters searchParameters) {
+public class ApplyFunctions { public void applyFunctions(Results results, SearchParameters searchParameters) {
 
         List<FunctionResult> functionResults = new ArrayList<>();
         for (FunctionsParameters f : searchParameters.getFunctions()) {

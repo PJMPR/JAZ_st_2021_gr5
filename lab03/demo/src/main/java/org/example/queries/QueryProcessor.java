@@ -4,46 +4,57 @@ import org.example.model.Gender;
 import org.example.model.People;
 import org.example.model.Person;
 import org.example.queries.results.Results;
-import org.example.queries.search.Page;
 import org.example.queries.search.SearchParameters;
 
-import java.lang.reflect.Parameter;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class QueryProcessor {
 
     public Results GetResults(SearchParameters parameters){
         Results result = new Results();
-        List<Person> people = filter(new People(), parameters);
 
-        result.setItems(people);
+        setPeople(result, parameters);
+        setPages(result, parameters);
+        setPeopleOnPage(result, parameters);
+        
 
-        return setPages(result, parameters);
-    }
-
-    private Results setPages(Results result, SearchParameters parameters) {
-        if(parameters.getPage() != null){
-            int elements = result.getItems().size();
-            int pNumber = parameters.getPage().getPageNumber();
-            int pSize = parameters.getPage().getSize();
-
-            int max = pSize * pNumber;
-            int min = max - pSize;
-            for (int i = 0; i < elements; i++) {
-                if(i < min || i > max){
-                    result.getItems().remove(i);
-                }
-            }
-            result.setPages(elements/pSize + 1);
-            result.setCurrentPage(pNumber);
-        }
         return result;
     }
 
-    private List<Person> filter(People people, SearchParameters parameters) {
-        List<Person> list = people.Data;
+    private void setPeopleOnPage(Results result, SearchParameters parameters) {
+        if(parameters.getPage() != null) {
+            int pageSize = parameters.getPage().getSize();
+            int pageNumber = result.getCurrentPage();
+            ArrayList<Person> people = new ArrayList();
+
+            int nextPerson = 0;
+            if (pageNumber > 1){
+                nextPerson = (pageSize * (pageNumber - 1)) + 1;
+            }
+
+            for (int i = 0; i < pageSize; i++) {
+                people.add(result.getItems().get(nextPerson++));
+                if(nextPerson == result.getItems().size()){
+                    break;
+                }
+            }
+            result.setItems(people);
+        }
+    }
+
+    private void setPages(Results result, SearchParameters parameters) {
+        if(parameters.getPage() != null){
+            int pageSize = parameters.getPage().getSize();
+            int pageNumber = parameters.getPage().getPageNumber();
+            result.setCurrentPage(pageNumber);
+            result.setPages((result.getItems().size()/pageSize)+1);
+        }
+    }
+
+    private void setPeople(Results result, SearchParameters parameters) {
+        List<Person> list = People.Data;
+
         if(parameters.getName() != null){
             list = list.stream().filter(person -> person.getName().equals(parameters.getName().toLowerCase(Locale.ROOT))).collect(Collectors.toList());
         }
@@ -69,6 +80,6 @@ public class QueryProcessor {
         }else if(selectedGenders.size() == 1){
             list = list.stream().filter(person -> person.getGender()==selectedGenders.get(0)).collect(Collectors.toList());
         }
-        return list;
+        result.setItems(list);
     }
 }

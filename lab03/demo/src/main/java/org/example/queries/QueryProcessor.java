@@ -26,8 +26,7 @@ public class QueryProcessor {
 
         result.setItems(People.Data);
 
-        criteria
-                .forEach(criteria->criteria.meetCriteria(result,parameters));
+        criteria.forEach(criteria->criteria.meetCriteria(result,parameters));
 
         return result;
     }

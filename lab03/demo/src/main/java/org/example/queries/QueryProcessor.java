@@ -5,6 +5,8 @@ import org.example.queries.results.Results;
 import org.example.queries.search.SearchParameters;
 
 public class QueryProcessor {
+    //wzorzec projektowy Filter, Strategy, Policy
+    //https://www.tutorialspoint.com/design_pattern/filter_pattern.htm
 
     public Results GetResults(SearchParameters parameters){
         Results result = new Results();

@@ -49,9 +49,9 @@ public class TestQueryProcessor {
         Results results = new QueryProcessor().GetResults(params);
         assertThat(results.getItems(), hasSize(3));
         assertThat(results.getItems(),hasItems(
+                People.AnetaUrban,
                 People.AnnaBuda,
-                People.ConchitaWurst,
-                People.AnnaBuda
+                People.ConchitaWurst
         ));
     }
 
@@ -66,5 +66,19 @@ public class TestQueryProcessor {
         assertThat(results.getItems(),hasItems(
                 People.JanAnrusowski,
                 People.JanKowalski));
+    }
+
+    @Test
+    public void  test_should_check_if_gender_search_works() {
+        SearchParameters params = new SearchParameters();
+        params.getSelectedGenders().add(Gender.FEMALE);
+        Results results = new QueryProcessor().GetResults(params);
+
+        assertThat(results.getItems(), hasSize(4));
+        assertThat(results.getItems(), hasItems(
+                People.AnetaUrban,
+                People.AnnaBuda,
+                People.MariaKowalewicz,
+                People.DanutaKowalska));
     }
 }

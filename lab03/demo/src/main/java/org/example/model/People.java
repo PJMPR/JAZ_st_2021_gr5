@@ -8,13 +8,13 @@ public class People {
     public final static Person MateuszNowak =
             new Person("mateusz", "nowak", 56, 3000, Gender.MALE);
     public final static Person AnnaBuda =
-            new Person("anna", "buda", 22, 4500, Gender.FEMALE);
+            new Person("anna", "buda", 22, 4500, Gender.FEMALE); //
     public final static Person ConchitaWurst =
-            new Person("conchita", "wurst", 36, 12000, Gender.OTHER);
+            new Person("conchita", "wurst", 36, 12000, Gender.OTHER); //
     public final static Person MariaKowalewicz=
             new Person("maria", "kowalewicz", 46, 1500, Gender.FEMALE);
     public final static Person AnetaUrban=
-            new Person("aneta", "urban", 21, 4200, Gender.FEMALE);
+            new Person("aneta", "urban", 21, 4200, Gender.FEMALE);//
     public final static Person ZdzislawSzydlowski=
             new Person("zdzislaw", "szydlowski", 38, 6800, Gender.MALE);
     public final static Person JanAnrusowski=

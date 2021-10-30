@@ -1,7 +1,6 @@
 package org.example.queries.search;
 
 import org.example.model.Gender;
-
 import java.util.ArrayList;
 import java.util.List;
 

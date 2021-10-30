@@ -1,5 +1,6 @@
 package org.example.filters;
 
+import org.example.filters.Filter;
 import org.example.model.People;
 import org.example.model.Person;
 import org.example.queries.results.Results;
@@ -12,10 +13,11 @@ import java.util.stream.Collectors;
 public class GenderFilter implements Filter {
     @Override
     public void meetCriteria(Results results, SearchParameters searchParameters) {
-                 results.setItems(results.getItems()
-                         .stream()
-                         .filter(person -> searchParameters.getSelectedGenders().contains(person.getGender()))
-                         .collect(Collectors.toList()));
-
+        if(searchParameters.getSelectedGenders().size() > 0){
+            results.setItems(results.getItems()
+                    .stream()
+                    .filter(person -> searchParameters.getSelectedGenders().contains(person.getGender()))
+                    .collect(Collectors.toList()));
+        }
     }
 }

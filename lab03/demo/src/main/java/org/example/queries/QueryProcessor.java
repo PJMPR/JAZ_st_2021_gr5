@@ -1,6 +1,7 @@
 package org.example.queries;
 
 import org.example.filters.*;
+import org.example.functions.ApplyFunctions;
 import org.example.model.People;
 import org.example.model.Person;
 import org.example.queries.results.Results;
@@ -11,11 +12,14 @@ import java.util.List;
 public class QueryProcessor {
 
     List<Filter> filters = List.of(
-            new AgeFilter(),
+            new FromAgeFilter(),
+            new ToAgeFilter(),
             new GenderFilter(),
-            new IncomeFilter(),
+            new FromIncomeFilter(),
+            new ToIncomeFilter(),
             new SurnameFIlter(),
-            new NameFilter()
+            new NameFilter(),
+            new PageFilter()
     );
 
     public Results GetResults(SearchParameters parameters){
@@ -24,6 +28,9 @@ public class QueryProcessor {
         result.setItems(People.Data);
 
         filters.forEach(filter -> filter.meetCriteria(result, parameters));
+
+        ApplyFunctions functions = new ApplyFunctions();
+        functions.applyFunctions(result,parameters);
 
         return result;
     }

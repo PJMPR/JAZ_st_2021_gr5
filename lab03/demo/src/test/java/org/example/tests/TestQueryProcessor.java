@@ -22,7 +22,6 @@ public class TestQueryProcessor {
         params.setAgeFrom(20);
         params.setAgeTo(40);
         params.setIncomeFrom(2000);
-        params.setIncomeTo(60000); // ja
         params.setPage(new Page(9,1));
         params.getSelectedGenders().add(Gender.FEMALE);
         params.getSelectedGenders().add(Gender.OTHER);
@@ -50,9 +49,9 @@ public class TestQueryProcessor {
         Results results = new QueryProcessor().GetResults(params);
         assertThat(results.getItems(), hasSize(3));
         assertThat(results.getItems(),hasItems(
+                People.AnetaUrban,      // zmienione osoby, ponieważ są one wkladane do result.items w innej kolejności
                 People.AnnaBuda,
-                People.ConchitaWurst,
-                People.AnnaBuda
+                People.ConchitaWurst
         ));
     }
 
@@ -68,7 +67,7 @@ public class TestQueryProcessor {
                 People.JanAnrusowski,
                 People.JanKowalski));
     }
-// ja
+
     @Test
     public void test_should_check_if_search_by_age_works(){
 
@@ -87,7 +86,7 @@ public class TestQueryProcessor {
                 People.JanKowalski
                 ));
     }
-// ja
+
     @Test
     public void test_should_check_if_search_by_gender_works(){
 
@@ -103,7 +102,7 @@ public class TestQueryProcessor {
                 People.AnnaBuda
                 ));
     }
-// ja
+
     @Test
     public void test_should_check_if_search_by_income_works(){
 

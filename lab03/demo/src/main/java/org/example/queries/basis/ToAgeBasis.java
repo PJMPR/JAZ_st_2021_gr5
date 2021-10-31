@@ -5,14 +5,13 @@ import org.example.queries.search.SearchParameters;
 
 import java.util.stream.Collectors;
 
-public class SurnameBasis implements Basis {
+public class ToAgeBasis implements Basis{
     @Override
     public void meetCriteria(Results results, SearchParameters searchParameters) {
-        if (searchParameters.getSurname() != null) {
+        if(searchParameters.getAgeTo() > 0){
             results.setItems(results.getItems().stream()
-                    .filter(person -> person.getSurname().equalsIgnoreCase(searchParameters.getSurname()))
-                    .collect(Collectors.toList())
-            );
+                    .filter(person -> person.getAge() <= searchParameters.getAgeTo())
+                    .collect(Collectors.toList()));
         }
     }
 }

@@ -5,12 +5,12 @@ import org.example.queries.search.SearchParameters;
 
 import java.util.stream.Collectors;
 
-public class AgeBasis implements Basis {
+public class ToIncomeBasis implements Basis{
     @Override
     public void meetCriteria(Results results, SearchParameters searchParameters) {
-        if (searchParameters.getAgeTo() > 0) {
+        if(searchParameters.getIncomeTo() > 0 ){
             results.setItems(results.getItems().stream()
-                    .filter(person -> person.getAge() <= searchParameters.getAgeTo())
+                    .filter(person -> person.getIncome() <= searchParameters.getIncomeTo())
                     .collect(Collectors.toList()));
         }
     }

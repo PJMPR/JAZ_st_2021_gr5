@@ -51,7 +51,7 @@ public class TestQueryProcessor {
         assertThat(results.getItems(),hasItems(
                 People.AnnaBuda,
                 People.ConchitaWurst,
-                People.AnnaBuda
+                People.AnetaUrban
         ));
     }
 

@@ -42,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab04" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -165,6 +165,7 @@
       <workItem from="1635522353562" duration="258000" />
       <workItem from="1635522623442" duration="160000" />
       <workItem from="1635522824639" duration="51000" />
+      <workItem from="1636197084158" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="stworzylem 3 adnotacje">
       <created>1634315454498</created>

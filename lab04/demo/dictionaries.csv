@@ -1,0 +1,10 @@
+1,1,POM,Woj. Pomorskie,Region
+2,2,KUJPOM,Woj. Kujawsko-pomorskie,Region
+3,3,MAZ,woj. Mazowieckie,Region
+4,1,GD,Gdansk,City
+5,2,GDY,Gdynia,City
+6,3,SOP,Sopot,City
+7,1,ADR,Adres zameldowania,AddressType
+8,2,CORESP,adres korespondencyjny,AddressType
+9,1,ADM,administrator,UserType
+10,2,USR,uzytkownik,UserType

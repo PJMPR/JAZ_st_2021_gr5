@@ -1,9 +1,21 @@
 package org.example.caching;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cache {
+    private static Cache cache;
+    List<CachedItems> cachedItems = new ArrayList<>();
 
     public static Cache getInstance(){
-        return new Cache();
+        if (cache != null)
+            cache = new Cache();
+
+        return cache;
+    }
+
+    public <T> void add(T item){
+        
     }
 
 

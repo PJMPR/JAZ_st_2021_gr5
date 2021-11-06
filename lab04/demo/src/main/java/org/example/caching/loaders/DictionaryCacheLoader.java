@@ -1,6 +1,13 @@
 package org.example.caching.loaders;
 
-public class DictionaryCacheLoader {
+import org.example.caching.Cache;
+import org.example.caching.provider.DictionaryProvider;
 
-    public void load(){}
+public class DictionaryCacheLoader implements CacheLoader {
+    Cache cache;
+    DictionaryProvider provider;
+
+    @Override
+    public void load() {
+    }
 }

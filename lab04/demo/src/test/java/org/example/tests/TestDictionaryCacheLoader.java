@@ -14,11 +14,11 @@ import static org.hamcrest.Matchers.*;
 public class TestDictionaryCacheLoader {
 
     @Test
-    public void test_should_check_if_loading_cache_from_file_works_properly(){
+    public void test_should_check_if_loading_cache_from_file_works_properly() {
         new DictionaryCacheLoader().load();
         List<Dictionary> dictionaries = (List<Dictionary>) Cache.getInstance().get("dictionaries");
         assertThat(dictionaries, hasSize(10));
-        List<String> dictionaryNames = dictionaries.stream().map(x->x.getDictionaryName()).distinct().toList();
-        assertThat(dictionaryNames, hasItems("Region","City", "AddressType", "UserType"));
+        List<String> dictionaryNames = dictionaries.stream().map(x -> x.getDictionaryName()).distinct().toList();
+        assertThat(dictionaryNames, hasItems("Region", "City", "AddressType", "UserType"));
     }
 }

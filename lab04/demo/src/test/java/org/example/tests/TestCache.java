@@ -13,22 +13,22 @@ import static org.hamcrest.Matchers.*;
 public class TestCache {
 
     @Test
-    public void test_should_check_if_there_is_only_one_instance_of_cache(){
+    public void test_should_check_if_there_is_only_one_instance_of_cache() {
         List<Cache> caches = new ArrayList<>();
-        List.of(1,2,3,4,5,6,7,8,9,10).stream()
-                .parallel().forEach((x)->{
+        List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream()
+                .parallel().forEach((x) -> {
                     caches.add(Cache.getInstance());
                 });
         assertThat(caches, everyItem(sameInstance(Cache.getInstance())));
     }
 
     @Test
-    public void test_should_check_adding_an_item_works_correctly(){
+    public void test_should_check_adding_an_item_works_correctly() {
         Cache.getInstance().add("test", "Test");
         Cache.getInstance().add("number", 1);
-        Cache.getInstance().add("object", new Dictionary(1,2,"3","4","5"));
+        Cache.getInstance().add("object", new Dictionary(1, 2, "3", "4", "5"));
 
-        String test = Cache.getInstance().get("test",String.class);
+        String test = Cache.getInstance().get("test", String.class);
         int number = Cache.getInstance().get("number", Integer.class);
         Dictionary object = Cache.getInstance().get("object", Dictionary.class);
         assertThat(test, is("Test"));

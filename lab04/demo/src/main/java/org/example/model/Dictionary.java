@@ -1,6 +1,8 @@
 package org.example.model;
 
-public class Dictionary {
+import org.example.caching.Cache;
+
+public class Dictionary extends Cache {
 
     private int id;
     private int intKey;
@@ -8,8 +10,7 @@ public class Dictionary {
     private String value;
     private String dictionaryName;
 
-    public Dictionary() {
-    }
+    public Dictionary() { }
 
     public Dictionary(int id, int intKey, String stringKey, String value, String dictionaryName) {
         this.id = id;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class DictionaryFileProvider implements DictionaryProvider {
 
     public ArrayList<Dictionary> provide() {
-        return readDataFromFile(); // zwraca ArrayList<Dictionary>
+        return readDataFromFile();
     }
 
     private ArrayList<Dictionary> readDataFromFile() {

@@ -3,8 +3,8 @@ package org.example.caching;
 
 public class CachedItem<T> {
 
-    T item;
-    String key;
+    private T item;
+    private String key;
 
     public CachedItem(String key, T item) {
         this.key = key;
@@ -20,5 +20,7 @@ public class CachedItem<T> {
         this.key = key;
     }
 
-
+    public T getItem(){
+        return item;
+    }
 }

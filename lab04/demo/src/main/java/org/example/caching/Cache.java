@@ -32,12 +32,13 @@ public class Cache {
     }
 
     public <T> T get(String key, Class<T> clazz) {
-        return (T) items.stream().filter(cachedItem -> Objects.equals(cachedItem.getKey(), key)).findAny().get().item;
+        return (T) items.stream().filter(cachedItem -> Objects.equals(cachedItem.getKey(), key)).findAny().get().getItem();
     }
 
     public Object get(String key) {
-        return items.stream().filter(cachedItem -> Objects.equals(cachedItem.getKey(), key))
-                .map(cachedItem -> cachedItem.item)
+        return items.stream()
+                .filter(cachedItem -> Objects.equals(cachedItem.getKey(), key))
+                .map(cachedItem -> cachedItem.getItem())
                 .findAny().get();
     }
 }

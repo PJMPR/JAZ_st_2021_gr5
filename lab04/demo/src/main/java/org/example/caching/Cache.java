@@ -16,7 +16,7 @@ public class Cache {
 
 
     public <T> void add(String key, T item) {
-        CacheItem<T> cacheItem = new CacheItem<T>(key, item);
+        CacheItem cacheItem = new CacheItem(key, item);
         if(cachedItems==null){
             cachedItems=new ArrayList<>();
         }
@@ -24,9 +24,9 @@ public class Cache {
     }
 
     public <T> T get(String key, Class<T> clazz) {
-        return  clazz.cast(cachedItems.stream()
-                .filter(cacheItem -> cacheItem.getKey().equals(key))
-                .findFirst());
+        return (T) cachedItems.stream()
+                .filter(cacheItem -> key.equals(cacheItem.key))
+                .findFirst().get().item;
     }
 
     public Object get(String key) {

@@ -1,11 +1,11 @@
 package org.example.caching;
 
-public class CacheItem <T> {
+public class CacheItem {
     public String key;
-    public T item;
+    public Object item;
 
 
-    public CacheItem (String key, T item) {
+    public CacheItem (String key, Object item) {
         this.key = key;
         this.item = item;
     }
@@ -24,7 +24,7 @@ public class CacheItem <T> {
         return item;
     }
 
-    public void setItem(T item) {
+    public void setItem(Object item) {
         this.item = item;
     }
 }

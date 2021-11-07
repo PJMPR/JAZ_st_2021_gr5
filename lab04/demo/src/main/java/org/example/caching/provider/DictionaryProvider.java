@@ -5,5 +5,6 @@ import org.example.model.Dictionary;
 import java.util.List;
 
 public interface DictionaryProvider {
-    List<Dictionary> provide();
+    List<Dictionary> provideListOfItems();
+    public String fileName();
 }

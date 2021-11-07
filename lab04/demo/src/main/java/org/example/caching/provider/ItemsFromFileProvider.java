@@ -3,6 +3,7 @@ package org.example.caching.provider;
 import org.example.model.Dictionary;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,16 +11,24 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectoryFileProvider implements DictionaryProvider {
+public class ItemsFromFileProvider implements DictionaryProvider {
 
     @Override
-    public List<Dictionary> provide() {
-        return readItemsFromCSV();
+    public List<Dictionary> provideListOfItems() {
+        String filePath = "src/main/java/org/example/input/dictionaries.csv";
+
+        return readItemsFromCSV(filePath);
     }
 
-    private static List<Dictionary> readItemsFromCSV() {
+    @Override
+    public String fileName() {
+        File f = new File("src/main/java/org/example/input/dictionaries.csv");
+        return f.getName().replaceFirst("[.][^.]+$", "");
+    }
+
+    private static List<Dictionary> readItemsFromCSV(String filePath) {
         List<Dictionary> dictionaryList = new ArrayList<>();
-        Path pathToFile = Paths.get("src/main/java/org/example/caching/input/dictionaries.csv");
+        Path pathToFile = Paths.get(filePath);
 
         try (BufferedReader br = Files.newBufferedReader(pathToFile)) {
             String line = br.readLine();

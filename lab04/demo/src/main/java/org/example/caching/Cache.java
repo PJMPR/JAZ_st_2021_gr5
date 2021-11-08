@@ -31,7 +31,7 @@ public class Cache {
 
     public Object get(String key) {
         return cachedItems.stream()
-                .filter(cacheItem -> cacheItem.getKey().equals(key))
-                .findFirst();
+                .filter(cacheItem -> key.equals(cacheItem.key))
+                .findFirst().get().item;
     }
 }

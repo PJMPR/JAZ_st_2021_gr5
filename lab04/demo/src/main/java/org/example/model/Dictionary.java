@@ -1,7 +1,6 @@
 package org.example.model;
 
 public class Dictionary {
-
     private int id;
     private int intKey;
     private String stringKey;
@@ -59,3 +58,5 @@ public class Dictionary {
         this.dictionaryName = dictionaryName;
     }
 }
+
+

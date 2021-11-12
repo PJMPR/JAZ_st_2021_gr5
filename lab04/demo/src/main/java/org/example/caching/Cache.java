@@ -1,5 +1,9 @@
 package org.example.caching;
 
+import org.example.model.Dictionary;
+
+import java.util.List;
+
 public class Cache {
 
     public static Cache getInstance(){
@@ -12,6 +16,7 @@ public class Cache {
     }
 
     public <T> T get(String key, Class<T> clazz){
+
         return (T) clazz.cast(new Object());
     }
 

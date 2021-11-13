@@ -1,0 +1,17 @@
+2021-11-13 14:18:09 INFO  App:16 - Hello friend!
+2021-11-13 14:18:18 INFO  App:16 - Hello friend!
+2021-11-13 14:19:01 INFO  App:16 - Hello friend!
+2021-11-13 14:20:33 INFO  App:16 - Hello friend!
+2021-11-13 14:44:12 INFO  App:16 - Hello friend!
+2021-11-13 14:44:29 INFO  App:16 - Hello friend!
+2021-11-13 14:50:22 INFO  App:16 - Hello friend!
+2021-11-13 14:50:31 INFO  App:16 - Hello friend!
+2021-11-13 14:50:39 INFO  App:16 - Hello friend!
+2021-11-13 14:57:23 INFO  App:16 - Hello friend!
+2021-11-13 14:57:23 ERROR ErrorHandler:15 - Error name: FileNotFoundException error message: You can't find me (Nie można odnaleźć określonego pliku)
+2021-11-13 15:05:05 INFO  App:16 - Hello friend!
+2021-11-13 15:05:05 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: You can't find me (Nie można odnaleźć określonego pliku)
+2021-11-13 15:24:10 INFO  App:16 - Hello friend!
+2021-11-13 15:24:10 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: You can't find me (Nie można odnaleźć określonego pliku), error type: FILE_NOT_FOUND
+2021-11-13 15:25:20 INFO  App:16 - Hello friend!
+2021-11-13 15:25:20 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND

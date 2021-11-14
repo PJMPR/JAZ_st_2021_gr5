@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.example.handlers.ArithmeticExceptionHandle;
 import org.example.handlers.FileNotFoundExceptionHandler;
 import org.example.handlers.HandleException;
+import org.example.handlers.TimeoutExceptionHandle;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -14,7 +15,8 @@ public class SafeInvoker {
 
     List<HandleException> handleExceptions = List.of(
             new FileNotFoundExceptionHandler(),
-            new ArithmeticExceptionHandle()
+            new ArithmeticExceptionHandle(),
+            new TimeoutExceptionHandle()
     );
 
     public void invoke(Object object, String methodName, Object... args) {

@@ -1,6 +1,14 @@
-2021-11-14 12:11:47 ERROR - Caught: ArithmeticException
-2021-11-14 12:11:47 ERROR - Exception has been handled
-2021-11-14 12:11:47 ERROR - Exception has been handled
-2021-11-14 12:11:50 ERROR - Caught: FileNotFoundException
-2021-11-14 12:11:50 ERROR - Exception has been handled
-2021-11-14 12:11:50 ERROR - Exception has been handled
+2021-11-14 20:40:15 ERROR - Caught: ArithmeticException
+2021-11-14 20:40:15 ERROR - Exception has been handled
+2021-11-14 20:40:15 ERROR - Exception has been handled
+2021-11-14 20:40:18 ERROR - Caught: FileNotFoundException
+2021-11-14 20:40:18 ERROR - Exception has been handled
+2021-11-14 20:40:18 ERROR - Exception has been handled
+2021-11-14 20:40:22 ERROR - Caught: TimeoutException
+2021-11-14 20:40:22 ERROR - Exception handled, but server not responding
+2021-11-14 20:40:22 ERROR - Caught: TimeoutException
+2021-11-14 20:40:22 ERROR - Exception handled, but server not responding
+2021-11-14 20:40:22 ERROR - Caught: TimeoutException
+2021-11-14 20:40:22 ERROR - Exception handled, but server not responding
+2021-11-14 20:40:22 ERROR - Caught: TimeoutException
+2021-11-14 20:40:22 ERROR - Exception aborted, server not still responding

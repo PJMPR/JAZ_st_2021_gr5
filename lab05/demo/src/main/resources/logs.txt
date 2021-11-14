@@ -1,17 +1,10 @@
-2021-11-13 14:18:09 INFO  App:16 - Hello friend!
-2021-11-13 14:18:18 INFO  App:16 - Hello friend!
-2021-11-13 14:19:01 INFO  App:16 - Hello friend!
-2021-11-13 14:20:33 INFO  App:16 - Hello friend!
-2021-11-13 14:44:12 INFO  App:16 - Hello friend!
-2021-11-13 14:44:29 INFO  App:16 - Hello friend!
-2021-11-13 14:50:22 INFO  App:16 - Hello friend!
-2021-11-13 14:50:31 INFO  App:16 - Hello friend!
-2021-11-13 14:50:39 INFO  App:16 - Hello friend!
-2021-11-13 14:57:23 INFO  App:16 - Hello friend!
-2021-11-13 14:57:23 ERROR ErrorHandler:15 - Error name: FileNotFoundException error message: You can't find me (Nie można odnaleźć określonego pliku)
-2021-11-13 15:05:05 INFO  App:16 - Hello friend!
-2021-11-13 15:05:05 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: You can't find me (Nie można odnaleźć określonego pliku)
-2021-11-13 15:24:10 INFO  App:16 - Hello friend!
-2021-11-13 15:24:10 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: You can't find me (Nie można odnaleźć określonego pliku), error type: FILE_NOT_FOUND
-2021-11-13 15:25:20 INFO  App:16 - Hello friend!
-2021-11-13 15:25:20 ERROR ErrorHandler:20 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
+2021-11-14 14:48:43 INFO  App:16 - Hello friend!
+2021-11-14 14:48:43 ERROR ErrorHandler:26 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
+2021-11-14 14:49:22 INFO  App:16 - Hello friend!
+2021-11-14 15:46:45 INFO  App:16 - Hello friend!
+2021-11-14 15:46:45 ERROR ErrorHandler:26 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
+2021-11-14 15:46:45 ERROR ErrorHandler:26 - Error name: ArithmeticException, error message: / by zero, error type: UNKNOWN_ERROR
+2021-11-14 15:56:19 INFO  App:17 - Hello friend!
+2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
+2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: ArithmeticException, error message: / by zero, error type: ARITHMETIC_EXCEPTION
+2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: NullPointerException, error message: Cannot invoke "String.toLowerCase(java.util.Locale)" because "o" is null, error type: NULL_POINTER

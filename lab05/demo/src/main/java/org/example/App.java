@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Locale;
 
 public class App {
 
@@ -15,13 +16,20 @@ public class App {
 
         LOGGER.log(Level.INFO,"Hello friend!");
 
-        UnsafeMethod unsafeMethod1 = () -> {
-                BufferedReader rd = new BufferedReader(new FileReader("some_dir/file.txt"));
-
-        };
 
         SafeInvoker safeInvoker=new SafeInvoker();
-        safeInvoker.invoke(unsafeMethod1);
+        safeInvoker.invoke(() -> {BufferedReader rd = new BufferedReader(new FileReader("some_dir/file.txt"));});
+        safeInvoker.invoke(() -> {int a=1/0;});
+        UnsafeMethod unsafeMethod = new UnsafeMethod() {
+            @Override
+            public void execute(){
+                String o=null;
+                String c = o.toLowerCase(Locale.ROOT);
+            }
+        };
+        safeInvoker.invoke(unsafeMethod);
+
+
 
     }
 

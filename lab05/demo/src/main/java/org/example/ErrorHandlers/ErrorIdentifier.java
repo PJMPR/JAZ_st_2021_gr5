@@ -10,6 +10,11 @@ public class ErrorIdentifier {
             case "NullPointerException" -> {
                 return ErrorType.NULL_POINTER;
             }
+            case "ArithmeticException" -> {
+                return ErrorType.ARITHMETIC_EXCEPTION;
+            }
+
+
             default -> {
                 return ErrorType.UNKNOWN_ERROR;
             }

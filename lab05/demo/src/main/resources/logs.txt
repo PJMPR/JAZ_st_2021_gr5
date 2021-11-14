@@ -8,3 +8,7 @@
 2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
 2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: ArithmeticException, error message: / by zero, error type: ARITHMETIC_EXCEPTION
 2021-11-14 15:56:19 ERROR ErrorHandler:26 - Error name: NullPointerException, error message: Cannot invoke "String.toLowerCase(java.util.Locale)" because "o" is null, error type: NULL_POINTER
+2021-11-14 20:56:28 INFO  App:17 - Hello friend!
+2021-11-14 20:56:28 ERROR ErrorHandler:26 - Error name: FileNotFoundException, error message: some_dir\file.txt (System nie może odnaleźć określonej ścieżki), error type: FILE_NOT_FOUND
+2021-11-14 20:56:28 ERROR ErrorHandler:26 - Error name: ArithmeticException, error message: / by zero, error type: ARITHMETIC_EXCEPTION
+2021-11-14 20:56:28 ERROR ErrorHandler:26 - Error name: NullPointerException, error message: Cannot invoke "String.toLowerCase(java.util.Locale)" because "o" is null, error type: NULL_POINTER

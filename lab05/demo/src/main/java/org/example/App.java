@@ -1,9 +1,12 @@
 package org.example;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 public class App {
 
     public static void main(String[] args) {
-        DoSomethingBad doSomethingBad = new DoSomethingBad();
-        doSomethingBad.doSomethingSafe(1);
+        Logger LOGGER = Logger.getLogger(App.class);
+        LOGGER.log(Level.INFO, "Hello friend!");
     }
 }

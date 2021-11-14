@@ -1,0 +1,6 @@
+2021-11-14 12:11:47 ERROR - Caught: ArithmeticException
+2021-11-14 12:11:47 ERROR - Exception has been handled
+2021-11-14 12:11:47 ERROR - Exception has been handled
+2021-11-14 12:11:50 ERROR - Caught: FileNotFoundException
+2021-11-14 12:11:50 ERROR - Exception has been handled
+2021-11-14 12:11:50 ERROR - Exception has been handled

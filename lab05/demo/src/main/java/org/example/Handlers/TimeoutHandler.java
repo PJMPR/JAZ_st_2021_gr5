@@ -14,26 +14,20 @@ public class TimeoutHandler implements ErrorHandler {
     }
 
     @Override
-    public boolean handle(Exception err, Supplier method) {
+    public void handle(Exception err, Supplier method) {
         if (canHandle(err)) {
             System.out.println("Connection timed out. Trying to reconnect...");
             actions.wait(2);
             if (actions.redo(method,5)) {
-                return true;
+                return;
             }
             System.out.println(getMessage());
-            log();
+            logger.log(getMessage());
         }
-        return false;
     }
 
     @Override
     public boolean canHandle(Exception err) {
         return err instanceof TimeoutException;
-    }
-
-    @Override
-    public void log() {
-       // LOGGER.log(Level.toLevel("error"),getMessage());
     }
 }

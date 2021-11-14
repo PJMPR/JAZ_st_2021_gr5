@@ -20,28 +20,15 @@ public class FileNotFoundErrorHandler implements ErrorHandler {
     }
 
     @Override
-    public boolean handle(Exception err, Supplier method) {
+    public void handle(Exception err, Supplier method) {
         if(canHandle(err)){
             System.out.println(getMessage());
-            log();
-            return true;
+            logger.log(getMessage());
         }
-        return false;
     }
 
     @Override
     public boolean canHandle(Exception err) {
         return err instanceof FileNotFoundException;
-    }
-
-    @Override
-    public void log() {
-        org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(App.class);
-        try {
-            BasicConfigurator.configure(new FileAppender(new PatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"),"logs.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        LOGGER.log(Level.ERROR,getMessage());
     }
 }

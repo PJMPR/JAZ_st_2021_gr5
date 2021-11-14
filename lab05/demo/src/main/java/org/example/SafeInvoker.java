@@ -12,12 +12,15 @@ public class SafeInvoker {
             new FileNotFoundErrorHandler(),
             new TimeoutHandler(),
             new SQLExceptionHandler(),
-            new ClassNotFoundExceptionHandler()
+            new ClassNotFoundErrorHandler()
     ));
+
+
 
     DefaultErrorHandler defaultErrorHandler = new DefaultErrorHandler();
 
     public void invoke(Supplier method){
+
         try {
             method.execute();
         } catch (Exception err){

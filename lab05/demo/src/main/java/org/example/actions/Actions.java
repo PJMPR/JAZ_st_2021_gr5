@@ -10,7 +10,6 @@ public class Actions {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public boolean redo(Supplier method, int times) {
@@ -26,5 +25,7 @@ public class Actions {
         }
         return false;
     }
+
+
 
 }

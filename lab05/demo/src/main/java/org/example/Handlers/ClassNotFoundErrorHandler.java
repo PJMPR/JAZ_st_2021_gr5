@@ -1,22 +1,19 @@
 package org.example.Handlers;
 
-import org.apache.log4j.Level;
 import org.example.Supplier.Supplier;
 
-public class ClassNotFoundExceptionHandler implements ErrorHandler {
+public class ClassNotFoundErrorHandler implements ErrorHandler {
     @Override
     public String getMessage() {
         return "could not find that class";
     }
 
     @Override
-    public boolean handle(Exception err, Supplier method) {
+    public void handle(Exception err, Supplier method) {
         if (canHandle(err)){
             System.out.println(getMessage());
-            log();
-            return true;
+            logger.log(getMessage());
         }
-        return false;
     }
 
     @Override
@@ -24,8 +21,4 @@ public class ClassNotFoundExceptionHandler implements ErrorHandler {
         return err instanceof ClassNotFoundException;
     }
 
-    @Override
-    public void log() {
-       // LOGGER.log(Level.toLevel("error"), getMessage());
-    }
 }

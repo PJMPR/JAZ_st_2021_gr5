@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Supplier;
 
 @FunctionalInterface
 public interface Supplier {

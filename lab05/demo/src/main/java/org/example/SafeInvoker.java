@@ -1,9 +1,10 @@
 package org.example;
 
 import org.example.Handlers.*;
-
+import org.example.Supplier.Supplier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class SafeInvoker {
@@ -14,12 +15,21 @@ public class SafeInvoker {
             new ClassNotFoundExceptionHandler()
     ));
 
+    DefaultErrorHandler defaultErrorHandler = new DefaultErrorHandler();
+
     public void invoke(Supplier method){
         try {
             method.execute();
         } catch (Exception err){
-               errorHandlersList.forEach(error1 -> error1.handle(err, method));
+            AtomicBoolean wasHandled = new AtomicBoolean(false);
+            errorHandlersList.stream()
+                    .filter(errorHandler -> errorHandler.canHandle(err))
+                    .forEach(errorHandler -> {
+                        errorHandler.handle(err,method);
+                        wasHandled.set(true);
+                    });
+            if (!wasHandled.get()) defaultErrorHandler.handle(err,method);
         }
+
     }
 }
-//Supplier<Exception> exceptionSupplier

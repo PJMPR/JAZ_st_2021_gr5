@@ -1,11 +1,12 @@
 package org.example.Handlers;
 
-import org.example.Supplier;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.example.Supplier.Supplier;
 
 import java.util.concurrent.TimeoutException;
 
-public class TimeoutHandler implements ErrorHandler{
-
+public class TimeoutHandler implements ErrorHandler {
 
     @Override
     public String getMessage() {
@@ -13,32 +14,26 @@ public class TimeoutHandler implements ErrorHandler{
     }
 
     @Override
-    public void handle(Exception err, Supplier method) {
-        if(canHandle(err)){
-            try {
-                System.out.println("Connection timed out. Trying to reconnect...");
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if(redo(method)){
-                return;
+    public boolean handle(Exception err, Supplier method) {
+        if (canHandle(err)) {
+            System.out.println("Connection timed out. Trying to reconnect...");
+            actions.wait(2);
+            if (actions.redo(method,5)) {
+                return true;
             }
             System.out.println(getMessage());
+            log();
         }
-    }
-
-    public boolean redo(Supplier method){
-        try {
-            method.execute();
-            return true;
-        } catch (Exception err){
-            return false;
-        }
+        return false;
     }
 
     @Override
     public boolean canHandle(Exception err) {
         return err instanceof TimeoutException;
+    }
+
+    @Override
+    public void log() {
+       // LOGGER.log(Level.toLevel("error"),getMessage());
     }
 }

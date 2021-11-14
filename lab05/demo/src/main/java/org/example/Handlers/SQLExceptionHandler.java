@@ -1,10 +1,13 @@
 package org.example.Handlers;
 
-import org.example.Supplier;
+import org.apache.log4j.Level;
+import org.example.Supplier.Supplier;
+import org.example.actions.Actions;
 
 import java.sql.SQLException;
 
-public class SQLExceptionHandler implements ErrorHandler{
+public class SQLExceptionHandler implements ErrorHandler {
+
 
     @Override
     public String getMessage() {
@@ -12,32 +15,29 @@ public class SQLExceptionHandler implements ErrorHandler{
     }
 
     @Override
-    public void handle(Exception err, Supplier method) {
-        if(canHandle(err)){
-            try {
-                System.out.println("Could not connect to database. Reconnecting...");
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if(redo(method)){
-                return;
+    public boolean handle(Exception err, Supplier method) {
+        if (canHandle(err)) {
+
+            System.out.println("Could not connect to database. Reconnecting...");
+            actions.wait(2);
+
+            if (actions.redo(method, 5)) {
+                return true;
             }
             System.out.println(getMessage());
+            log();
         }
+        return false;
     }
 
-    public boolean redo(Supplier method){
-        try {
-            method.execute();
-            return true;
-        } catch (Exception err){
-            return false;
-        }
-    }
 
     @Override
     public boolean canHandle(Exception err) {
         return err instanceof SQLException;
+    }
+
+    @Override
+    public void log() {
+        //LOGGER.log(Level.toLevel("error"),getMessage());
     }
 }

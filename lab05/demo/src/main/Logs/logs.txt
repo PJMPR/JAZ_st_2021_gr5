@@ -1,0 +1,14 @@
+
+ 2021-11-15 00:28:40 ERROR - Connection timed out. Check your internet connection.
+ 2021-11-15 00:28:40 ERROR - File not found. Maybe the file path is wrong?
+ 2021-11-15 00:28:40 ERROR - Class not found.
+ 2021-11-15 00:28:51 ERROR - Could not connect to database. Check your internet connection
+ 2021-11-15 00:28:51 ERROR - Unknown error occured.
+ 2021-11-15 00:28:51 ERROR - Unknown error occured.
+ 2021-11-15 00:32:03 ERROR - Connection timed out. Check your internet connection.
+ 2021-11-15 00:32:03 ERROR - File not found. Maybe the file path is wrong?
+ 2021-11-15 00:32:03 ERROR - Class not found.
+ 2021-11-15 00:32:14 ERROR - Could not connect to database. Check your internet connection
+ 2021-11-15 00:32:14 ERROR - Unknown error occured.
+ 2021-11-15 00:32:14 ERROR - Unknown error occured.
+ 

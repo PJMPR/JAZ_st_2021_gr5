@@ -1,0 +1,10 @@
+2021-11-15 18:22:31 ERROR - Connection timed out
+2021-11-15 18:22:31 ERROR - File not found
+2021-11-15 18:22:31 ERROR - Class was not found
+2021-11-15 18:22:35 ERROR - Connection attempt failed
+2021-11-15 18:22:35 ERROR - Unknown exception
+2021-11-15 18:23:33 ERROR - Connection timed out
+2021-11-15 18:23:33 ERROR - File not found
+2021-11-15 18:23:33 ERROR - Class was not found
+2021-11-15 18:23:37 ERROR - Connection attempt failed
+2021-11-15 18:23:37 ERROR - Unknown exception

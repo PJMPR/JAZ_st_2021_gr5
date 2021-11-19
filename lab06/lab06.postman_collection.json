@@ -1,0 +1,156 @@
+{
+	"id": "bf8a5060-4be0-ba93-2f47-cda37c1fc2c0",
+	"name": "lab06",
+	"description": "",
+	"order": [
+		"9875117e-9212-ce02-b813-47d7ff1eed85",
+		"6657de8e-5f4f-b41f-0632-822bc7ff5578",
+		"ca0a50b6-1c46-a65b-9668-64850a0da994",
+		"504ad3a9-b5f5-ef98-6e9c-adc6008bfb55"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1637337460313,
+	"owner": "699557",
+	"public": false,
+	"requests": [
+		{
+			"id": "504ad3a9-b5f5-ef98-6e9c-adc6008bfb55",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/credit/timetable?id=1&file=pdf",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "file",
+					"value": "pdf",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bf8a5060-4be0-ba93-2f47-cda37c1fc2c0",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/credit/timetable?id=1&file=pdf",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1637337597646,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "6657de8e-5f4f-b41f-0632-822bc7ff5578",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/credit/timetable?id=1",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bf8a5060-4be0-ba93-2f47-cda37c1fc2c0",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/credit/timetable?id=1",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1637337552933,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9875117e-9212-ce02-b813-47d7ff1eed85",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/credit/calculations",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bf8a5060-4be0-ba93-2f47-cda37c1fc2c0",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/credit/calculations",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1637337508533,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n  \"amount\": 1000,\r\n  \"installmentCount\": 36,\r\n  \"installmentType\": \"decreasing\",\r\n  \"percentage\": 0.07,\r\n  \"fixedFee\": 30\r\n}\r\n"
+		},
+		{
+			"id": "ca0a50b6-1c46-a65b-9668-64850a0da994",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/credit/timetable?id=1&file=csv",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "file",
+					"value": "csv",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bf8a5060-4be0-ba93-2f47-cda37c1fc2c0",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/credit/timetable?id=1&file=csv",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1637337579741,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

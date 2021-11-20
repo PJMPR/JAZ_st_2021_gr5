@@ -1,19 +1,17 @@
 package com.lab06.demo.calculation;
 
+import com.lab06.demo.timetable.Timetable;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
 public class Calculation {
     @Id
-    @SequenceGenerator(
-            name = "calculation_sequence",
-            sequenceName = "calculation_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-           strategy = GenerationType.SEQUENCE,
-            generator = "calculation_sequence"
+           strategy = GenerationType.AUTO
     )
     private Long id;
     private int amount;
@@ -24,6 +22,9 @@ public class Calculation {
 
     private double percentage;
     private int fixedRate;
+
+    @OneToMany(mappedBy = "calculation", cascade = CascadeType.ALL)
+    private Set<Timetable> timetables = new HashSet<>();
 
     public Calculation(int amount, int installmentCount, InstallmentType installmentType, double percentage, int fixedRate) {
         this.amount = amount;
@@ -85,15 +86,15 @@ public class Calculation {
         this.fixedRate = fixedRate;
     }
 
-    @Override
-    public String toString() {
-        return "Calculation{" +
-                "id=" + id +
-                ", amount=" + amount +
-                ", installmentCount=" + installmentCount +
-                ", installmentType=" + installmentType +
-                ", percentage=" + percentage +
-                ", fixedRate=" + fixedRate +
-                '}';
+    public Set<Timetable> getTimetables() {
+        return timetables;
+    }
+
+    public void setTimetables(Set<Timetable> timetables) {
+        this.timetables = timetables;
+
+        for (Timetable t : timetables){
+            t.setCalculation(this);
+        }
     }
 }

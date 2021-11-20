@@ -1,29 +1,20 @@
 package com.lab06.demo.controllers;
 
-import com.lab06.demo.calculation.Calculation;
 import com.lab06.demo.repositories.TimetableRepository;
 import com.lab06.demo.services.CalculationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/credit/calculations")
-public class CalculationController {
-
+@RequestMapping(path = "credit/timetable")
+public class TimetableController {
     private final CalculationService calculationService;
     private final TimetableRepository timetableRepository;
 
     @Autowired
-    public CalculationController(CalculationService calculationService, TimetableRepository timetableRepository) {
+    public TimetableController(CalculationService calculationService, TimetableRepository timetableRepository) {
         this.calculationService = calculationService;
         this.timetableRepository = timetableRepository;
-    }
-
-    @PostMapping
-    public void registerNewCalculation(@RequestBody Calculation calculation){
-        calculationService.addNewCalculation(calculation);
     }
 }

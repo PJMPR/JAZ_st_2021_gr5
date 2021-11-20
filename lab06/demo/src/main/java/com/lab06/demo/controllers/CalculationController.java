@@ -16,7 +16,7 @@ public class CalculationController {
     private final CalculationService calculationService;
 
     @Autowired
-    public CalculationController(CalculationService calculationService, TimetableRepository timetableRepository) {
+    public CalculationController(CalculationService calculationService) {
         this.calculationService = calculationService;
     }
 

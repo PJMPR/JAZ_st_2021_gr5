@@ -14,7 +14,8 @@ public class CalculationService {
         this.calculationRepository = calculationRepository;
     }
 
-    public void addNewCalculation(Calculation calculation) {
+    public long addNewCalculation(Calculation calculation) {
         calculationRepository.save(calculation);
+        return calculation.getId();
     }
 }

@@ -14,16 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalculationController {
 
     private final CalculationService calculationService;
-    private final TimetableRepository timetableRepository;
 
     @Autowired
     public CalculationController(CalculationService calculationService, TimetableRepository timetableRepository) {
         this.calculationService = calculationService;
-        this.timetableRepository = timetableRepository;
     }
 
     @PostMapping
-    public void registerNewCalculation(@RequestBody Calculation calculation){
-        calculationService.addNewCalculation(calculation);
+    public long registerNewCalculation(@RequestBody Calculation calculation){
+        return calculationService.addNewCalculation(calculation);
     }
 }

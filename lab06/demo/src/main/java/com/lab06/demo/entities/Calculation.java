@@ -89,14 +89,4 @@ public class Calculation {
     public void setFixedRate(int fixedRate) {
         this.fixedRate = fixedRate;
     }
-
-    public void addTimetable(Timetable timetable){
-        timetables.add(timetable);
-        timetable.setCalculation(this);
-    }
-
-    public void removeTimetable(Timetable timetable){
-        timetables.remove(timetable);
-        timetable.setCalculation(null);
-    }
 }

@@ -27,13 +27,13 @@ public class Controller {
         return calculationService.addNewCalculation(calculation);
     }
 
-    @GetMapping(path = "/calculations/get/{id}")
-    public Calculation getCalculation(@PathVariable long id){
+    @GetMapping(path = "/calculations")
+    public Calculation getCalculation(@RequestParam long id){
         return calculationService.getCalculation(id);
     }
 
-    @GetMapping(path = "/timetable/{id}")
-    public List<Timetable> getTimetableJSON(@PathVariable long id){
+    @GetMapping(path = "/timetable")
+    public List<Timetable> getTimetableJSON(@RequestParam long id){
         return timetableService.getTimetable(id);
     }
 }

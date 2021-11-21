@@ -21,10 +21,9 @@ public class TimetableService {
     }
 
     public void addNewTimetable(Calculation calculation) {
-        if (calculation.getInstallmentType().equals(InstallmentType.CONSTANT)){
-            timetableRepository.saveAll(new CreditConstant().constantRateCalculation(calculation));
-        } else {
-            timetableRepository.saveAll(new CreditDecreasing().decreasingRateCalculation(calculation));
+        switch (calculation.getInstallmentType()){
+            case CONSTANT -> timetableRepository.saveAll(new CreditConstant(calculation).constantRateCalculation());
+            case DECREASING -> timetableRepository.saveAll(new CreditDecreasing(calculation).decreasingRateCalculation());
         }
     }
 

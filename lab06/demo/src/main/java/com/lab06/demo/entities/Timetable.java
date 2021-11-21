@@ -1,10 +1,7 @@
 package com.lab06.demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-
 import javax.persistence.*;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @Entity
 @Table
 public class Timetable {
@@ -98,11 +95,4 @@ public class Timetable {
         this.amount = amount;
     }
 
-    public Calculation getCalculation() {
-        return calculation;
-    }
-
-    public void setCalculation(Calculation calculation) {
-        this.calculation = calculation;
-    }
 }

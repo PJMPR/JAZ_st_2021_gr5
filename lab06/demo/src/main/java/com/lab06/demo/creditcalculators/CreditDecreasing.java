@@ -4,23 +4,20 @@ import com.lab06.demo.entities.Calculation;
 import com.lab06.demo.entities.Timetable;
 import org.apache.commons.math3.util.Precision;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CreditDecreasing {
-    public List<Timetable> decreasingRateCalculation(Calculation calculation) {
-        List<Timetable> timetableList = new ArrayList<>();
+public class CreditDecreasing extends Credit{
+    private Calculation calculation;
 
-        int amount = calculation.getAmount();
-        int installmentCount = calculation.getInstallmentCount();
-        double percentage = calculation.getPercentage();
-        double fixedRate = calculation.getFixedRate();
-        double capitalStillToPay;
-        double capitalAlreadyPaid;
-        double interest;
-        double monthlyRate;
+    public CreditDecreasing(Calculation calculation) {
+        super(calculation.getAmount(), calculation.getInstallmentCount(), calculation.getPercentage(), calculation.getFixedRate());
+        this.calculation = calculation;
+    }
 
+    public List<Timetable> decreasingRateCalculation() {
         double baseAmountToPay = amount / installmentCount;
+        double monthlyRate;
+        double interest;
 
         for (int i = 1; i <= installmentCount; i++){
             capitalAlreadyPaid = baseAmountToPay * (i - 1);

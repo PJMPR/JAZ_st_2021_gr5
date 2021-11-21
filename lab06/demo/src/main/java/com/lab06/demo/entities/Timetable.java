@@ -1,15 +1,22 @@
-package com.lab06.demo.timetable;
+package com.lab06.demo.entities;
 
-import com.lab06.demo.calculation.Calculation;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.*;
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @Entity
 @Table
 public class Timetable {
     @Id
+    @SequenceGenerator(
+            name = "timetable_sequence",
+            sequenceName = "timetable_sequence",
+            allocationSize = 1
+    )
     @GeneratedValue(
-            strategy = GenerationType.AUTO
+            strategy = GenerationType.SEQUENCE,
+            generator = "timetable_sequence"
     )
     private Long id;
     private int number;
@@ -19,21 +26,20 @@ public class Timetable {
     private double capitalToPay;
     private double amount;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "calculation_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Calculation calculation;
 
     public Timetable() {
     }
 
-    public Timetable(Long id, int number, double capital, double interest, double fixedFee, double capitalToPay, double amount) {
-        this.id = id;
+    public Timetable(int number, double capital, double interest, double fixedFee, double capitalToPay, double amount, Calculation calculation) {
         this.number = number;
         this.capital = capital;
         this.interest = interest;
         this.fixedFee = fixedFee;
         this.capitalToPay = capitalToPay;
         this.amount = amount;
+        this.calculation = calculation;
     }
 
     public Long getId() {

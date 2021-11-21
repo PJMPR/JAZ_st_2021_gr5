@@ -1,14 +1,22 @@
 package com.lab06.demo.creditcalculators;
 
+import com.lab06.demo.entities.Calculation;
+import com.lab06.demo.entities.Timetable;
 import org.apache.commons.math3.util.Precision;
 
-public class CreditConstant {
-    public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.List;
 
-        int amount = 300000;
-        int installmentCount = 300;
-        double percentage = 0.047;
-        double fixedRate = 30;
+public class CreditConstant {
+
+    public List<Timetable> constantRateCalculation(Calculation calculation){
+        List<Timetable> timetableList = new ArrayList<>();
+        int amount = calculation.getAmount();
+        int installmentCount = calculation.getInstallmentCount();
+        double percentage = calculation.getPercentage();
+        double fixedRate = calculation.getFixedRate();
+        double capitalStillToPay;
+        double capitalAlreadyPaid;
 
         double baseAmountToPay = amount / installmentCount;
         double q = Precision.round(1 + (percentage/12), 5);
@@ -16,12 +24,12 @@ public class CreditConstant {
         double interest = Precision.round((monthlyRate - baseAmountToPay - 30),2);
 
         for (int i = 1; i <= installmentCount; i++){
-            double capitalAlreadyPaid = baseAmountToPay * (i - 1);
-            double capitalStillToPay = amount - capitalAlreadyPaid;
+            capitalAlreadyPaid = baseAmountToPay * (i - 1);
+            capitalStillToPay = amount - capitalAlreadyPaid;
 
-            System.out.println(i + "\t" + capitalAlreadyPaid + "\t" + interest + "\t" + fixedRate + "\t" + capitalStillToPay + "\t" + monthlyRate);
-        }
+            timetableList.add(i - 1, new Timetable(i, capitalAlreadyPaid, interest, fixedRate, capitalStillToPay, monthlyRate, calculation));
+       }
+
+        return timetableList;
     }
-
-
 }

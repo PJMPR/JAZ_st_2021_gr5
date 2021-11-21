@@ -1,6 +1,4 @@
-package com.lab06.demo.calculation;
-
-import com.lab06.demo.timetable.Timetable;
+package com.lab06.demo.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,8 +8,14 @@ import java.util.Set;
 @Table
 public class Calculation {
     @Id
+    @SequenceGenerator(
+            name = "calculation_sequence",
+            sequenceName = "calculation_sequence",
+            allocationSize = 1
+    )
     @GeneratedValue(
-           strategy = GenerationType.AUTO
+           strategy = GenerationType.SEQUENCE,
+            generator = "calculation_sequence"
     )
     private Long id;
     private int amount;
@@ -23,7 +27,7 @@ public class Calculation {
     private double percentage;
     private int fixedRate;
 
-    @OneToMany(mappedBy = "calculation", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "calculation", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Timetable> timetables = new HashSet<>();
 
     public Calculation(int amount, int installmentCount, InstallmentType installmentType, double percentage, int fixedRate) {
@@ -86,15 +90,13 @@ public class Calculation {
         this.fixedRate = fixedRate;
     }
 
-    public Set<Timetable> getTimetables() {
-        return timetables;
+    public void addTimetable(Timetable timetable){
+        timetables.add(timetable);
+        timetable.setCalculation(this);
     }
 
-    public void setTimetables(Set<Timetable> timetables) {
-        this.timetables = timetables;
-
-        for (Timetable t : timetables){
-            t.setCalculation(this);
-        }
+    public void removeTimetable(Timetable timetable){
+        timetables.remove(timetable);
+        timetable.setCalculation(null);
     }
 }

@@ -1,24 +1,36 @@
 package com.lab06.demo.creditcalculators;
 
+import com.lab06.demo.entities.Calculation;
+import com.lab06.demo.entities.Timetable;
 import org.apache.commons.math3.util.Precision;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CreditDecreasing {
-    public static void main(String[] args) {
-        int amount = 300000;
-        int installmentCount = 300;
-        double percentage = 0.047;
-        double fixedRate = 30;
+    public List<Timetable> decreasingRateCalculation(Calculation calculation) {
+        List<Timetable> timetableList = new ArrayList<>();
+
+        int amount = calculation.getAmount();
+        int installmentCount = calculation.getInstallmentCount();
+        double percentage = calculation.getPercentage();
+        double fixedRate = calculation.getFixedRate();
+        double capitalStillToPay;
+        double capitalAlreadyPaid;
+        double interest;
+        double monthlyRate;
 
         double baseAmountToPay = amount / installmentCount;
 
         for (int i = 1; i <= installmentCount; i++){
-            double capitalAlreadyPaid = baseAmountToPay * (i - 1);
-            double capitalStillToPay = amount - capitalAlreadyPaid;
+            capitalAlreadyPaid = baseAmountToPay * (i - 1);
+            capitalStillToPay = amount - capitalAlreadyPaid;
 
-            double Ro = Precision.round(((capitalStillToPay*percentage)/12) + fixedRate,2);
+            monthlyRate = Precision.round(((capitalStillToPay*percentage)/12) + fixedRate,2);
+            interest = Precision.round((monthlyRate - 30),2);
 
-            System.out.println(i + "\t" + capitalAlreadyPaid + "\t" +  "\t" + fixedRate + "\t" + capitalStillToPay + "\t" + Ro);
+            timetableList.add(i - 1, new Timetable(i, capitalAlreadyPaid, interest, fixedRate, capitalStillToPay, monthlyRate, calculation));
         }
-
+        return timetableList;
     }
 }

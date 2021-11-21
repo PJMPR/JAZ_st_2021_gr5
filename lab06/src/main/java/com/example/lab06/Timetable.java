@@ -1,11 +1,6 @@
 package com.example.lab06;
 
-import javax.persistence.*;
-
-@Entity
-public class Loan {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Timetable {
     private Long id;
     private double amount;
     private int installmentCount;
@@ -13,9 +8,9 @@ public class Loan {
     private double percentage;
     private double fixedRate;
 
-    public Loan(){}
+    public Timetable(){}
 
-    public Loan(double amount, int installmentCount, InstallmentType installmentType, double percentage, double fixedRate) {
+    public Timetable(Long id, double amount, int installmentCount, InstallmentType installmentType, double percentage, double fixedRate) {
         this.amount = amount;
         this.installmentCount = installmentCount;
         this.installmentType = installmentType;

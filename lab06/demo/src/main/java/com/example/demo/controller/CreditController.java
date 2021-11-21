@@ -1,36 +1,33 @@
 package com.example.demo.controller;
 
 import com.example.demo.creditParameters.CreditParameters;
+import com.example.demo.fileWriter.CsvFileWriter;
+import com.example.demo.fileWriter.PdfFileWriter;
 import com.example.demo.service.InstallmentService;
 import com.example.demo.service.TimetableService;
 import com.example.demo.timetable.Installment;
 import com.example.demo.timetable.Timetable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.supercsv.io.CsvBeanWriter;
-import org.supercsv.io.ICsvBeanWriter;
-import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @RestController
 public class CreditController {
     TimetableService timetableService;
     InstallmentService installmentService;
+    CsvFileWriter csvFileWriter;
+    PdfFileWriter pdfFileWriter;
 
     @Autowired
-    public CreditController(TimetableService timetableService, InstallmentService installmentService) {
+    public CreditController(TimetableService timetableService, InstallmentService installmentService, CsvFileWriter csvFileWriter, PdfFileWriter pdfFileWriter) {
         this.timetableService = timetableService;
         this.installmentService = installmentService;
+        this.csvFileWriter = csvFileWriter;
+        this.pdfFileWriter = pdfFileWriter;
     }
-
-
-
 
     @PostMapping("/credit/calculations")
     public int addCredit(@RequestBody CreditParameters creditParameters){
@@ -48,29 +45,14 @@ public class CreditController {
     }
 
     @GetMapping("/credit/timetable2")
-    public void exportToCSV(HttpServletResponse response,@RequestParam int id,@RequestParam String file)throws IOException{
+    public void getFile(HttpServletResponse response,@RequestParam int id,@RequestParam String file)throws IOException{
 
-        response.setContentType("text/csv");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        String currentDateTime = dateFormatter.format(new Date());
-
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
-        response.setHeader(headerKey, headerValue);
-
-        List<Installment> installmentList = timetableService.findTimetableById(id).getInstalments();
-
-        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-        String[] csvHeader = {"Number", "percentage of capital", "capital to pay", "fixed fee", "interest","amount"};
-        String[] nameMapping = {"number", "capital", "capitalToPay", "fixedFee", "interest","amount"};
-
-        csvWriter.writeHeader(csvHeader);
-
-        for (Installment installment : installmentList) {
-            csvWriter.write(installment, nameMapping);
+        switch (file){
+            case "csv"-> csvFileWriter.getFile(response,id,timetableService);
+            case "pdf"-> pdfFileWriter.getFile(response,id,timetableService);
+            default -> System.out.println("No such file type!");
         }
-
-        csvWriter.close();
-
     }
+
+
 }

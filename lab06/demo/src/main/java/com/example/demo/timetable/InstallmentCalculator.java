@@ -1,5 +1,7 @@
 package com.example.demo.timetable;
 
+import org.apache.commons.math3.util.Precision;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class InstallmentCalculator {
             amount = t.getFixedFee() + interest;
             capitalToPay = t.getAmount() - t.getFixedFee() * number;
             capital = (t.getAmount() - capitalToPay) / t.getAmount();
-            Installment newInstalment = new Installment(t.getId(), number, capital, interest, t.getFixedFee(), capitalToPay, amount);
+            Installment newInstalment = new Installment(t.getId(), number, Precision.round(capital,5), Precision.round(interest,5), t.getFixedFee(), capitalToPay, Precision.round(amount,5));
             installmentList.add(newInstalment);
         }
         return installmentList;

@@ -14,9 +14,11 @@ public class InstallmentService {
         this.installmentRepository = installmentRepository;
     }
 
-    public Installment findTimetableById(int id) {
-        return installmentRepository.findById(id);
-    }
+//    public Installment findTimetableById(int id) {
+//        return installmentRepository.findById(id);
+//    }
+
+
 
     public void addInstallment(Installment installment) {
         installmentRepository.save(installment);

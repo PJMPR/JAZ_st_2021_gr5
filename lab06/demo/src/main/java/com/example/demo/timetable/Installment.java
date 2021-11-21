@@ -3,16 +3,13 @@ package com.example.demo.timetable;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="instalment")
+@Table(name ="INSTALLMENT")
 public class Installment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "timetable_id")
-    private Timetable timetable;
-
+    private int timetable_id;
     private int number;
     private double capital;
     private double interest;
@@ -23,7 +20,8 @@ public class Installment {
     public Installment() {
     }
 
-    public Installment(int number, double capital, double interest, int fixedFee, double capitalToPay, double amount) {
+    public Installment(int timetable_id, int number, double capital, double interest, int fixedFee, double capitalToPay, double amount) {
+        this.timetable_id = timetable_id;
         this.number = number;
         this.capital = capital;
         this.interest = interest;
@@ -36,55 +34,31 @@ public class Installment {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getTimetable_id() {
+        return timetable_id;
     }
 
     public int getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public double getCapital() {
         return capital;
-    }
-
-    public void setCapital(double capital) {
-        this.capital = capital;
     }
 
     public double getInterest() {
         return interest;
     }
 
-    public void setInterest(double interest) {
-        this.interest = interest;
-    }
-
     public int getFixedFee() {
         return fixedFee;
-    }
-
-    public void setFixedFee(int fixedFee) {
-        this.fixedFee = fixedFee;
     }
 
     public double getCapitalToPay() {
         return capitalToPay;
     }
 
-    public void setCapitalToPay(double capitalToPay) {
-        this.capitalToPay = capitalToPay;
-    }
-
     public double getAmount() {
         return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
     }
 }

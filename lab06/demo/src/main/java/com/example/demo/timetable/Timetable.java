@@ -39,6 +39,16 @@ public class Timetable {
         this.instalments = new ArrayList<>();
     }
 
+    public Timetable(int id, int amount, int installmentCount, double percentage, int fixedFee, String instalmentType) {
+        this.id = id;
+        this.amount = amount;
+        this.installmentCount = installmentCount;
+        this.percentage = percentage;
+        this.fixedFee = fixedFee;
+        this.instalmentType = instalmentType;
+        this.instalments = new ArrayList<>();
+    }
+
     public int getId() {
         return id;
     }

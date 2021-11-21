@@ -39,12 +39,12 @@ public class CreditController {
 
         return timetable.getId();
     }
-    @GetMapping("/credit/timetable")
+    @GetMapping(value="/credit/timetable",params = "id")
     public List<Installment> getTimetable(@RequestParam int id){
         return  timetableService.findTimetableById(id).getInstalments();
     }
 
-    @GetMapping("/credit/timetable2")
+    @GetMapping(value ="/credit/timetable", params = {"id","file"})
     public void getFile(HttpServletResponse response,@RequestParam int id,@RequestParam String file)throws IOException{
 
         switch (file){

@@ -33,7 +33,7 @@ public class PdfFileWriter implements FileWriter{
 
         PdfPTable table = new PdfPTable(6);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {1.5f, 3.0f, 3.0f, 3.0f, 3.0f,3.0f});
+        table.setWidths(new float[] {2.0f, 3.0f, 3.0f, 3.0f, 3.0f,3.0f});
         table.setSpacingBefore(10);
 
         writeTableHeader(table);

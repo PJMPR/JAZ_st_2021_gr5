@@ -24,11 +24,9 @@ public class CSVexporter{
 
     public void getFile(HttpServletResponse response, int id, TimetableService timetableService) throws IOException {
         response.setContentType("text/csv");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+        String headerValue = "attachment; filename=Installments_id="+ id + ".csv";
         response.setHeader(headerKey, headerValue);
 
         List<Installment> installmentList = timetableService.getTimetable(id).getInstalments();

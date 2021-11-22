@@ -20,13 +20,13 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 @Component
-public class CSVexporter{
+public class CSVexporter {
 
     public void getFile(HttpServletResponse response, int id, TimetableService timetableService) throws IOException {
         response.setContentType("text/csv");
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=Installments_id="+ id + ".csv";
+        String headerValue = "attachment; filename=Installments_id=" + id + ".csv";
         response.setHeader(headerKey, headerValue);
 
         List<Installment> installmentList = timetableService.getTimetable(id).getInstalments();

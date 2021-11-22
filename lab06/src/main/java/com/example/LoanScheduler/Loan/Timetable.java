@@ -21,7 +21,8 @@ public class Timetable {
     @JoinColumn(name = "timetable_id")
     private List<Installment> instalments = new ArrayList<>();
 
-    public Timetable() {}
+    public Timetable() {
+    }
 
     public Timetable(long amount, long installmentCount, com.example.LoanScheduler.Loan.installmentType installmentType, double percentage, long fixedFee) {
         this.amount = amount;
@@ -77,7 +78,7 @@ public class Timetable {
         this.fixedFee = fixedFee;
     }
 
-    public List<Installment> getInstalments(){
+    public List<Installment> getInstalments() {
         return instalments;
     }
 }

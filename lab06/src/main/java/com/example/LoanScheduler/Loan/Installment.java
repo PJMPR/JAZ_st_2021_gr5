@@ -1,6 +1,5 @@
 package com.example.LoanScheduler.Loan;
 
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 
@@ -20,9 +19,11 @@ public class Installment {
     private double capitalToPay;//kapital pozostaly do splaty
     private double amount;//calkowita kwota raty
 
-    public Installment(){};
+    public Installment() {
+    }
 
-    public Installment(int id,int number, double capital, double interest, double fixedFee, double capitalToPay, double amount) {
+
+    public Installment(int id, int number, double capital, double interest, double fixedFee, double capitalToPay, double amount) {
         this.timetable_id = id;
         this.number = number;
         this.capital = capital;

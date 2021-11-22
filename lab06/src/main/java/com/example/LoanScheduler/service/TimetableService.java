@@ -11,16 +11,16 @@ public class TimetableService {
     TimetableRepository timetableRepository;
 
     @Autowired
-    public TimetableService(TimetableRepository timetableRepository){
+    public TimetableService(TimetableRepository timetableRepository) {
         this.timetableRepository = timetableRepository;
     }
 
-    public int insertData(Timetable timetable){
+    public int insertData(Timetable timetable) {
         timetableRepository.save(timetable);
         return timetable.getId();
     }
 
-    public Timetable getTimetable(int id){
+    public Timetable getTimetable(int id) {
         return timetableRepository.findById(id);
     }
 

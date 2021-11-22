@@ -13,7 +13,7 @@ import com.lowagie.text.pdf.*;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PDFexporter{
+public class PDFexporter {
     private List<Installment> installments;
 
     public PDFexporter(List<Installment> installments) {
@@ -76,11 +76,11 @@ public class PDFexporter{
 
         PdfPTable table = new PdfPTable(6);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {2.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f});
+        table.setWidths(new float[]{2.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f});
         table.setSpacingBefore(10);
 
         writeTableHeader(table);
-        writeTableData(table,timetableService,id);
+        writeTableData(table, timetableService, id);
 
         document.add(table);
 

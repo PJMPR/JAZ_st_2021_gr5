@@ -22,7 +22,7 @@ public class Controller {
     CSVexporter CSVexporter;
 
     @Autowired
-    public Controller(InstallmentService installmentService,TimetableService timetableService, PDFexporter PDFexporter, CSVexporter CSVexporter){
+    public Controller(InstallmentService installmentService, TimetableService timetableService, PDFexporter PDFexporter, CSVexporter CSVexporter) {
         this.installmentService = installmentService;
         this.timetableService = timetableService;
         this.PDFexporter = PDFexporter;
@@ -30,23 +30,23 @@ public class Controller {
     }
 
     @PostMapping("/credit/calculations")
-    public long saveInstallmentData(@RequestBody Timetable timetable){
-        int id =  timetableService.insertData(timetable);
+    public long saveInstallmentData(@RequestBody Timetable timetable) {
+        int id = timetableService.insertData(timetable);
         List<Installment> installments = new ArrayList<>(installmentService.calculateInstallments(timetable));
         installments.forEach(installment -> installmentService.saveInstallments(installment));
         return id;
     }
 
     @GetMapping("credit/timetable")
-    public Timetable getTimetable(@RequestParam Integer id){
+    public Timetable getTimetable(@RequestParam Integer id) {
         return timetableService.getTimetable(id);
     }
 
-    @GetMapping(value = "/credit/timetable",params = {"id","file"})
+    @GetMapping(value = "/credit/timetable", params = {"id", "file"})
     public void getTimetableInFile(HttpServletResponse response, @RequestParam Integer id, @RequestParam String file) throws IOException {
         switch (file) {
-            case "pdf" -> PDFexporter.getFile(response,id,timetableService);
-            case "csv" -> CSVexporter.getFile(response,id,timetableService);
+            case "pdf" -> PDFexporter.getFile(response, id, timetableService);
+            case "csv" -> CSVexporter.getFile(response, id, timetableService);
         }
     }
 }

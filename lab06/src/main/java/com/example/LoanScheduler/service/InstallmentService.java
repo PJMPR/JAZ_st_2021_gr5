@@ -13,16 +13,16 @@ public class InstallmentService {
     InstallmentRepository installmentRepository;
     InstallmentCalculator installmentCalculator;
 
-    public InstallmentService(InstallmentRepository installmentRepository, InstallmentCalculator installmentCalculator){
+    public InstallmentService(InstallmentRepository installmentRepository, InstallmentCalculator installmentCalculator) {
         this.installmentRepository = installmentRepository;
         this.installmentCalculator = installmentCalculator;
     }
 
-    public List<Installment> calculateInstallments(Timetable timetable){
+    public List<Installment> calculateInstallments(Timetable timetable) {
         return installmentCalculator.calculateInstalments(timetable);
     }
 
-    public void saveInstallments(Installment installment){
+    public void saveInstallments(Installment installment) {
         installmentRepository.save(installment);
     }
 

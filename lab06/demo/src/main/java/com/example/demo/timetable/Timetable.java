@@ -30,12 +30,12 @@ public class Timetable {
     public Timetable() {
     }
 
-    public Timetable(CreditParameters creditParameters){
+    public Timetable(CreditParameters creditParameters) {
         this.amount = creditParameters.amount();
         this.installmentCount = creditParameters.installmentCount();
         this.percentage = creditParameters.percentage();
         this.fixedFee = creditParameters.fixedFee();
-        this.instalmentType=creditParameters.installmentType();
+        this.instalmentType = creditParameters.installmentType();
         this.instalments = new ArrayList<>();
     }
 

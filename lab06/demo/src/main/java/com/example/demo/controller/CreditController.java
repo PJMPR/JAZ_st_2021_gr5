@@ -30,26 +30,27 @@ public class CreditController {
     }
 
     @PostMapping("/credit/calculations")
-    public int addCredit(@RequestBody CreditParameters creditParameters){
+    public int addCredit(@RequestBody CreditParameters creditParameters) {
         Timetable timetable = new Timetable(creditParameters);
 
         timetableService.addTimetable(timetable);
         List<Installment> installmentList = timetableService.calculateInstalments(timetable);
-        installmentList.forEach(installment ->  installmentService.addInstallment(installment));
+        installmentList.forEach(installment -> installmentService.addInstallment(installment));
 
         return timetable.getId();
     }
-    @GetMapping(value="/credit/timetable",params = "id")
-    public List<Installment> getTimetable(@RequestParam int id){
-        return  timetableService.findTimetableById(id).getInstalments();
+
+    @GetMapping(value = "/credit/timetable", params = "id")
+    public List<Installment> getTimetable(@RequestParam int id) {
+        return timetableService.findTimetableById(id).getInstalments();
     }
 
-    @GetMapping(value ="/credit/timetable", params = {"id","file"})
-    public void getFile(HttpServletResponse response,@RequestParam int id,@RequestParam String file)throws IOException{
+    @GetMapping(value = "/credit/timetable", params = {"id", "file"})
+    public void getFile(HttpServletResponse response, @RequestParam int id, @RequestParam String file) throws IOException {
 
-        switch (file){
-            case "csv"-> csvFileWriter.getFile(response,id,timetableService);
-            case "pdf"-> pdfFileWriter.getFile(response,id,timetableService);
+        switch (file) {
+            case "csv" -> csvFileWriter.getFile(response, id, timetableService);
+            case "pdf" -> pdfFileWriter.getFile(response, id, timetableService);
             default -> System.out.println("No such file type!");
         }
     }

@@ -23,19 +23,19 @@ public class InstallmentCalculatorTest {
         Timetable timetable = new Timetable(1, 100, 3, 0.2, 34, "decreasing");
         List<Installment> result = installmentCalculator.calculateInstalments(timetable);
         Assertions.assertEquals(3, result.size());
-        Assertions.assertEquals(54.4,result.get(0).getAmount());
-        Assertions.assertEquals(47.6,result.get(1).getAmount());
-        Assertions.assertEquals(40.8,result.get(2).getAmount());
+        Assertions.assertEquals(54.4, result.get(0).getAmount());
+        Assertions.assertEquals(47.6, result.get(1).getAmount());
+        Assertions.assertEquals(40.8, result.get(2).getAmount());
     }
 
     @Test
-    public void testIfCalculateInstalmentsWithConstantTypeReturnsCorrectTimetable(){
+    public void testIfCalculateInstalmentsWithConstantTypeReturnsCorrectTimetable() {
         Timetable timetable = new Timetable(1, 150, 5, 0.2, 30, "constant");
         List<Installment> result = installmentCalculator.calculateInstalments(timetable);
         Assertions.assertEquals(5, result.size());
-        Assertions.assertEquals(36,result.get(0).getAmount());
-        Assertions.assertEquals(36,result.get(1).getAmount());
-        Assertions.assertEquals(36,result.get(4).getAmount());
+        Assertions.assertEquals(36, result.get(0).getAmount());
+        Assertions.assertEquals(36, result.get(1).getAmount());
+        Assertions.assertEquals(36, result.get(4).getAmount());
     }
 
     @Test

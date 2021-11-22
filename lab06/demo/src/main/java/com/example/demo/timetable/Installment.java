@@ -3,7 +3,7 @@ package com.example.demo.timetable;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="INSTALLMENT")
+@Table(name = "INSTALLMENT")
 public class Installment {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)

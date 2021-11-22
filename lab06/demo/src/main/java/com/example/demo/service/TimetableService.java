@@ -26,9 +26,9 @@ public class TimetableService {
         timetableRepository.save(timetable);
     }
 
-    public List<Installment> calculateInstalments(Timetable timetable){
+    public List<Installment> calculateInstalments(Timetable timetable) {
         InstallmentCalculator installmentCalculator = new InstallmentCalculator();
-       return installmentCalculator.calculateInstalments(timetable);
+        return installmentCalculator.calculateInstalments(timetable);
     }
 
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class PdfFileWriter implements FileWriter{
+public class PdfFileWriter implements FileWriter {
 
     private void writeTableHeader(PdfPTable table) {
         PdfPCell cell = new PdfPCell();
@@ -45,8 +45,8 @@ public class PdfFileWriter implements FileWriter{
         table.addCell(cell);
     }
 
-    public void writeTableData(PdfPTable table,TimetableService timetableService ,int id){
-        List<Installment> installmentList= timetableService.findTimetableById(id).getInstalments();
+    public void writeTableData(PdfPTable table, TimetableService timetableService, int id) {
+        List<Installment> installmentList = timetableService.findTimetableById(id).getInstalments();
         for (Installment installment : installmentList) {
             table.addCell(String.valueOf(installment.getId()));
             table.addCell(String.valueOf(installment.getCapital()));
@@ -68,18 +68,18 @@ public class PdfFileWriter implements FileWriter{
         font.setSize(25);
         font.setColor(Color.MAGENTA);
 
-        Paragraph p = new Paragraph("Timetable id="+id, font);
+        Paragraph p = new Paragraph("Timetable id=" + id, font);
         p.setAlignment(Paragraph.ALIGN_CENTER);
 
         document.add(p);
 
         PdfPTable table = new PdfPTable(6);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {2.0f, 3.0f, 3.0f, 3.0f, 3.0f,3.0f});
+        table.setWidths(new float[]{2.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f});
         table.setSpacingBefore(15);
 
         writeTableHeader(table);
-        writeTableData(table,timetableService,id);
+        writeTableData(table, timetableService, id);
 
 
         document.add(table);

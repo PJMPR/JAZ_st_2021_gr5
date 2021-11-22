@@ -13,10 +13,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 @Component
-public class CsvFileWriter implements FileWriter{
+public class CsvFileWriter implements FileWriter {
     @Override
-    public void getFile(HttpServletResponse response, int id, TimetableService timetableService)throws IOException {
+    public void getFile(HttpServletResponse response, int id, TimetableService timetableService) throws IOException {
         response.setContentType("text/csv");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -28,8 +29,8 @@ public class CsvFileWriter implements FileWriter{
         List<Installment> installmentList = timetableService.findTimetableById(id).getInstalments();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-        String[] csvHeader = {"Number", "percentage of capital", "capital to pay", "fixed fee", "interest","amount"};
-        String[] nameMapping = {"number", "capital", "capitalToPay", "fixedFee", "interest","amount"};
+        String[] csvHeader = {"Number", "percentage of capital", "capital to pay", "fixed fee", "interest", "amount"};
+        String[] nameMapping = {"number", "capital", "capitalToPay", "fixedFee", "interest", "amount"};
 
         csvWriter.writeHeader(csvHeader);
 
@@ -39,9 +40,6 @@ public class CsvFileWriter implements FileWriter{
 
         csvWriter.close();
     }
-
-
-
 
 
 }

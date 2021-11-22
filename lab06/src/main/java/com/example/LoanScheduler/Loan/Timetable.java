@@ -1,33 +1,40 @@
-package com.example.LoanScheduler.Calculator;
+package com.example.LoanScheduler.Loan;
 
-
-import com.example.LoanScheduler.installment.Installment;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class InstallmentData {
+@Table(name = "timetable")
+public class Timetable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private long amount;
-    private long installmentCount;
-    private installmentType installmentType;
-    private double percentage;
-    private long fixedFee;
-//    private List<Installment> installments = new ArrayList<>();
+    private int id;
 
-    public InstallmentData(){};
+    private long amount; //wnioskowana kwota kredytu
+    private long installmentCount; //ilosc rat
+    private installmentType installmentType; // rodzaj rat
+    private double percentage; //oprocentowanie
+    private long fixedFee; // oplaty stale
 
-    public InstallmentData(long amount, long installmentCount, installmentType installmentType, double percentage, long fixedFee) {
+    @OneToMany
+    @JoinColumn(name = "timetable_id")
+    private List<Installment> instalments = new ArrayList<>();
+
+    public Timetable() {}
+
+    public Timetable(long amount, long installmentCount, com.example.LoanScheduler.Loan.installmentType installmentType, double percentage, long fixedFee) {
         this.amount = amount;
         this.installmentCount = installmentCount;
         this.installmentType = installmentType;
         this.percentage = percentage;
         this.fixedFee = fixedFee;
+        this.instalments = new ArrayList<>();
+
+    }
+
+    public int getId() {
+        return id;
     }
 
     public long getAmount() {
@@ -50,7 +57,7 @@ public class InstallmentData {
         return installmentType;
     }
 
-    public void setInstallmentType(installmentType installmentType) {
+    public void setInstallmentType(com.example.LoanScheduler.Loan.installmentType installmentType) {
         this.installmentType = installmentType;
     }
 
@@ -70,11 +77,7 @@ public class InstallmentData {
         this.fixedFee = fixedFee;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public List<Installment> getInstalments(){
+        return instalments;
     }
 }

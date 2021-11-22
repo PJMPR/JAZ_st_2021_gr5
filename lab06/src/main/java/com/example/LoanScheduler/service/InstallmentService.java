@@ -18,7 +18,6 @@ public class InstallmentService {
         this.installmentCalculator = installmentCalculator;
     }
 
-
     public List<Installment> calculateInstallments(Timetable timetable){
         return installmentCalculator.calculateInstalments(timetable);
     }

@@ -5,6 +5,9 @@ import com.example.lab06.Repository.InstallmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
+
 @Service
 public class InstallmentService {
     InstallmentRepository installmentRepository;
@@ -14,11 +17,11 @@ public class InstallmentService {
         this.installmentRepository = installmentRepository;
     }
 
-    public void save(Installment installment) {
-        installmentRepository.save(installment);
+    public void save(ArrayList<Installment> installments) {
+        installmentRepository.saveAll(installments);
     }
 
-    public Installment getTimetable(long id) {
+    public Installment getInstallment(long id) {
         return  installmentRepository.findById(id);
     }
 }

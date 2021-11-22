@@ -1,6 +1,16 @@
 package com.example.lab06;
 
+import com.example.lab06.Type.InstallmentType;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Timetable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private double amount;
     private int installmentCount;
@@ -10,7 +20,7 @@ public class Timetable {
 
     public Timetable(){}
 
-    public Timetable(Long id, double amount, int installmentCount, InstallmentType installmentType, double percentage, double fixedRate) {
+    public Timetable(double amount, int installmentCount, InstallmentType installmentType, double percentage, double fixedRate) {
         this.amount = amount;
         this.installmentCount = installmentCount;
         this.installmentType = installmentType;

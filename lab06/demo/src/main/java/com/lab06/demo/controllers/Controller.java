@@ -1,7 +1,6 @@
 package com.lab06.demo.controllers;
 
 import com.lab06.demo.entities.Calculation;
-import com.lab06.demo.entities.Timetable;
 import com.lab06.demo.services.CSVService;
 import com.lab06.demo.services.CalculationService;
 import com.lab06.demo.services.TimetableService;
@@ -12,8 +11,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/credit")
@@ -36,13 +33,13 @@ public class Controller {
     }
 
     @GetMapping(path = "/calculations")
-    public Calculation getCalculation(@RequestParam long id) {
-        return calculationService.getCalculation(id);
+    public ResponseEntity getCalculation(@RequestParam long id) {
+        return ResponseEntity.ok().body(calculationService.getCalculation(id));
     }
 
-    @GetMapping(path = "/timetable", produces = "application/json")
-    public List<Timetable> getTimetableJSON(@RequestParam long id) {
-        return timetableService.getTimetable(id);
+    @GetMapping(path = "/timetable")
+    public ResponseEntity getTimetableJSON(@RequestParam long id) {
+        return ResponseEntity.ok().body(timetableService.getTimetable(id));
     }
 
     @GetMapping(path = "/timetable/file")

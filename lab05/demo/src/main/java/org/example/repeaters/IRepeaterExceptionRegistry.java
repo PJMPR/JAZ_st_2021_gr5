@@ -9,7 +9,6 @@ public interface IRepeaterExceptionRegistry {
     public record RegistryEntry(String exceptionName, int delay, int retriesCount) {
 
         public static RegistryEntry Default(Throwable ex) {
-
             return new RegistryEntry(ex.getClass().getName(), 0, 0);
         }
     }

@@ -21,8 +21,8 @@ public class CSVwriter {
         response.setHeader(headerKey, headerValue);
         List<Installment> installmentList = timetableService.getTimetable(id).getInstallments();
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-        String[] csvHeader = {"Number", "Capital", "Capital to pay", "Fixed Rate", "Interest", "Amount"};
-        String[] nameMapping = {"number", "capital", "capitalToPay", "fixedRate", "interest", "amount"};
+        String[] csvHeader = {"Number", "Capital", "Capital to pay", "Fixed Fee", "Interest", "Amount"};
+        String[] nameMapping = {"number", "capital", "capitalToPay", "fixedFee", "interest", "amount"};
         csvWriter.writeHeader(csvHeader);
         for (Installment installment : installmentList) {
             csvWriter.write(installment, nameMapping);

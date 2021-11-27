@@ -9,14 +9,14 @@ public class Installment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int timetable_id;
-    private int number; //numer raty
-    private double capital;//czesc splaconego kapitalu
-    private double interest;//czesc odsetkowa
-    private double fixedFee;//oplata stala
-    private double capitalToPay;//kapital pozostaly do splaty
-    private double amount;//calkowita kwota raty
+    private int number;
+    private double capital;
+    private double interest;
+    private double fixedFee;
+    private double capitalToPay;
+    private double amount;
 
-    public Installment(){};
+    public Installment(){}
 
     public Installment(int id,int number, double capital, double interest, double fixedFee, double capitalToPay, double amount) {
         this.timetable_id = id;

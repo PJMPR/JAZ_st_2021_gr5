@@ -7,6 +7,8 @@ import com.example.servicedemo.fileWriters.PDFwriter;
 import com.example.servicedemo.services.InstallmentService;
 import com.example.servicedemo.services.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -30,23 +32,24 @@ public class Controller {
     }
 
     @GetMapping("credit/timetable")
-    public Timetable getTimetable(@RequestParam Integer id){
-        return timetableService.getTimetable(id);
+    public ResponseEntity<Timetable> getTimetable(@RequestParam Integer id){
+        return ResponseEntity.ok(timetableService.getTimetable(id));
     }
 
     @PostMapping("/credit/calculations")
-    public long saveInstallmentData(@RequestBody Timetable timetable){
+    public ResponseEntity<Integer> saveInstallmentData(@RequestBody Timetable timetable){
         int id =  timetableService.insertData(timetable);
         List<Installment> installments = new ArrayList<>(installmentService.calculate(timetable));
         installments.forEach(installment -> installmentService.saveInstallments(installment));
-        return id;
+        return ResponseEntity.ok(id);
     }
 
     @GetMapping(value = "/credit/timetable",params = {"id","file"})
-    public void getTimetableInFile(HttpServletResponse response, @RequestParam Integer id, @RequestParam String file) throws IOException {
+    public ResponseEntity getTimetableInFile(HttpServletResponse response, @RequestParam Integer id, @RequestParam String file) throws IOException {
         switch (file) {
             case "pdf" -> PDFwriter.getFile(response,id,timetableService);
             case "csv" -> CSVwriter.getFile(response,id,timetableService);
         }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

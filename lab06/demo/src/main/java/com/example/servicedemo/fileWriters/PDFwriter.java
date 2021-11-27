@@ -32,7 +32,7 @@ public class PDFwriter {
         cell.setPhrase(new Phrase("Interest", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Fixed Rate", font));
+        cell.setPhrase(new Phrase("Fixed Fee", font));
         table.addCell(cell);
 
         cell.setPhrase(new Phrase("Capital to pay", font));

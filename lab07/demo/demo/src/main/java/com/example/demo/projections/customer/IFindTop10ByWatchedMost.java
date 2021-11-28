@@ -1,14 +1,10 @@
 package com.example.demo.projections.customer;
 
-import java.math.BigDecimal;
+import org.springframework.beans.factory.annotation.Value;
 
 public interface IFindTop10ByWatchedMost {
     int getWatched();
 
-    //TODO:try to make nested interface working
-    int getId();
-
-    String getFirstName();
-
-    String getLastName();
+    @Value("#{new com.example.demo.projections.customer.CustomerInfo(target.id, target.firstName, target.lastName)}")
+    CustomerInfo getCustomer();
 }

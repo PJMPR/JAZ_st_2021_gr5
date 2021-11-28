@@ -1,10 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.data.Customer;
-import com.example.demo.projections.customer.IFindRentMoviesByMonth;
-import com.example.demo.projections.customer.IFindRentMoviesByMonthByCustomer;
-import com.example.demo.projections.customer.IFindTop10ByWatchedMost;
-import com.example.demo.projections.customer.IFindTop10ThatSpentMost;
+import com.example.demo.projections.customer.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

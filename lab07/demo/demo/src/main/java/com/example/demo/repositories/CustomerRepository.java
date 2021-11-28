@@ -1,15 +1,18 @@
 package com.example.demo.repositories;
 
 import com.example.demo.data.Customer;
-import com.example.demo.projections.*;
+import com.example.demo.projections.customer.IFindRentMoviesByMonth;
+import com.example.demo.projections.customer.IFindRentMoviesByMonthByCustomer;
+import com.example.demo.projections.customer.IFindTop10ByWatchedMost;
+import com.example.demo.projections.customer.IFindTop10ThatSpentMost;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface CustomerRepository extends CrudRepository<Customer, Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select sum(payment.amount) as 'spent', customer.customer_id as 'id', customer.first_name as 'firstName', customer.last_name as 'lastName' " +
             "from payment left join customer on payment.customer_id = customer.customer_id " +
             "group by customer.customer_id order by spent desc limit 10", nativeQuery = true)

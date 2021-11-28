@@ -1,4 +1,4 @@
-package com.example.demo.projections;
+package com.example.demo.projections.customer;
 
 public interface IFindRentMoviesByMonthByCustomer {
     String getYear();

@@ -5,16 +5,7 @@ import java.math.BigDecimal;
 public interface IFindTop10ThatSpentMost {
     BigDecimal getSpent();
 
-    int getId();
-
-    String getFirstName();
-
-    String getLastName();
-//    TODO:Make nested interfaces work!
-//    List<CustomerInfo> getCustomer();
-}
-
-interface CustomerInfo {
+    //TODO:try to make nested interface working
     int getId();
 
     String getFirstName();

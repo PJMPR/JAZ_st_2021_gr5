@@ -1,8 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.data.Customer;
-import com.example.demo.projections.IFindTop10ByWatchedMost;
-import com.example.demo.projections.IFindTop10ThatSpentMost;
+import com.example.demo.projections.*;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -21,4 +20,12 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer> {
             "from payment left join customer on payment.customer_id = customer.customer_id " +
             "group by customer.customer_id order by watched desc limit 10", nativeQuery = true)
     List<IFindTop10ByWatchedMost> findTop10ByWatchedMost();
+
+    @Query(value = "select month(rental_date) as 'month', count(*) as 'rentmovies' from rental " +
+            "where year(rental_date) = :year group by month", nativeQuery = true)
+    List<IFindRentMoviesByMonth> findRentMoviesByMonth(String year);
+
+    @Query(value = "select year(payment_date) as 'year', month(payment_date) as 'month', count(*) as 'rentmovies' from payment " +
+            "where customer_id = :customerid group by month order by year", nativeQuery = true)
+    List<IFindRentMoviesByMonthByCustomer> findRentMoviesByMonthByCustomer(String customerid);
 }

@@ -25,7 +25,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             "where year(rental_date) = :year group by month", nativeQuery = true)
     List<IFindRentMoviesByMonth> findRentMoviesByMonth(String year);
 
-    @Query(value = "select year(payment_date) as 'year', month(payment_date) as 'month', count(*) as 'rentmovies' from payment " +
-            "where customer_id = :customerid group by month order by year", nativeQuery = true)
+    @Query(value = "select date_format(payment_date, '%Y-%m') as 'month', count(*) as 'rentmovies' from payment " +
+            "where customer_id = :customerid group by month order by month", nativeQuery = true)
     List<IFindRentMoviesByMonthByCustomer> findRentMoviesByMonthByCustomer(String customerid);
 }

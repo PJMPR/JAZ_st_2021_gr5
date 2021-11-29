@@ -3,6 +3,7 @@ package com.example.demo.data;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -15,8 +16,8 @@ public class Customer {
     private Timestamp lastUpdate;
     private Store store;
     private Address address;
-    private Collection<Payment> payments;
-    private Collection<Rental> rentalsByCustomer;
+    private List<Payment> payments;
+    private List<Rental> rentalsByCustomer;
 
     @Id
     @Column(name = "customer_id")
@@ -139,20 +140,20 @@ public class Customer {
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<Payment> getPayments() {
+    public List<Payment> getPayments() {
         return payments;
     }
 
-    public void setPayments(Collection<Payment> payments) {
+    public void setPayments(List<Payment> payments) {
         this.payments = payments;
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<Rental> getRentalsByCustomer() {
+    public List<Rental> getRentalsByCustomer() {
         return rentalsByCustomer;
     }
 
-    public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
+    public void setRentalsByCustomer(List<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
     }
 }

@@ -3,7 +3,9 @@ package com.example.demo.controllers;
 import com.example.demo.data.Customer;
 import com.example.demo.data.Payment;
 import com.example.demo.model.customerSpentMoney;
+import com.example.demo.model.customerWatchedMovies;
 import com.example.demo.model.ranking;
+import com.example.demo.model.rentMoviesByMonth;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.service.CustomerService;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +25,13 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping("customers")
 public class CustomerController {
+    CustomerService customerService;
 
     public CustomerController(CustomerRepository repository,CustomerService service) {
        // this.repository = repository;
         this.customerService = service;
     }
 
-    CustomerService customerService;
    // CustomerRepository repository;
 
 //    @GetMapping
@@ -41,7 +43,19 @@ public class CustomerController {
 
     @GetMapping
     @RequestMapping("ranking/bySpentMoney")
-    public ResponseEntity<ranking> get() {
+    public ResponseEntity<List<customerSpentMoney>> getByMoney() {
         return ResponseEntity.ok(customerService.rankCustomersByMoneySpent());
+    }
+
+    @GetMapping
+    @RequestMapping("ranking/byWatchedMovies")
+    public ResponseEntity<List<customerWatchedMovies>> getByWatchedMovies() {
+        return ResponseEntity.ok(customerService.rankCustomersByWatchedMovies());
+    }
+
+    @GetMapping
+    @RequestMapping("ranking/rentMoviesByMonth/{year}")
+    public ResponseEntity<List<rentMoviesByMonth>> getRentMoviesBymonth(@PathVariable("year") int year) {
+        return ResponseEntity.ok(customerService.rentMoviesByMonths(year));
     }
 }

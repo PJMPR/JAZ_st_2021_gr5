@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Locale;
 
-public class PieChart extends Chart{
+public class PieChart extends Chart {
     PieDataset pieDataset;
 
     public PieChart(HttpServletResponse response, PieDataset pieDataset) {

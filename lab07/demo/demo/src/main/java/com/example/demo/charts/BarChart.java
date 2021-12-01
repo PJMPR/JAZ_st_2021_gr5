@@ -15,7 +15,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class BarChart extends Chart{
+public class BarChart extends Chart {
     public BarChart(HttpServletResponse response, DefaultCategoryDataset categoryDataset) {
         super(response, categoryDataset);
     }

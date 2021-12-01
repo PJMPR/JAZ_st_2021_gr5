@@ -18,7 +18,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query(value = "select count(payment.amount) as 'watched', customer.customer_id as 'id', customer.first_name as 'firstName', customer.last_name as 'lastName' " +
             "from payment left join customer on payment.customer_id = customer.customer_id " +
-            "group by customer.customer_id order by watched desc limit 10", nativeQuery = true)
+            "group by customer.customer_id order by watched desc, customer.customer_id limit 10", nativeQuery = true)
     List<IFindTop10ByWatchedMost> findTop10ByWatchedMost();
 
     @Query(value = "select month(rental_date) as 'month', count(*) as 'rentmovies' from rental " +

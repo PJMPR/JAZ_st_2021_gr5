@@ -3,7 +3,7 @@ package com.example.demo.databuilders.rental;
 import com.example.demo.repositories.RentalRepository;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class BuildIncome extends BuildRental{
+public class BuildIncome extends BuildRental {
     String from;
     String to;
 

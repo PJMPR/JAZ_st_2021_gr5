@@ -2,19 +2,19 @@ package com.example.demo.controllers;
 
 import com.example.demo.charts.BarChart;
 import com.example.demo.charts.PieChart;
-import com.example.demo.databuilders.WriteAsJPG;
 import com.example.demo.databuilders.customer.BuildClientsThatSpentMost;
 import com.example.demo.databuilders.customer.BuildClientsThatWatchedMost;
 import com.example.demo.databuilders.customer.BuildRentMoviesByMonth;
 import com.example.demo.databuilders.customer.BuildRentMoviesByMonthByCustomer;
+import com.example.demo.projections.customer.IFindRentMoviesByMonth;
+import com.example.demo.projections.customer.IFindRentMoviesByMonthByCustomer;
+import com.example.demo.projections.customer.IFindTop10ByWatchedMost;
+import com.example.demo.projections.customer.IFindTop10ThatSpentMost;
 import com.example.demo.repositories.CustomerRepository;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.labels.*;
-import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.PieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Locale;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -38,8 +38,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "ranking/bySpendMoney", method = GET)
-    public ResponseEntity get10ClientsThatSpentMost() {
-        return ResponseEntity.ok(repository.findTop10BySpentMost());
+    public ResponseEntity<List<IFindTop10ThatSpentMost>> get10ClientsThatSpentMost() {
+        return new ResponseEntity<>(repository.findTop10BySpentMost(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "ranking/bySpendMoney.jpg", params = "chart", method = GET)
@@ -49,8 +49,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "ranking/byWatchedMovies", method = GET)
-    public ResponseEntity get10ClientsThatWatchedMost() {
-        return ResponseEntity.ok(repository.findTop10ByWatchedMost());
+    public ResponseEntity<List<IFindTop10ByWatchedMost>> get10ClientsThatWatchedMost() {
+        return new ResponseEntity<>(repository.findTop10ByWatchedMost(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "ranking/byWatchedMovies.jpg", params = "chart", method = GET)
@@ -60,8 +60,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "activity/rentMoviesByMonth", params = "year", method = GET)
-    public ResponseEntity getRentMoviesByMonth(@RequestParam String year) {
-        return ResponseEntity.ok(repository.findRentMoviesByMonth(year));
+    public ResponseEntity<List<IFindRentMoviesByMonth>> getRentMoviesByMonth(@RequestParam String year) {
+        return new ResponseEntity<>(repository.findRentMoviesByMonth(year), HttpStatus.OK);
     }
 
     @RequestMapping(value = "activity/rentMoviesByMonth.jpg", params = {"year", "chart"}, method = GET)
@@ -71,8 +71,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "activity/rentMoviesByMonth", params = "customerid", method = GET)
-    public ResponseEntity getRentMoviesByMonthByCustomer(@RequestParam String customerid) {
-        return ResponseEntity.ok(repository.findRentMoviesByMonthByCustomer(customerid));
+    public ResponseEntity<List<IFindRentMoviesByMonthByCustomer>> getRentMoviesByMonthByCustomer(@RequestParam String customerid) {
+        return new ResponseEntity<>(repository.findRentMoviesByMonthByCustomer(customerid), HttpStatus.OK);
     }
 
     @RequestMapping(value = "activity/rentMoviesByMonth.jpg", params = {"customerid", "chart"}, method = GET)

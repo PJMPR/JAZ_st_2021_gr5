@@ -15,7 +15,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class LinearChart extends Chart{
+public class LinearChart extends Chart {
 
     public LinearChart(HttpServletResponse response, DefaultCategoryDataset categoryDataset) {
         super(response, categoryDataset);

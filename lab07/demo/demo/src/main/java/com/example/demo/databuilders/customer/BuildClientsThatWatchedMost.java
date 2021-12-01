@@ -3,7 +3,7 @@ package com.example.demo.databuilders.customer;
 import com.example.demo.repositories.CustomerRepository;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class BuildClientsThatWatchedMost extends BuildCustomer{
+public class BuildClientsThatWatchedMost extends BuildCustomer {
     public BuildClientsThatWatchedMost(CustomerRepository repository) {
         super(repository);
     }

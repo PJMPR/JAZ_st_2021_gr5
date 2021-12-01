@@ -4,7 +4,7 @@ import com.example.demo.repositories.CustomerRepository;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
-public class BuildClientsThatSpentMost extends BuildCustomer{
+public class BuildClientsThatSpentMost extends BuildCustomer {
     public BuildClientsThatSpentMost(CustomerRepository repository) {
         super(repository);
     }

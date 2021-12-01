@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.charts.BarChartGenerator;
+import com.example.demo.charts.PieChartGenerator;
 import com.example.demo.data.Customer;
 import com.example.demo.data.Payment;
 import com.example.demo.data.Rental;
@@ -9,8 +11,11 @@ import com.example.demo.model.ranking;
 import com.example.demo.model.rentMoviesByMonth;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.repositories.RentalRepository;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -20,25 +25,30 @@ public class CustomerService {
 
     CustomerRepository repository;
     RentalRepository rentalRepository;
-
     ranking ranking = new ranking();
-    public CustomerService(CustomerRepository repository,RentalRepository rentalRepository) {
+
+    public CustomerService(CustomerRepository repository, RentalRepository rentalRepository) {
         this.repository = repository;
         this.rentalRepository = rentalRepository;
     }
 
-    public List<customerSpentMoney> rankCustomersByMoneySpent(){
+    //public final List<Integer> ids = repository.findAll().stream().map(Customer::getCustomerId).collect(Collectors.toList());
+
+    public List<customerSpentMoney> rankCustomersByMoneySpent() {
         Map<Integer, BigDecimal> myMap = new HashMap<>();
-        List<Integer> ids = repository.findAll().stream().map(Customer::getCustomerId).collect(Collectors.toList());
-        for (int id : ids) {
-            myMap.put(id, repository.getById(id).getPayments().stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add));
-        }
+        Map<Integer, BigDecimal> finalMyMap = myMap;
+        //  List<Integer> ids = repository.findAll().stream().map(Customer::getCustomerId).collect(Collectors.toList());
+      //  for (int id : ids) {
+           // Map<Integer, BigDecimal> finalMyMap1 = myMap;
+            repository.findAll().stream().map(Customer::getCustomerId).forEach(id-> finalMyMap.put(id, repository.getById(id).getPayments().stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add)));
+            //myMap.put(id, repository.getById(id).getPayments().stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add));
+      //  }
         myMap = myMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (oldValue,newValue) -> oldValue, LinkedHashMap::new));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-        Map<Integer, BigDecimal> finalMyMap = myMap;
-        myMap.keySet().stream().limit(10).forEach(key->ranking.getRanking()
+        //Map<Integer, BigDecimal> finalMyMap = myMap;
+        myMap.keySet().stream().limit(10).forEach(key -> ranking.getRanking()
                 .add(new customerSpentMoney(repository.getById(key).getCustomerId(),
                         repository.getById(key).getFirstName(),
                         repository.getById(key).getLastName(),
@@ -47,20 +57,20 @@ public class CustomerService {
         return ranking.getRanking();
     }
 
-    public List<customerWatchedMovies> rankCustomersByWatchedMovies(){
+    public List<customerWatchedMovies> rankCustomersByWatchedMovies() {
         Map<Integer, Integer> myMap = new HashMap<>();
-        List<Integer> ids = repository.findAll().stream().map(Customer::getCustomerId).collect(Collectors.toList());
+          List<Integer> ids = repository.findAll().stream().map(Customer::getCustomerId).collect(Collectors.toList());
         for (int id : ids) {
             myMap.put(id, repository.getById(id).getRentalsByCustomer().size());
         }
 
         myMap = myMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (oldValue,newValue) -> oldValue, LinkedHashMap::new));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
         Map<Integer, Integer> finalMyMap = myMap;
         myMap.keySet().stream().limit(10)
-                .forEach(key->ranking.getRankingMovies()
+                .forEach(key -> ranking.getRankingMovies()
                         .add(new customerWatchedMovies(repository.getById(key).getCustomerId(),
                                 repository.getById(key).getFirstName(),
                                 repository.getById(key).getLastName(),
@@ -68,12 +78,12 @@ public class CustomerService {
         return ranking.getRankingMovies();
     }
 
-    public List<rentMoviesByMonth> rentMoviesByMonths(int year){
-        Map<Integer, Integer> myMap = new HashMap<>();
-        List<Integer> ids = rentalRepository.findAll().stream().map(Rental::getRentalId).collect(Collectors.toList());
+    public List<rentMoviesByMonth> rentMoviesByMonths(int year) {
+           Map<Integer, Integer> myMap = new HashMap<>();
+           List<Integer> ids = rentalRepository.findAll().stream().map(Rental::getRentalId).collect(Collectors.toList());
 
-        for(int id:ids){
-            if(rentalRepository.findById(id).get().getRentalDate().getYear() == 2005) {
+        for (int id : ids) {
+            if (rentalRepository.findById(id).get().getRentalDate().getYear() == 2005) {
                 if (!myMap.containsKey(rentalRepository.findById(id).get().getRentalDate().getMonth())) {
                     myMap.put(rentalRepository.findById(id).get().getRentalDate().getMonth(), 1);
                 } else {
@@ -82,10 +92,31 @@ public class CustomerService {
             }
         }
         myMap.keySet()
-                .forEach(key->ranking.getRentMoviesByMonths()
+                .forEach(key -> ranking.getRentMoviesByMonths()
                         .add(new rentMoviesByMonth(key,
                                 myMap.get(key))));
 
         return ranking.getRentMoviesByMonths();
+    }
+
+    public byte[] generatePieChart() throws IOException {
+        PieChartGenerator pieChartGenerator = new PieChartGenerator();
+        DefaultPieDataset dataset = pieChartGenerator.getDataset();
+
+        List<customerSpentMoney> entryData = rankCustomersByMoneySpent();
+
+        entryData.forEach(customerSpentMoney -> dataset.setValue(customerSpentMoney.getCustomerId(), customerSpentMoney.getMoneySpent()));
+
+        return pieChartGenerator.generate("Customers by Money Spent");
+    }
+
+    public byte[] generateBarChart() throws IOException {
+        BarChartGenerator barChartGenerator = new BarChartGenerator();
+        DefaultCategoryDataset dataset = barChartGenerator.getDataset();
+        List<customerWatchedMovies> entryData = rankCustomersByWatchedMovies();
+
+        entryData.forEach(customerWatchedMovies -> dataset.setValue((Number) customerWatchedMovies.getWatchedMovies(), customerWatchedMovies.getCustomerId(), "Customers"));
+
+        return barChartGenerator.generate("Movies Watched", "", "movies");
     }
 }

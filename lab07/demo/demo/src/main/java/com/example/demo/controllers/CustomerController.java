@@ -8,6 +8,8 @@ import com.example.demo.model.ranking;
 import com.example.demo.model.rentMoviesByMonth;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.service.CustomerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -48,9 +51,29 @@ public class CustomerController {
     }
 
     @GetMapping
+    @RequestMapping("ranking/bySpentMoney.jpg/{chart}")
+    public ResponseEntity getByMoneyChart(@PathVariable("chart") String chart) throws IOException {
+        if(chart.equals("pie")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(customerService.generatePieChart());
+        }
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+
+
+    @GetMapping
     @RequestMapping("ranking/byWatchedMovies")
     public ResponseEntity<List<customerWatchedMovies>> getByWatchedMovies() {
         return ResponseEntity.ok(customerService.rankCustomersByWatchedMovies());
+    }
+
+    @GetMapping
+    @RequestMapping("ranking/byWatchedMovies.jpg/{chart}")
+    public ResponseEntity getByMoviesChart(@PathVariable("chart") String chart) throws IOException {
+        if(chart.equals("bar")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(customerService.generateBarChart());
+        }
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED);
     }
 
     @GetMapping

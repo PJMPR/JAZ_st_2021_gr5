@@ -37,9 +37,9 @@ public class CustomerController {
     }
 
     @GetMapping
-    @RequestMapping("/ranking/bySpentMoney.jpg?chart=[pie]")
-    public ResponseEntity getTopMoneySpentChart(@PathVariable String chartType){
-        return ResponseEntity.ok(customerService.getTopMoneySpentChart(10, chartType));
+    @RequestMapping("/ranking/bySpentMoney.jpg/{type}")
+    public ResponseEntity getTopMoneySpentChart(@PathVariable("type") String type){
+        return ResponseEntity.ok(customerService.getTopMoneySpentChart(10));
     }
 
     @GetMapping

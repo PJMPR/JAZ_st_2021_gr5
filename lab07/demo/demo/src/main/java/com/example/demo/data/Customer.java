@@ -161,7 +161,7 @@ public class Customer {
 
     public BigDecimal amountSpent(){
         BigDecimal sum = BigDecimal.ZERO;
-        payments.stream().forEach(x -> sum.add(x.getAmount()));
+        sum = payments.stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add);
         return sum;
     }
 

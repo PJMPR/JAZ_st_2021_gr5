@@ -2,6 +2,8 @@ package com.example.demo.services;
 
 import com.example.demo.data.CustomerStats;
 import com.example.demo.repositories.CustomerRepository;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -46,9 +48,15 @@ public class CustomerService {
                 .collect(Collectors.toList());
     }
 
-    public Object getTopMoneySpentChart(int limit, String chartType) {
+    public Object getTopMoneySpentChart(int limit) {
         DefaultPieDataset dataset = new DefaultPieDataset();
         getTopMoneySpent(limit).stream().forEach(x -> dataset.setValue(x.getId(), x.getAmountSpent()));
-        return dataset;
+        JFreeChart chart = ChartFactory.createPieChart(
+                "TopMoneySpent",
+                dataset,
+                true,
+                true,
+                false);
+        return chart;
     }
 }

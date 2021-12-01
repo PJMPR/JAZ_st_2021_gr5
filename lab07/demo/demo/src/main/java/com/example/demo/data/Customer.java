@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
@@ -158,8 +159,10 @@ public class Customer {
         this.rentalsByCustomer = rentalsByCustomer;
     }
 
-    public double amountSpent(){
-        return payments.stream().map(p -> p.getAmount().doubleValue()).collect(Collectors.summingDouble(Double::doubleValue));
+    public BigDecimal amountSpent(){
+        BigDecimal sum = BigDecimal.ZERO;
+        payments.stream().forEach(x -> sum.add(x.getAmount()));
+        return sum;
     }
 
     public int moviesWatched(){

@@ -31,26 +31,5 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
         </properties>
     </persistence-unit>
-    <persistence-unit name="persistenceUnit">
-        <class>com.example.demo.model.Actor</class>
-        <class>com.example.demo.model.Address</class>
-        <class>com.example.demo.model.Category</class>
-        <class>com.example.demo.model.City</class>
-        <class>com.example.demo.model.Country</class>
-        <class>com.example.demo.model.Customer</class>
-        <class>com.example.demo.model.Film</class>
-        <class>com.example.demo.model.FilmActor</class>
-        <class>com.example.demo.model.FilmCategory</class>
-        <class>com.example.demo.model.FilmText</class>
-        <class>com.example.demo.model.Inventory</class>
-        <class>com.example.demo.model.Language</class>
-        <class>com.example.demo.model.Payment</class>
-        <class>com.example.demo.model.Rental</class>
-        <class>com.example.demo.model.Staff</class>
-        <class>com.example.demo.model.Store</class>
-        <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sakila"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
-        </properties>
-    </persistence-unit>
+    <persistence-unit name="persistenceUnit"/>
 </persistence>

@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 import com.example.demo.repositories.CustomerRepository;
+import com.example.demo.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,17 +16,29 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("customers")
 public class CustomerController {
-
-    public CustomerController(CustomerRepository repository) {
-        this.repository = repository;
+    @Autowired
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    CustomerRepository repository;
+    CustomerService customerService;
 
     @GetMapping
     @RequestMapping("{id}")
     public ResponseEntity get(@PathVariable("id") int id){
         Timestamp t = Timestamp.valueOf("2021-01-10 00:00:00");
-        return ResponseEntity.ok(repository.getById(id).getPayments().stream().map(x->x.getLastUpdate()).collect(Collectors.toList()));
+        return ResponseEntity.ok(customerService.customerRepository.getById(id).getPayments().stream().map(x->x.getLastUpdate()).collect(Collectors.toList()));
+    }
+
+    @GetMapping
+    @RequestMapping("/ranking/bySpentMoney")
+    public ResponseEntity getTopMoneySpent(){
+        return ResponseEntity.ok(customerService.getTopMoneySpent(10));
+    }
+
+    @GetMapping
+    @RequestMapping("/ranking/byWatchedMovies")
+    public ResponseEntity getTopWatchedMovies(){
+        return ResponseEntity.ok(customerService.getTopWatchedMovies(10));
     }
 }

@@ -3,6 +3,8 @@ package com.example.demo.data;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Entity
 public class Customer {
@@ -97,11 +99,11 @@ public class Customer {
 
         if (customerId != customer.customerId) return false;
         if (active != customer.active) return false;
-        if (firstName != null ? !firstName.equals(customer.firstName) : customer.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(customer.lastName) : customer.lastName != null) return false;
-        if (email != null ? !email.equals(customer.email) : customer.email != null) return false;
-        if (createDate != null ? !createDate.equals(customer.createDate) : customer.createDate != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(customer.lastUpdate) : customer.lastUpdate != null) return false;
+        if (!Objects.equals(firstName, customer.firstName)) return false;
+        if (!Objects.equals(lastName, customer.lastName)) return false;
+        if (!Objects.equals(email, customer.email)) return false;
+        if (!Objects.equals(createDate, customer.createDate)) return false;
+        if (!Objects.equals(lastUpdate, customer.lastUpdate)) return false;
 
         return true;
     }
@@ -154,5 +156,13 @@ public class Customer {
 
     public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
+    }
+
+    public double amountSpent(){
+        return payments.stream().map(p -> p.getAmount().doubleValue()).collect(Collectors.summingDouble(Double::doubleValue));
+    }
+
+    public int moviesWatched(){
+        return payments.size();
     }
 }

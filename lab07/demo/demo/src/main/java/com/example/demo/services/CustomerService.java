@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -25,9 +24,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public CustomerService(){
-
-    }
+    public CustomerService(){}
 
     private List<CustomerStats> getTopCustomerStats(){
         ArrayList<CustomerStats> customerStatsList = new ArrayList<>();

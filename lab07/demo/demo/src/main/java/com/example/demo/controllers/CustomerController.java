@@ -1,6 +1,5 @@
 package com.example.demo.controllers;
 
-import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.stream.Collectors;
 
 @RestController
@@ -50,13 +48,15 @@ public class CustomerController {
 
     @GetMapping
     @RequestMapping("/ranking/byWatchedMovies.jpg/{type}")
-    public ResponseEntity getTopWatchedMoviesChart(@PathVariable("type") String type){
+    public ResponseEntity getTopWatchedMoviesChart(@PathVariable String type){
         return ResponseEntity.ok(customerService.getTopWatchedMoviesChart(10));
     }
 
     @GetMapping
     @RequestMapping("/activity/rentMoviesByMonth/{year}")
-    public ResponseEntity getMoviesByMonth(@PathVariable("year") int year){
+    public ResponseEntity getMoviesByMonth(@PathVariable int year){
         return ResponseEntity.ok(customerService.getMoviesByMonth(year));
     }
+
+
 }

@@ -2,7 +2,6 @@ package com.example.demo.data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.Collection;
 
 @Entity
@@ -117,19 +116,5 @@ public class Rental {
 
     public void setStaffByStaffId(Staff staffByStaffId) {
         this.staffByStaffId = staffByStaffId;
-    }
-
-    public int rentalMonth() {
-        long rentalTime = rentalDate.getTime();
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(rentalTime);
-        return cal.get(Calendar.MONTH);
-    }
-
-    public int rentalYear() {
-        long rentalTime = rentalDate.getTime();
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(rentalTime);
-        return cal.get(Calendar.YEAR);
     }
 }

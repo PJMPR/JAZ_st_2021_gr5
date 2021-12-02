@@ -155,22 +155,4 @@ public class Customer {
     public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
     }
-
-    public double spentMoney() {
-        return payments.stream().mapToDouble(payment -> payment.getAmount().doubleValue()).sum();
-    }
-
-    public int moviesWatched() {
-        return payments.size();
-    }
-
-    public int rentalsByRentalDate(int year, int month) {
-        int rentalsByMonth = 0;
-        for (Rental rental : rentalsByCustomer) {
-            if (rental.rentalMonth() == month && rental.rentalYear() == year) {
-                rentalsByMonth++;
-            }
-        }
-        return rentalsByMonth;
-    }
 }

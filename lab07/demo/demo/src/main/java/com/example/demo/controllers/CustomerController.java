@@ -58,5 +58,9 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.getMoviesByMonth(year));
     }
 
-
+    @GetMapping
+    @RequestMapping("/activity/rentMoviesByMonth/{year}/{id}")
+    public ResponseEntity getMoviesForCustomer(@PathVariable int year, @PathVariable int id){
+        return ResponseEntity.ok(customerService.getMoviesForCustomer(year, id));
+    }
 }

@@ -21,6 +21,12 @@ public class RentalController {
     @GetMapping
     @RequestMapping("/incomeByMonth/{year}")
     public ResponseEntity getIncomeByMonth(@PathVariable int year){
-        return ResponseEntity.ok(rentalService.getIncomeByMonth(year));
+        return ResponseEntity.ok(rentalService.getIncomeByYear(year));
+    }
+
+    @GetMapping
+    @RequestMapping("/income/{from}/{to}")
+    public ResponseEntity getIncomeFromTo(@PathVariable String from, @PathVariable String to){
+        return ResponseEntity.ok(rentalService.gerIncomeFromTo(from, to));
     }
 }

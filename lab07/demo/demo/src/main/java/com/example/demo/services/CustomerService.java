@@ -79,4 +79,12 @@ public class CustomerService {
         IntStream.rangeClosed(1, 12).forEach(i -> monthStats.add(new MonthStats(i, temp.get(i-1))));
         return monthStats;
     }
+
+    public Object getMoviesForCustomer(int year, int id) {
+        ArrayList<MonthStats> monthStats = new ArrayList<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        IntStream.rangeClosed(1, 12).forEach(i -> temp.add(customerRepository.findById(id).stream().map(x -> x.getRentalsByYear(year, i)).reduce(0, Integer::sum)));
+        IntStream.rangeClosed(1, 12).forEach(i -> monthStats.add(new MonthStats(i, temp.get(i-1))));
+        return monthStats;
+    }
 }

@@ -1,16 +1,16 @@
 package com.example.demo.controllers;
 
-import com.example.demo.charts.CanvasjsChartService;
+import com.example.demo.charts.ChartType;
 import com.example.demo.repositories.CustomerRepository;
 import com.example.demo.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,20 +36,22 @@ public class CustomerController {
     public ResponseEntity displayCustomerRankingBySpentMoney(){
         return ResponseEntity.ok(customerService.getCustomersByMoneySpent(10));
     }
-    @Autowired
-    private CanvasjsChartService canvasjsChartService;
 
-    @RequestMapping("/ranking/bySpentMoney.jpg?chart=pie")
-    public String springMVC(ModelMap modelMap) {
-        List<List<Map<Object, Object>>> canvasjsDataList = canvasjsChartService.getCanvasjsChartData();
-        modelMap.addAttribute("dataPointsList", canvasjsDataList);
-        return "chart";
+    @GetMapping
+    @RequestMapping("ranking/bySpentMoney.jpg/pie")
+    public ResponseEntity displayCustomerBySpentMoneyChart() throws IOException {
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(customerService.makeChart(ChartType.PIE));
     }
 
     @GetMapping
     @RequestMapping("/ranking/byWatchedMovies")
     public ResponseEntity displayCustomerRankingByWatchedMovies(){
         return ResponseEntity.ok(customerService.getCustomersByWatchedMovies(10));
+    }
+    @GetMapping
+    @RequestMapping("ranking/byWatchedMovies.jpg/bar")
+    public ResponseEntity displayCustomerByWatchedMoviesChart() throws IOException {
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(customerService.makeChart(ChartType.BAR));
     }
 
 //    @GetMapping

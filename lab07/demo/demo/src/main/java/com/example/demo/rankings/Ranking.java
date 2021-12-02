@@ -3,6 +3,7 @@ package com.example.demo.rankings;
 import com.example.demo.data.Customer;
 import com.example.demo.data.CustomerData;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Ranking {
 
     public void addToRanking(Customer customer){
         customerRanking.add(new CustomerData(customer.getCustomerId(),customer.getFirstName(),
-                customer.getLastName(),customer.amountSpent(),customer.moviesWatched()));
+                customer.getLastName(), BigDecimal.valueOf(customer.amountSpent()),customer.moviesWatched()));
     }
 
     public List<CustomerData> getCustomerRanking() {

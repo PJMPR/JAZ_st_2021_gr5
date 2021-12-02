@@ -1,13 +1,15 @@
 package com.example.demo.data;
 
+import java.math.BigDecimal;
+
 public class CustomerData {
     private int id;
     private String firstName;
     private String lastName;
-    public double amountSpent;
+    public BigDecimal amountSpent;
     public int moviesWatched;
 
-    public CustomerData(int id, String firstName, String lastName, double amountSpent, int moviesWatched) {
+    public CustomerData(int id, String firstName, String lastName, BigDecimal amountSpent, int moviesWatched) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,11 +41,11 @@ public class CustomerData {
         this.lastName = lastName;
     }
 
-    public double getAmountSpent() {
+    public BigDecimal getAmountSpent() {
         return amountSpent;
     }
 
-    public void setAmountSpent(double amountSpent) {
+    public void setAmountSpent(BigDecimal amountSpent) {
         this.amountSpent = amountSpent;
     }
 

@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Entity
 public class Customer {
@@ -167,5 +166,11 @@ public class Customer {
 
     public int moviesWatched(){
         return payments.size();
+    }
+
+    public int getRentalsByYear(int year, int month){
+        Timestamp timeFrom = Timestamp.valueOf(year+"-"+month+"-01 00:00:01");
+        Timestamp timeTo = Timestamp.valueOf(year+"-"+month+"-31 23:59:59");
+        return (int)getRentalsByCustomer().stream().map(Rental::getRentalDate).filter(x -> x.after(timeFrom) && x.before(timeTo)).count();
     }
 }

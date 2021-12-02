@@ -47,4 +47,16 @@ public class CustomerController {
     public ResponseEntity getTopWatchedMovies(){
         return ResponseEntity.ok(customerService.getTopWatchedMovies(10));
     }
+
+    @GetMapping
+    @RequestMapping("/ranking/byWatchedMovies.jpg/{type}")
+    public ResponseEntity getTopWatchedMoviesChart(@PathVariable("type") String type){
+        return ResponseEntity.ok(customerService.getTopWatchedMoviesChart(10));
+    }
+
+    @GetMapping
+    @RequestMapping("/activity/rentMoviesByMonth/{year}")
+    public ResponseEntity getMoviesByMonth(@PathVariable("year") int year){
+        return ResponseEntity.ok(customerService.getMoviesByMonth(year));
+    }
 }

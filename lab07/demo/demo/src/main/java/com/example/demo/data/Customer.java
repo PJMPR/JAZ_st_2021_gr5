@@ -18,6 +18,22 @@ public class Customer {
     private Collection<Payment> payments;
     private Collection<Rental> rentalsByCustomer;
 
+    public Customer(int customerId, String firstName, String lastName, String email, byte active, Timestamp createDate, Timestamp lastUpdate, Store store, Address address, Collection<Payment> payments, Collection<Rental> rentalsByCustomer) {
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.active = active;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+        this.store = store;
+        this.address = address;
+        this.payments = payments;
+        this.rentalsByCustomer = rentalsByCustomer;
+    }
+    public Customer() { }
+
+
     @Id
     @Column(name = "customer_id")
     public int getCustomerId() {

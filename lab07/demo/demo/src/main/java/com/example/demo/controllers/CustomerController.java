@@ -27,4 +27,9 @@ public class CustomerController {
         Timestamp t = Timestamp.valueOf("2021-01-10 00:00:00");
         return ResponseEntity.ok(repository.getById(id).getPayments().stream().map(x->x.getLastUpdate()).collect(Collectors.toList()));
     }
+
+    @GetMapping("{customers/ranking/bySpentMoney}")
+    public String display10TopClients() {
+        return.
+    }
 }

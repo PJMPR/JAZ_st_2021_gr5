@@ -2,8 +2,7 @@ package com.example.demo.data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Collection;
 
 @Entity
 public class Customer {
@@ -16,8 +15,8 @@ public class Customer {
     private Timestamp lastUpdate;
     private Store store;
     private Address address;
-    private List<Payment> payments;
-    private List<Rental> rentalsByCustomer;
+    private Collection<Payment> payments;
+    private Collection<Rental> rentalsByCustomer;
 
     @Id
     @Column(name = "customer_id")
@@ -140,28 +139,38 @@ public class Customer {
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public List<Payment> getPayments() {
+    public Collection<Payment> getPayments() {
         return payments;
     }
 
-    public void setPayments(List<Payment> payments) {
+    public void setPayments(Collection<Payment> payments) {
         this.payments = payments;
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public List<Rental> getRentalsByCustomer() {
+    public Collection<Rental> getRentalsByCustomer() {
         return rentalsByCustomer;
     }
 
-    public void setRentalsByCustomer(List<Rental> rentalsByCustomer) {
+    public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
     }
 
-    public double amountSpent(){
+    public double spentMoney() {
         return payments.stream().mapToDouble(payment -> payment.getAmount().doubleValue()).sum();
     }
 
-    public int moviesWatched(){
+    public int moviesWatched() {
         return payments.size();
+    }
+
+    public int rentalsByRentalDate(int year, int month) {
+        int rentalsByMonth = 0;
+        for (Rental rental : rentalsByCustomer) {
+            if (rental.rentalMonth() == month && rental.rentalYear() == year) {
+                rentalsByMonth++;
+            }
+        }
+        return rentalsByMonth;
     }
 }

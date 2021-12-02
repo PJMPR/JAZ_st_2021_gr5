@@ -117,4 +117,6 @@ public class Rental {
     public void setStaffByStaffId(Staff staffByStaffId) {
         this.staffByStaffId = staffByStaffId;
     }
+
+
 }

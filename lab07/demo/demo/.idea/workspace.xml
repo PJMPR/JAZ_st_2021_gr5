@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8074f072-c537-457c-a0f1-33c9228e4e3f" name="Changes" comment="charts added">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/ChartGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/IChartGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/LinearChartGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/RentalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/CustomerStats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/RentalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lab03/demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab03/demo/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab05/demo/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab05/demo/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bar_ChartMovies Watched.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Bar_ChartMovies Watched.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/BarChartGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/BarChartGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/PieChartGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/PieChartGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Rental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/customerSpentMoney.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/customerWatchedMovies.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ranking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/rentMoviesByMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/RentalStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/repositories/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repositories/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/CustomerService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="21VWrxCMZCmhVcrWHXzs4RsjClP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../lab05/demo" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.DemoApplication">
+    <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.DemoApplication" />
+        <item itemvalue="HTTP Request.generated-requests#1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8074f072-c537-457c-a0f1-33c9228e4e3f" name="Changes" comment="" />
+      <created>1638026938977</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638026938977</updated>
+      <workItem from="1638026940173" duration="1144000" />
+      <workItem from="1638216553761" duration="8702000" />
+      <workItem from="1638263032832" duration="2309000" />
+      <workItem from="1638302284443" duration="7773000" />
+      <workItem from="1638386201804" duration="9102000" />
+      <workItem from="1638440210762" duration="28000" />
+      <workItem from="1638440277436" duration="17454000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1638028048089</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638028048089</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Customer ranking by money spent added">
+      <created>1638227468316</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638227468316</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rent movies by month, rank by watched movies">
+      <created>1638310939843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638310939843</updated>
+    </task>
+    <task id="LOCAL-00004" summary="charts added">
+      <created>1638394269343</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638394269343</updated>
+    </task>
+    <task id="LOCAL-00005" summary="charts added">
+      <created>1638440304508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638440304508</updated>
+    </task>
+    <task id="LOCAL-00006" summary="charts added">
+      <created>1638440402402</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638440402402</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Customer ranking by money spent added" />
+    <MESSAGE value="rent movies by month, rank by watched movies" />
+    <MESSAGE value="charts added" />
+    <option name="LAST_COMMIT_MESSAGE" value="charts added" />
+  </component>
+</project>

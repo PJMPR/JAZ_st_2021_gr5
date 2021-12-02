@@ -9,11 +9,12 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
-public class PieChartGenerator {
+public class PieChartGenerator extends ChartGenerator implements IChartGenerator {
     private final DefaultPieDataset dataset = new DefaultPieDataset();
 
     public PieChartGenerator() {
     }
+
 
     public DefaultPieDataset getDataset() {
         return dataset;
@@ -23,21 +24,13 @@ public class PieChartGenerator {
         return dataset;
     }
 
-    public byte[] generate(String title) throws IOException {
+    public byte[] generate(String title, String type, String xAxisLabel, String yAxisLabel) throws IOException {
         JFreeChart chart = ChartFactory.createPieChart(
                 title,
                 dataset,
                 true,
                 true,
                 false);
-
-
-        File pieChart = new File("Pie_Chart" + title + ".jpeg");
-        ChartUtilities.saveChartAsJPEG(pieChart, chart, 560, 370);
-        BufferedImage bImage = ImageIO.read(new File("Pie_Chart"+title+".jpeg"));
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "jpg", bos);
-        return bos.toByteArray();
+        return saveChart(title, chart, type);
     }
 }

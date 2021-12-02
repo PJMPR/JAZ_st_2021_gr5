@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
@@ -155,5 +156,19 @@ public class Customer {
 
     public void setRentalsByCustomer(List<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
+    }
+
+    public BigDecimal amountSpent(){
+        return payments.stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add);
+    }
+
+    public int moviesWatched(){
+        return payments.size();
+    }
+
+    public int getRentalsByMonth(int year, int month){
+        Timestamp timeFrom = Timestamp.valueOf(year+"-"+month+"-01 00:00:01");
+        Timestamp timeTo = Timestamp.valueOf(year+"-"+month+"-31 23:59:59");
+        return (int)getRentalsByCustomer().stream().map(Rental::getRentalDate).filter(x -> x.after(timeFrom) && x.before(timeTo)).count();
     }
 }

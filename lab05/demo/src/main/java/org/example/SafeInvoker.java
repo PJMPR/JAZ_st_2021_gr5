@@ -23,11 +23,10 @@ public class SafeInvoker implements ISafeInvoker{
             repeater.For(ex);
             exception=ex;
             while (repeater.shouldRetry()){
-                try{
+                try {
                     action.execute();
                     isSuccess=true;
                     exception=null;
-                    break;
                 }catch(Exception ex2){
                     exception=ex2;
                     repeater.For(ex2).waiting().retry();

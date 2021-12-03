@@ -1,19 +1,19 @@
 package com.example.demo.data;
 
 public class MonthStats {
-    private int month;
+    private String month;
     private int value;
 
-    public MonthStats(int month, int value){
+    public MonthStats(String month, int value) {
         this.month = month;
         this.value = value;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 

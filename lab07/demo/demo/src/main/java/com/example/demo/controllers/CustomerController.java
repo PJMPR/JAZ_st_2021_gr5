@@ -2,12 +2,15 @@ package com.example.demo.controllers;
 
 import com.example.demo.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.stream.Collectors;
 
@@ -62,5 +65,68 @@ public class CustomerController {
     @RequestMapping("/activity/rentMoviesByMonth/{year}/{id}")
     public ResponseEntity getMoviesForCustomer(@PathVariable int year, @PathVariable int id){
         return ResponseEntity.ok(customerService.getMoviesForCustomer(year, id));
+    }
+
+    @GetMapping
+    @RequestMapping("ranking/bySpentMoney.jpg/{chart}")
+    public ResponseEntity getByMoneyChart(@PathVariable("chart") String chart) throws IOException {
+        if(chart.equals("pie")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateCustomerPieChart(
+                            "Customers by money spent",
+                            "money",
+                            customerService.getTopMoneySpent(10)));
+
+        }else if (chart.equals("bar")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateCustomerBarChart(
+                            "Customers by money spent",
+                            "money",
+                            "",
+                            "Money spent",
+                            customerService.getTopMoneySpent(10)));
+        }
+        return (ResponseEntity) ResponseEntity.status(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping
+    @RequestMapping("ranking/byWatchedMovies.jpg/{chart}")
+    public ResponseEntity getByMoviesChart(@PathVariable("chart") String chart) throws IOException {
+        if(chart.equals("bar")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateCustomerBarChart(
+                            "Movies watched",
+                            "movies",
+                            "",
+                            "movies",
+                            customerService.getTopWatchedMovies(10)));
+        }else if(chart.equals("pie")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateCustomerPieChart(
+                            "Customers by movies watched",
+                            "movies",
+                            customerService.getTopWatchedMovies(10)));
+        }
+        return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping
+    @RequestMapping("activity/rentMoviesByMonth/{year}/{chart}")
+    public ResponseEntity getRentMoviesByMonthChart(@PathVariable("year") int year, @PathVariable("chart") String chart) throws IOException {
+        if(chart.equals("bar")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateRentalBarChart(
+                            "Movies rental by month",
+                            "months",
+                            "rentals",
+                            customerService.getMoviesByMonth(year)
+                    ));
+        }else if(chart.equals("pie")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                    .body(customerService.generateRentalPieChart(
+                            "Rentals by months",
+                            customerService.getMoviesByMonth(year)));
+        }
+        return ResponseEntity.ok(customerService.getMoviesByMonth(year));
     }
 }

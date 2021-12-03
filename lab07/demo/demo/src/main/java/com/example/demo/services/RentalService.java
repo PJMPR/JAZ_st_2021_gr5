@@ -1,17 +1,22 @@
 package com.example.demo.services;
 
+import com.example.demo.charts.BarChartGenerator;
+import com.example.demo.charts.IChartGenerator;
+import com.example.demo.charts.LinearChartGenerator;
+import com.example.demo.charts.PieChartGenerator;
 import com.example.demo.data.MonthStats;
 import com.example.demo.data.Rental;
 import com.example.demo.repositories.RentalRepository;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -40,18 +45,58 @@ public class RentalService {
         ArrayList<MonthStats> monthStats = new ArrayList<>();
         ArrayList<Integer> temp = new ArrayList<>();
         IntStream.rangeClosed(1, 12).forEach(i -> temp.add(getIncomeByMonth(year+"-"+i+"-01", year+"-"+i+"-31")));
-        IntStream.rangeClosed(1, 12).forEach(i -> monthStats.add(new MonthStats(i, (temp.get(i-1)))));
+        IntStream.rangeClosed(1, 12).forEach(i -> monthStats.add(new MonthStats(String.valueOf(i), (temp.get(i-1)))));
         return monthStats;
     }
 
     public Object gerIncomeFromTo(String from, String to) {
         ArrayList<MonthStats> monthStats = new ArrayList<>();
-        ArrayList<Integer> temp = new ArrayList<>();
-        int months = Period.between(LocalDate.parse(from).withDayOfMonth(1), LocalDate.parse(to).withDayOfMonth(1)).getMonths();
-        Calendar calendar = Calendar.getInstance();
-
-        IntStream.rangeClosed(1, months).forEach(i -> temp.add(getIncomeByMonth(from, to)));
-        IntStream.rangeClosed(1, months).forEach(i -> monthStats.add(new MonthStats(i, (temp.get(i-1)))));
+        LocalDate date = LocalDate.parse(from);
+        LocalDate temp;
+        while(date.isBefore(LocalDate.parse(to))){
+            temp = date;
+            date = date.plusMonths(1);
+            System.out.println(temp);
+            monthStats.add(new MonthStats(date.toString(), (getIncomeByMonth(temp.toString(), date.toString()))));
+        }
         return monthStats;
+    }
+
+    public byte[] generateRentalLinearChart(String title, String xAxis, String yAxis, List<MonthStats> entryData) throws IOException {
+        LinearChartGenerator linearChartGenerator = new LinearChartGenerator();
+        DefaultCategoryDataset dataset = (DefaultCategoryDataset) linearChartGenerator.getDataset();
+
+        entryData.forEach(rentalStats -> dataset.setValue(
+                (Number) rentalStats.getValue(),
+                "",
+                rentalStats.getMonth()
+        ));
+
+        return linearChartGenerator.generate(title, "linear", xAxis, yAxis);
+    }
+
+    public byte[] generateRentalBarChart(String title, String xAxis, String yAxis, List<MonthStats> entryData) throws IOException {
+        BarChartGenerator barChartGenerator = new BarChartGenerator();
+        DefaultCategoryDataset dataset = (DefaultCategoryDataset) barChartGenerator.getDataset();
+
+        entryData.forEach(stats -> dataset.setValue(
+                (Number) stats.getValue(),
+                "income",
+                stats.getMonth()
+        ));
+
+        return barChartGenerator.generate(title, "bar", xAxis, yAxis);
+    }
+
+    public byte[] generateRentalPieChart(String title, List<MonthStats> entryData) throws IOException {
+        IChartGenerator pieChartGenerator = new PieChartGenerator();
+        DefaultPieDataset dataset = (DefaultPieDataset) pieChartGenerator.getDataset();
+
+        entryData.forEach(stats -> dataset.setValue(
+                stats.getMonth(),
+                (Number) stats.getValue())
+        );
+
+        return pieChartGenerator.generate(title, "pie", "", "");
     }
 }

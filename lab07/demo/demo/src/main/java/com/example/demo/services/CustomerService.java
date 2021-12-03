@@ -7,7 +7,6 @@ import com.example.demo.data.CustomerStats;
 import com.example.demo.data.MonthStats;
 import com.example.demo.repositories.CustomerRepository;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,26 +54,24 @@ public class CustomerService {
 
     public Object getTopMoneySpentChart(int limit) {
         DefaultPieDataset dataset = new DefaultPieDataset();
-        getTopMoneySpent(limit).stream().forEach(x -> dataset.setValue(x.getId(), x.getAmountSpent()));
-        JFreeChart chart = ChartFactory.createPieChart(
+        getTopMoneySpent(limit).forEach(x -> dataset.setValue(x.getId(), x.getAmountSpent()));
+        return ChartFactory.createPieChart(
                 "TopMoneySpent",
                 dataset,
                 true,
                 true,
                 false);
-        return chart;
     }
 
     public Object getTopWatchedMoviesChart(int limit){
         DefaultPieDataset dataset = new DefaultPieDataset();
-        getTopWatchedMovies(limit).stream().forEach(x -> dataset.setValue(String.valueOf(x.getId()), x.getMoviesWatched()));
-        JFreeChart chart = ChartFactory.createPieChart(
+        getTopWatchedMovies(limit).forEach(x -> dataset.setValue(String.valueOf(x.getId()), x.getMoviesWatched()));
+        return ChartFactory.createPieChart(
                 "TopWatchedMovies",
                 dataset,
                 true,
                 true,
                 false);
-        return chart;
     }
 
     public List<MonthStats> getMoviesByMonth(int year) {

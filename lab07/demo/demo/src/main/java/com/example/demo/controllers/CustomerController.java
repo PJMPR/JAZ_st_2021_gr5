@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.data.Payment;
 import com.example.demo.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.stream.Collectors;
 
 @RestController
@@ -27,8 +27,7 @@ public class CustomerController {
     @GetMapping
     @RequestMapping("{id}")
     public ResponseEntity get(@PathVariable("id") int id){
-        Timestamp t = Timestamp.valueOf("2021-01-10 00:00:00");
-        return ResponseEntity.ok(customerService.customerRepository.getById(id).getPayments().stream().map(x->x.getLastUpdate()).collect(Collectors.toList()));
+        return ResponseEntity.ok(customerService.customerRepository.getById(id).getPayments().stream().map(Payment::getLastUpdate).collect(Collectors.toList()));
     }
 
     @GetMapping

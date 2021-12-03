@@ -5,6 +5,7 @@ import com.example.demo.charts.IChartGenerator;
 import com.example.demo.charts.LinearChartGenerator;
 import com.example.demo.charts.PieChartGenerator;
 import com.example.demo.data.MonthStats;
+import com.example.demo.data.Payment;
 import com.example.demo.data.Rental;
 import com.example.demo.repositories.RentalRepository;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -37,7 +38,7 @@ public class RentalService {
         return rentalRepository.findAll().stream()
                 .map(Rental::getPaymentsByRentalId)
                 .map(x -> x.stream().filter(p -> p.getPaymentDate().after(timeFrom) && p.getPaymentDate().before(timeTo)))
-                .map(x -> x.map(p -> p.getAmount()).reduce(BigDecimal.ZERO, BigDecimal::add).intValue())
+                .map(x -> x.map(Payment::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add).intValue())
                 .reduce(0, Integer::sum);
     }
 

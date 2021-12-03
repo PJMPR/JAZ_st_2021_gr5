@@ -31,7 +31,6 @@ public class CustomerController {
         this.customerService = service;
     }
 
-
     @GetMapping
     @RequestMapping("ranking/bySpentMoney")
     public ResponseEntity<List<CustomerStats>> getByMoney() {
@@ -84,23 +83,23 @@ public class CustomerController {
                             "movies",
                             customerService.rankCustomersByWatchedMovies()));
         }
-        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED);
+        return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping
-    @RequestMapping("ranking/rentMoviesByMonth/{year}")
+    @RequestMapping("activity/rentMoviesByMonth/{year}")
     public ResponseEntity<List<RentalStats>> getRentMoviesByMonth(@PathVariable("year") int year) {
         return ResponseEntity.ok(customerService.rentMoviesByMonths(year));
     }
 
     @GetMapping
-    @RequestMapping("ranking/rentMoviesByMonth/{customerid}/{year}")
-    public ResponseEntity<List<RentalStats>> getRentMoviesByMonthForCustomer(@PathVariable("year") int year, @PathVariable("customerid") int customerid) {
-        return ResponseEntity.ok(customerService.rentMoviesByMonths(year));
+    @RequestMapping("/activity/rentMoviesByMonth/{year}/{id}")
+    public ResponseEntity getMoviesForCustomer(@PathVariable int year, @PathVariable int id){
+        return ResponseEntity.ok(customerService.getMoviesForCustomer(year, id));
     }
 
     @GetMapping
-    @RequestMapping("ranking/rentMoviesByMonth/{year}/{chart}")
+    @RequestMapping("activity/rentMoviesByMonth/{year}/{chart}")
     public ResponseEntity getRentMoviesByMonthChart(@PathVariable("year") int year, @PathVariable("chart") String chart) throws IOException {
         if(chart.equals("bar")){
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)

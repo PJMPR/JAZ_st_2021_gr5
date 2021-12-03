@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.charts.BarChartGenerator;
 import com.example.demo.charts.IChartGenerator;
+import com.example.demo.charts.LinearChartGenerator;
 import com.example.demo.charts.PieChartGenerator;
 import com.example.demo.model.*;
 import com.example.demo.repositories.CustomerRepository;
@@ -65,14 +66,12 @@ public class CustomerService {
         return rentalStats;
     }
 
-    public List<RentalStats> rentMoviesByMonths(int year, int customerid) {
-        List<RentalStats> rentalStats = new ArrayList<>();
-        List<Integer> sumOfRentals = new ArrayList<>();
-
-        IntStream.rangeClosed(1, 12).forEach(i -> sumOfRentals.add(repository.findAll().stream().map(x -> x.getRentalsByMonth(year, i)).reduce(0, Integer::sum)));
-        IntStream.rangeClosed(1, 12).forEach(i -> rentalStats.add(new RentalStats(i, sumOfRentals.get(i - 1))));
-
-        return rentalStats;
+    public Object getMoviesForCustomer(int year, int id) {
+        ArrayList<RentalStats> monthStats = new ArrayList<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        IntStream.rangeClosed(1, 12).forEach(i -> temp.add(repository.findById(id).stream().map(x -> x.getRentalsByMonth(year, i)).reduce(0, Integer::sum)));
+        IntStream.rangeClosed(1, 12).forEach(i -> monthStats.add(new RentalStats(i, temp.get(i-1))));
+        return monthStats;
     }
 
     public byte[] generateCustomerPieChart(String title, String field, List<CustomerStats> entryData) throws IOException {
@@ -116,6 +115,7 @@ public class CustomerService {
         return barChartGenerator.generate(title, "bar", xAxis, yAxis);
     }
 
+
     public byte[] generateRentalBarChart(String title, String xAxis, String yAxis, List<RentalStats> entryData) throws IOException {
         BarChartGenerator barChartGenerator = new BarChartGenerator();
         DefaultCategoryDataset dataset = (DefaultCategoryDataset) barChartGenerator.getDataset();
@@ -140,6 +140,7 @@ public class CustomerService {
 
         return pieChartGenerator.generate(title, "pie", "", "");
     }
+
 
 
 //    public byte[] generateBarChart(Number value, int key,String columnKey,String title,String xAxis, String yAxis) throws IOException {

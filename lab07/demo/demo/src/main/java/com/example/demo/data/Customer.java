@@ -171,4 +171,5 @@ public class Customer {
         Timestamp timeTo = Timestamp.valueOf(year+"-"+month+"-31 23:59:59");
         return (int)getRentalsByCustomer().stream().map(Rental::getRentalDate).filter(x -> x.after(timeFrom) && x.before(timeTo)).count();
     }
+
 }

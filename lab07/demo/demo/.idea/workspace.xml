@@ -4,30 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8074f072-c537-457c-a0f1-33c9228e4e3f" name="Changes" comment="charts added">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/ChartGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/IChartGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/LinearChartGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/RentalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/CustomerStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/RentalService.java" afterDir="false" />
+    <list default="true" id="8074f072-c537-457c-a0f1-33c9228e4e3f" name="Changes" comment="refactoring">
       <change beforePath="$PROJECT_DIR$/../../../lab03/demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab03/demo/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab05/demo/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../lab05/demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lab05/demo/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bar_ChartMovies Watched.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Bar_ChartMovies Watched.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/BarChartGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/BarChartGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/PieChartGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/PieChartGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/LinearChartGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/charts/LinearChartGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/RentalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/data/Rental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/customerSpentMoney.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/customerWatchedMovies.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/ranking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/rentMoviesByMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/RentalStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/repositories/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repositories/RentalRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/RentalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/RentalService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +90,7 @@
       <workItem from="1638302284443" duration="7773000" />
       <workItem from="1638386201804" duration="9102000" />
       <workItem from="1638440210762" duration="28000" />
-      <workItem from="1638440277436" duration="17454000" />
+      <workItem from="1638440277436" duration="20633000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1638028048089</created>
@@ -146,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638440402402</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring">
+      <created>1638486675111</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638486675111</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +164,7 @@
     <MESSAGE value="Customer ranking by money spent added" />
     <MESSAGE value="rent movies by month, rank by watched movies" />
     <MESSAGE value="charts added" />
-    <option name="LAST_COMMIT_MESSAGE" value="charts added" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
 </project>

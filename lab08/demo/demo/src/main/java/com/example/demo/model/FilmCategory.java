@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 @IdClass(FilmCategoryPK.class)
 public class FilmCategory {
     private int filmId;
-    private int categoryId;
     private Timestamp lastUpdate;
     private Film film;
     private Category category;
@@ -21,16 +20,6 @@ public class FilmCategory {
 
     public void setFilmId(int filmId) {
         this.filmId = filmId;
-    }
-
-    @Id
-    @Column(name = "category_id")
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     @Basic

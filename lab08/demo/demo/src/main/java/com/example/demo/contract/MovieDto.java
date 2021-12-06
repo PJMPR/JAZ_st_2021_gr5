@@ -10,7 +10,10 @@ public class MovieDto {
     @JsonProperty("overview")
     private String description;
     private String release_date;
+    private String original_language;
     private List<GenreDto> genres;
+    @JsonProperty("spoken_languages")
+    private List<LanguagesDto> languages;
     private int runtime;
     private String imdb_id;
 
@@ -56,6 +59,22 @@ public class MovieDto {
 
     public String getImdb_id() {
         return imdb_id;
+    }
+
+    public String getOriginal_language() {
+        return original_language;
+    }
+
+    public void setOriginal_language(String original_language) {
+        this.original_language = original_language;
+    }
+
+    public List<LanguagesDto> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<LanguagesDto> languages) {
+        this.languages = languages;
     }
 
     public void setImdb_id(String imdb_id) {

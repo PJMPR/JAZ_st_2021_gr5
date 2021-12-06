@@ -118,7 +118,7 @@ public class Film {
     }
 
     @ManyToOne
-    @JoinColumn(name = "language_id", referencedColumnName = "language_id", nullable = false)
+    @JoinColumn(name = "language_id", referencedColumnName = "language_id")
     public Language getLanguage() {
         return language;
     }

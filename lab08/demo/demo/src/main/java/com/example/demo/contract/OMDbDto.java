@@ -8,8 +8,6 @@ public class OMDbDto {
     private String rating;
     @JsonProperty("Actors")
     private String actors;
-    @JsonProperty("Language")
-    private String languages;
 
     public String getRating() {
         return rating;
@@ -25,13 +23,5 @@ public class OMDbDto {
 
     public void setActors(String actors) {
         this.actors = actors;
-    }
-
-    public String getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(String languages) {
-        this.languages = languages;
     }
 }

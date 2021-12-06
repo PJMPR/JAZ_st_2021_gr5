@@ -28,7 +28,6 @@ public class ActorsUpdate implements Chain {
 
     @Override
     public void query(MovieDto movieDto, OMDbDto omDbDto) {
-
         List<String> actorsList = Arrays.stream(omDbDto.getActors().split(", ")).toList();
 
         for (String actor : actorsList) {
@@ -59,8 +58,7 @@ public class ActorsUpdate implements Chain {
                 repo.save(a);
             }
         }
-
-//            nextInChain.query(movieDto, omDbDto);
+        nextInChain.query(movieDto, omDbDto);
     }
 }
 

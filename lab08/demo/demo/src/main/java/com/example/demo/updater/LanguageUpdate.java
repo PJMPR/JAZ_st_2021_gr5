@@ -1,5 +1,6 @@
 package com.example.demo.updater;
 
+import com.example.demo.contract.LanguagesDto;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.contract.OMDbDto;
 import com.example.demo.model.Language;
@@ -27,19 +28,15 @@ public class LanguageUpdate implements Chain {
 
     @Override
     public void query(MovieDto movieDto, OMDbDto omDbDto) {
-
-        List<String> langList = Arrays.stream(omDbDto.getLanguages().split(", ")).toList();
-
-
-        for (String lang : langList) {
+        for (LanguagesDto lang : movieDto.getLanguages()) {
             List<String> dbList = repo.getAllLanguages().stream().map(ILanguages::getName).collect(Collectors.toList());
 
-            if (!dbList.contains(lang)) {
+            if (!dbList.contains(lang.getEnglish_name())) {
                 long time = new Date().getTime();
 
                 Language l = new Language();
                 l.setLanguageId(dbList.size() + 1);
-                l.setName(lang);
+                l.setName(lang.getEnglish_name());
                 l.setLastUpdate(new Timestamp(time));
 
                 repo.save(l);

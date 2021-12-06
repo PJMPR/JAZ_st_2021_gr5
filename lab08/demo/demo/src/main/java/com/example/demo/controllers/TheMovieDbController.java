@@ -24,7 +24,7 @@ public class TheMovieDbController {
         var env = System.getenv();
         var movie = rest.getForEntity("https://api.themoviedb.org/3/movie/" +
                 id +
-                "?api_key=" + System.getenv("TheMovieDbApiKey"), MovieDto.class).getBody();
+                "?api_key=" + System.getenv("TMDBapiKey"), MovieDto.class).getBody();
         return ResponseEntity.ok(movie);
     }
 

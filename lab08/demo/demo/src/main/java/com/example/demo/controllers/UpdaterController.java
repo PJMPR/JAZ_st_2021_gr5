@@ -2,8 +2,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.contract.MovieDto;
 import com.example.demo.contract.OMDbDto;
+import com.example.demo.repositories.ActorsRepo;
 import com.example.demo.repositories.CategoryRepo;
 import com.example.demo.repositories.LanguageRepo;
+import com.example.demo.updater.ActorsUpdate;
 import com.example.demo.updater.CategoryUpdate;
 import com.example.demo.updater.Chain;
 import com.example.demo.updater.LanguageUpdate;
@@ -21,12 +23,14 @@ public class UpdaterController {
     RestTemplate rest;
     CategoryRepo categoryRepo;
     LanguageRepo languageRepo;
+    ActorsRepo actorsRepo;
 
     @Autowired
-    public UpdaterController(RestTemplate rest, CategoryRepo categoryRepo, LanguageRepo languageRepo) {
+    public UpdaterController(RestTemplate rest, CategoryRepo categoryRepo, LanguageRepo languageRepo, ActorsRepo actorsRepo) {
         this.rest = rest;
         this.categoryRepo = categoryRepo;
         this.languageRepo = languageRepo;
+        this.actorsRepo = actorsRepo;
     }
 
     @GetMapping
@@ -34,8 +38,10 @@ public class UpdaterController {
     public void reloadSakila() {
         Chain link1 = new CategoryUpdate(categoryRepo);
         Chain link2 = new LanguageUpdate(languageRepo);
+        Chain link3 = new ActorsUpdate(actorsRepo);
 
         link1.setNextChain(link2);
+        link2.setNextChain(link3);
 
         int id = 2;
         while (true) {

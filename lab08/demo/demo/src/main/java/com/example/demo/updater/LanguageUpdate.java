@@ -28,10 +28,10 @@ public class LanguageUpdate implements Chain {
     @Override
     public void query(MovieDto movieDto, OMDbDto omDbDto) {
 
-        List<String> temp = Arrays.stream(omDbDto.getLanguages().split(", ")).toList();
+        List<String> langList = Arrays.stream(omDbDto.getLanguages().split(", ")).toList();
 
 
-        for (String lang : temp) {
+        for (String lang : langList) {
             List<String> dbList = repo.getAllLanguages().stream().map(ILanguages::getName).collect(Collectors.toList());
 
             if (!dbList.contains(lang)) {
@@ -44,7 +44,7 @@ public class LanguageUpdate implements Chain {
 
                 repo.save(l);
             }
-//            nextInChain.query(movieDto, omDbDto);
+            nextInChain.query(movieDto, omDbDto);
         }
     }
 }

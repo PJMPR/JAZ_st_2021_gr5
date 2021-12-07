@@ -9,16 +9,27 @@ public class MovieDto {
 
     private String title;
     private int id;
-    @JsonProperty("runtime")
-    private int length;
+   @JsonProperty("runtime")
+    private int runtime;
     @JsonProperty("overview")
-    private String description;
+    private String overview;
     private int year;
     private String rating;
 
     private List<Actor> actors;
 
     private String imdb_id;
+
+    public MovieDto(String title, int id, int runtime, String overview, int year, String rating, List<Actor> actors, String imdb_id) {
+        this.title = title;
+        this.id = id;
+        this.runtime = runtime;
+        this.overview = overview;
+        this.year = year;
+        this.rating = rating;
+        this.actors = actors;
+        this.imdb_id = imdb_id;
+    }
 
     public List<Actor> getActors() {
         return actors;
@@ -28,8 +39,8 @@ public class MovieDto {
         this.actors = actors;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOverview(String description) {
+        this.overview = overview;
     }
 
     public String getTitle() {
@@ -48,16 +59,16 @@ public class MovieDto {
         this.id = id;
     }
 
-    public int getLength() {
-        return length;
+    public int getRuntime() {
+        return runtime;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
     }
 
-    public String getDescription() {
-        return description;
+    public String getOverview() {
+        return overview;
     }
 
     public int getYear() {

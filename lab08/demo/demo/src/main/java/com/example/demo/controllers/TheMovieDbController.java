@@ -31,6 +31,12 @@ public class TheMovieDbController {
         return ResponseEntity.ok(filmService.getMoveInfo(id));
     }
 
+//    @GetMapping
+//    @RequestMapping("/wrapper/{id}")
+//    public ResponseEntity<MovieDto> getWrapperData(@PathVariable("id") int id){
+//        return ResponseEntity.ok(filmService.useWrapper(id));
+//    }
+
     @GetMapping
     @RequestMapping("/imdb/{id}")
     public ResponseEntity<IMDBMovieDto> getDataIMDB(@PathVariable("id") String id){

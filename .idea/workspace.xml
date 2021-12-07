@@ -50,7 +50,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab06" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab08" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,6 +63,7 @@
       <updated>1637320870417</updated>
       <workItem from="1637320874094" duration="39000" />
       <workItem from="1637498049925" duration="81000" />
+      <workItem from="1638652935691" duration="40000" />
     </task>
     <servers />
   </component>
@@ -78,5 +80,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

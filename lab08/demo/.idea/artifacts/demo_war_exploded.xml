@@ -78,6 +78,8 @@
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.15" />
           <element id="library" level="project" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" />
+          <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.3.2" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.15" />
         </element>
       </element>
       <element id="directory" name="META-INF">

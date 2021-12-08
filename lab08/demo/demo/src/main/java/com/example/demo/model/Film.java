@@ -3,6 +3,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Film {
@@ -97,10 +98,10 @@ public class Film {
         if (filmId != film.filmId) return false;
         if (releaseYear != film.releaseYear) return false;
         if (length != film.length) return false;
-        if (title != null ? !title.equals(film.title) : film.title != null) return false;
-        if (description != null ? !description.equals(film.description) : film.description != null) return false;
-        if (rating != null ? !rating.equals(film.rating) : film.rating != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(film.lastUpdate) : film.lastUpdate != null) return false;
+        if (!Objects.equals(title, film.title)) return false;
+        if (!Objects.equals(description, film.description)) return false;
+        if (!Objects.equals(rating, film.rating)) return false;
+        if (!Objects.equals(lastUpdate, film.lastUpdate)) return false;
 
         return true;
     }

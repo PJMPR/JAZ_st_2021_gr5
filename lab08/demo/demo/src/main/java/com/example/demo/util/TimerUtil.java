@@ -1,16 +1,16 @@
 package com.example.demo.util;
 
-import com.example.demo.info.DailyTimerInfo;
+import com.example.demo.info.TimerInfo;
 import org.quartz.*;
 
 import static org.quartz.DateBuilder.dateOf;
 
-public final class DailyTimerUtil {
-    private DailyTimerUtil(){
+public final class TimerUtil {
+    private TimerUtil(){
 
     }
 
-    public static JobDetail buildJobDetail(final Class jobClass, final DailyTimerInfo info){
+    public static JobDetail buildJobDetail(final Class jobClass, final TimerInfo info){
         final JobDataMap jobDataMap = new JobDataMap();
         jobDataMap.put(jobClass.getSimpleName(), info);
 
@@ -21,7 +21,7 @@ public final class DailyTimerUtil {
                 .build();
     }
 
-    public static Trigger buildTrigger(final Class jobClass, final DailyTimerInfo info){
+    public static Trigger buildTrigger(final Class jobClass, final TimerInfo info){
         SimpleScheduleBuilder builder = SimpleScheduleBuilder.simpleSchedule().withIntervalInHours(info.getRepeatIntervalHs());
 
         if(info.isRunForever()){

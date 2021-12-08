@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.Frame.MovieDPage;
 import com.example.demo.contract.MovieDto;
-import com.example.demo.info.DailyTimerInfo;
+import com.example.demo.info.TimerInfo;
 import com.example.demo.job.DatabaseChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class DatabaseService {
     private final SchedulerService scheduler;
 
     @Autowired
-    public DatabaseService(RestTemplate rest, SchedulerService scheduler) {
+    public DatabaseService(RestTemplate rest, final SchedulerService scheduler) {
         try {
             fh = new FileHandler("demo/src/main/java/com/example/demo/Log.txt", true);
             LOGGER.addHandler(fh);
@@ -41,7 +41,7 @@ public class DatabaseService {
     }
 
     public void runDatabaseChecker(){
-        final DailyTimerInfo info = new DailyTimerInfo();
+        final TimerInfo info = new TimerInfo();
         info.setRunForever(false);
         info.setRepeatIntervalHs(24);
         info.setStartHour(3);

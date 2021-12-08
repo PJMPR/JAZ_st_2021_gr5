@@ -2,8 +2,10 @@ package com.example.demo.info;
 
 import org.springframework.context.annotation.Configuration;
 
+import java.io.Serializable;
+
 @Configuration
-public class DailyTimerInfo {
+public class TimerInfo implements Serializable {
     private int totalFireCount;
     private boolean runForever;
     private int repeatIntervalHs;

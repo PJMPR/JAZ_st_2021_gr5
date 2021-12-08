@@ -45,7 +45,7 @@ public class FilmUpdate implements Chain {
 
             String lang;
 
-            if (getOrgLang.size() != 0){
+            if (getOrgLang.size() != 0) {
                 lang = getOrgLang.get(0).getEnglish_name();
             } else {
                 lang = "English";
@@ -70,6 +70,6 @@ public class FilmUpdate implements Chain {
 
             repo.save(f);
         }
-//        nextInChain.query(movieDto, omDbDto);
+        nextInChain.query(movieDto, omDbDto);
     }
 }

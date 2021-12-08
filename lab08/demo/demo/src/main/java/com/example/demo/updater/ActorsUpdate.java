@@ -3,8 +3,12 @@ package com.example.demo.updater;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.contract.OMDbDto;
 import com.example.demo.model.Actor;
+import com.example.demo.model.FilmActor;
 import com.example.demo.repositories.ActorsRepo;
+import com.example.demo.repositories.FilmActorsRepo;
+import com.example.demo.repositories.FilmRepo;
 import com.example.demo.repositories.projections.IActors;
+import com.example.demo.repositories.projections.IFilm;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -16,9 +20,13 @@ import java.util.stream.Collectors;
 public class ActorsUpdate implements Chain {
     private Chain nextInChain;
     private ActorsRepo repo;
+    private FilmRepo filmRepo;
+    private FilmActorsRepo filmActorsRepo;
 
-    public ActorsUpdate(ActorsRepo repo) {
+    public ActorsUpdate(ActorsRepo repo, FilmActorsRepo filmActorsRepo, FilmRepo filmRepo) {
         this.repo = repo;
+        this.filmRepo = filmRepo;
+        this.filmActorsRepo = filmActorsRepo;
     }
 
     @Override
@@ -28,28 +36,29 @@ public class ActorsUpdate implements Chain {
 
     @Override
     public void query(MovieDto movieDto, OMDbDto omDbDto) {
+        List<String> filmTitle = filmRepo.getAllFilms().stream().map(IFilm::getTitle).collect(Collectors.toList());
         List<String> actorsList = Arrays.stream(omDbDto.getActors().split(", ")).toList();
 
         for (String actor : actorsList) {
-            List<String> dbList = repo.getAllActors().stream().map(IActors::getFirstName).collect(Collectors.toList());
-            List<String> actorName = new ArrayList<>(Arrays.asList(actor.split(" ")));
+            List<String> dbListFirstName = repo.getAllActors().stream().map(IActors::getFirstName).collect(Collectors.toList());
+            List<String> dbListLastName = repo.getAllActors().stream().map(IActors::getLastName).collect(Collectors.toList());
+            List<String> actorFirstAndLastName = new ArrayList<>(Arrays.asList(actor.split(" ")));
+            long time = new Date().getTime();
 
-            if (actorName.size() == 1)
-                actorName.add(null);
+            if (actorFirstAndLastName.size() == 1)
+                actorFirstAndLastName.add(null);
 
-            if (!actorName.get(0).equals("N/A") && !dbList.contains(actorName.get(0)) && !dbList.contains(actorName.get(1))) {
-
-                long time = new Date().getTime();
+            if (!actorFirstAndLastName.get(0).equals("N/A") && !dbListFirstName.contains(actorFirstAndLastName.get(0)) && !dbListLastName.contains(actorFirstAndLastName.get(1))) {
                 Actor a = new Actor();
-                a.setActorId(dbList.size() + 1);
-                a.setFirstName(actorName.get(0));
+                a.setActorId(dbListFirstName.size() + 1);
+                a.setFirstName(actorFirstAndLastName.get(0));
                 a.setLastUpdate(new Timestamp(time));
 
-                if (actorName.get(1) != null) {
-                    if (actorName.size() == 3) {
-                        a.setLastName(actorName.get(1) + " " + actorName.get(2));
+                if (actorFirstAndLastName.get(1) != null) {
+                    if (actorFirstAndLastName.size() == 3) {
+                        a.setLastName(actorFirstAndLastName.get(1) + " " + actorFirstAndLastName.get(2));
                     } else {
-                        a.setLastName(actorName.get(1));
+                        a.setLastName(actorFirstAndLastName.get(1));
                     }
                 } else {
                     a.setLastName("");
@@ -57,8 +66,17 @@ public class ActorsUpdate implements Chain {
 
                 repo.save(a);
             }
+            dbListFirstName = repo.getAllActors().stream().map(IActors::getFirstName).collect(Collectors.toList());
+
+            if (!actorFirstAndLastName.get(0).equals("N/A")) {
+                FilmActor filmActor = new FilmActor();
+                filmActor.setFilmId(filmTitle.indexOf(movieDto.getTitle()) + 1);
+                filmActor.setActorId(dbListFirstName.indexOf(actorFirstAndLastName.get(0)) + 1);
+                filmActor.setLastUpdate(new Timestamp(time));
+
+                filmActorsRepo.save(filmActor);
+            }
         }
-        nextInChain.query(movieDto, omDbDto);
     }
 }
 

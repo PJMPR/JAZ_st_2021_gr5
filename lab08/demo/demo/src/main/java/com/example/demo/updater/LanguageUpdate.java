@@ -8,7 +8,6 @@ import com.example.demo.repositories.LanguageRepo;
 import com.example.demo.repositories.projections.ILanguages;
 
 import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,7 +40,7 @@ public class LanguageUpdate implements Chain {
 
                 repo.save(l);
             }
-            nextInChain.query(movieDto, omDbDto);
         }
+        nextInChain.query(movieDto, omDbDto);
     }
 }

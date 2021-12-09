@@ -4,6 +4,7 @@ import com.example.demo.contract.IMDBMovieDto;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.model.Actor;
 import com.example.demo.repository.ActorRepository;
+import org.example.queries.QueryProcessor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,6 @@ import java.util.Objects;
 public class FilmService {
     RestTemplate rest;
     ActorRepository actorRepository;
-
     @Autowired
     public FilmService(RestTemplate rest,ActorRepository actorRepository) {
         this.rest = rest;

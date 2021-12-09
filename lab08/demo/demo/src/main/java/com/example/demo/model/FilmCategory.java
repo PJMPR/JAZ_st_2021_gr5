@@ -65,7 +65,7 @@ public class FilmCategory {
     }
 
     @ManyToOne
-    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
+    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false, updatable = false, insertable = false)
     public Film getFilm() {
         return film;
     }
@@ -75,7 +75,7 @@ public class FilmCategory {
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false, updatable = false, insertable = false)
     public Category getCategory() {
         return category;
     }

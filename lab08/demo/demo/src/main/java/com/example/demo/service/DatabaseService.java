@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -73,12 +74,17 @@ public class DatabaseService {
         return list;
     }
 
-    public String reloadData() {
-        return "ok";
+    public String  reloadData() {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        for (int i = 1980; i < year; i++) {
+            reloadDataByYear(i);
+        }
+        return "Data reloaded";
     }
 
     public String reloadDataByYear(int year) {
-        return "ok";
+        //to do
+        return "Data reloaded";
     }
 
     public SystemStatusInfo getSystemStatusInfo() {

@@ -65,7 +65,7 @@ public class FilmActor {
     }
 
     @ManyToOne
-    @JoinColumn(name = "actor_id", referencedColumnName = "actor_id", nullable = false)
+    @JoinColumn(name = "actor_id", referencedColumnName = "actor_id", nullable = false, updatable = false, insertable = false)
     public Actor getActor() {
         return actor;
     }
@@ -75,7 +75,7 @@ public class FilmActor {
     }
 
     @ManyToOne
-    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
+    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false, updatable = false, insertable = false)
     public Film getFilm() {
         return film;
     }

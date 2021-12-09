@@ -17,7 +17,6 @@ public class DatabaseChecker implements Job {
 
     @Override
     public void execute(JobExecutionContext context) {
-        //sprawdz nowe filmy
-        System.out.println("odpala sie, gut");
+        databaseService.runDatabaseChecker();
     }
 }

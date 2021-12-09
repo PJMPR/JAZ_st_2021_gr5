@@ -30,3 +30,7 @@ Dec 09, 2021 8:11:37 PM com.example.demo.service.DatabaseService <init>
 INFO: Logger started
 Dec 09, 2021 8:14:21 PM com.example.demo.service.DatabaseService <init>
 INFO: Logger started
+Dec 09, 2021 8:29:57 PM com.example.demo.service.DatabaseService <init>
+INFO: Logger started
+Dec 09, 2021 8:34:15 PM com.example.demo.service.DatabaseService <init>
+INFO: Logger started

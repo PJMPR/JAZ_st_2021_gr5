@@ -1,12 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.Quartz.schedule.ScheduleInfo;
-import com.example.demo.Quartz.util.TimerUtil;
+import com.example.demo.quartz.schedule.ScheduleInfo;
+import com.example.demo.quartz.util.TimerUtil;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
-import org.quartz.impl.StdScheduler;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;

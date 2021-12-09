@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.Quartz.job.UpdateDB;
-import com.example.demo.Quartz.schedule.ScheduleInfo;
+import com.example.demo.quartz.job.UpdateDB;
+import com.example.demo.quartz.schedule.ScheduleInfo;
 import com.example.demo.contract.IMDBMovieDto;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.contract.SystemStatus;

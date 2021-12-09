@@ -1,7 +1,7 @@
-package com.example.demo.Quartz.util;
+package com.example.demo.quartz.util;
 
 
-import com.example.demo.Quartz.schedule.ScheduleInfo;
+import com.example.demo.quartz.schedule.ScheduleInfo;
 import org.quartz.*;
 
 import static org.quartz.DateBuilder.dateOf;

@@ -2,8 +2,6 @@ package com.example.demo.contract;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 public class IMDBMovieDto {
     @JsonProperty("Rated")
     private String rating;

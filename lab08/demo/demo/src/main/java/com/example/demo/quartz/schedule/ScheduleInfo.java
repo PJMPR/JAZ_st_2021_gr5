@@ -1,4 +1,4 @@
-package com.example.demo.Quartz.schedule;
+package com.example.demo.quartz.schedule;
 
 import org.springframework.context.annotation.Configuration;
 

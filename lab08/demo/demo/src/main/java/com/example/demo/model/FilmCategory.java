@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "film_category", schema = "sakila", catalog = "")
+@Table(name = "film_category", schema = "sakila")
 @IdClass(FilmCategoryPK.class)
 public class FilmCategory {
     private int filmId;
@@ -24,7 +24,7 @@ public class FilmCategory {
     }
 
     @Id
-    @Column(name = "category_id")
+    @Column(name = "category_id",insertable = false,updatable = false)
     public int getCategoryId() {
         return categoryId;
     }
@@ -66,7 +66,7 @@ public class FilmCategory {
     }
 
     @ManyToOne
-    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
+    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false,updatable = false,insertable = false)
     public Film getFilm() {
         return film;
     }
@@ -76,7 +76,7 @@ public class FilmCategory {
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false,updatable = false,insertable = false)
     public Category getCategory() {
         return category;
     }

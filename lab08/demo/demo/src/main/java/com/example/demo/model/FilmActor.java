@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "film_actor", schema = "sakila")
+@Table(name = "film_actor", schema = "sakila", catalog = "")
 @IdClass(FilmActorPK.class)
 public class FilmActor {
     private int actorId;

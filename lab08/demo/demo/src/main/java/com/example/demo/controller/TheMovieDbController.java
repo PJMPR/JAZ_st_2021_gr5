@@ -37,9 +37,9 @@ public class TheMovieDbController{
         }
     }
 
-    @PostMapping("/lol")
-    public void runChecker(){
-        databaseService.runDatabaseChecker();
+    @PostMapping("/updater/status")
+    public ResponseEntity getSystemStatus(){
+        return ResponseEntity.ok(databaseService.getSystemStatusInfo());
     }
 
     @GetMapping

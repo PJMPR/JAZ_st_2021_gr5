@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.Frame.MovieDPage;
+import com.example.demo.Frame.SystemStatusInfo;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.info.TimerInfo;
 import com.example.demo.job.DatabaseChecker;
@@ -19,12 +20,14 @@ import java.util.logging.SimpleFormatter;
 public class DatabaseService {
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(DatabaseService.class));
     FileHandler fh;
+    private final SystemStatusInfo systemStatusInfo;
 
     RestTemplate rest;
     private final SchedulerService scheduler;
 
     @Autowired
-    public DatabaseService(RestTemplate rest, final SchedulerService scheduler) {
+    public DatabaseService(SystemStatusInfo systemStatusInfo, RestTemplate rest, final SchedulerService scheduler) {
+        this.systemStatusInfo = systemStatusInfo;
         try {
             fh = new FileHandler("demo/src/main/java/com/example/demo/Log.txt", true);
             LOGGER.addHandler(fh);
@@ -76,5 +79,9 @@ public class DatabaseService {
 
     public String reloadDataByYear(int year) {
         return "ok";
+    }
+
+    public SystemStatusInfo getSystemStatusInfo() {
+        return systemStatusInfo;
     }
 }

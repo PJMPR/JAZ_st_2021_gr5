@@ -65,7 +65,7 @@ public class ActorsUpdate implements Chain {
                         a.setLastName(actorFirstAndLastName.get(1));
                     }
                 } else {
-                    a.setLastName("");
+                    a.setLastName(null);
                 }
 
                 repo.save(a);

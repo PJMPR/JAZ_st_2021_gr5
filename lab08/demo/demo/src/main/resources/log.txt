@@ -1,178 +1,183 @@
-2021-12-08 16:40:33 INFO  - Updating database has begun
-2021-12-08 16:40:33 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:34 INFO  - Found and added new film: Four Rooms
-2021-12-08 16:40:34 INFO  - Found and added new category: Crime
-2021-12-08 16:40:34 INFO  - Found and added new actor: Tim Roth
-2021-12-08 16:40:34 INFO  - Found and added new actor: Antonio Banderas
-2021-12-08 16:40:34 INFO  - Found and added new actor: Sammi Davis
-2021-12-08 16:40:34 INFO  - Found and added new film: Judgment Night
-2021-12-08 16:40:34 INFO  - Found and added new category: Thriller
-2021-12-08 16:40:34 INFO  - Found and added new actor: Emilio Estevez
-2021-12-08 16:40:34 INFO  - Found and added new actor: Cuba Gooding Jr.
-2021-12-08 16:40:34 INFO  - Found and added new actor: Denis Leary
-2021-12-08 16:40:34 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:34 INFO  - Found and added new language: Hindi
-2021-12-08 16:40:34 INFO  - Found and added new language: Russian
-2021-12-08 16:40:34 INFO  - Found and added new language: Spanish
-2021-12-08 16:40:34 INFO  - Found and added new film: Life in Loops (A Megacities RMX)
-2021-12-08 16:40:34 INFO  - Found and added new film: Sunday in August
-2021-12-08 16:40:34 INFO  - Found and added new actor: Rita Lengyel
-2021-12-08 16:40:34 INFO  - Found and added new actor: Milton Welsh
-2021-12-08 16:40:34 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:34 INFO  - Found and added new film: Finding Nemo
-2021-12-08 16:40:34 INFO  - Found and added new actor: Albert Brooks
-2021-12-08 16:40:34 INFO  - Found and added new actor: Ellen DeGeneres
-2021-12-08 16:40:34 INFO  - Found and added new actor: Alexander Gould
-2021-12-08 16:40:34 INFO  - Found and added new film: Forrest Gump
-2021-12-08 16:40:34 INFO  - Found and added new category: Romance
-2021-12-08 16:40:34 INFO  - Found and added new actor: Tom Hanks
-2021-12-08 16:40:34 INFO  - Found and added new actor: Robin Wright
-2021-12-08 16:40:34 INFO  - Found and added new actor: Gary Sinise
-2021-12-08 16:40:35 INFO  - Found and added new film: American Beauty
-2021-12-08 16:40:35 INFO  - Found and added new actor: Kevin Spacey
-2021-12-08 16:40:35 INFO  - Found and added new actor: Annette Bening
-2021-12-08 16:40:35 INFO  - Found and added new actor: Thora Birch
-2021-12-08 16:40:35 INFO  - Found and added new film: Dancer in the Dark
-2021-12-08 16:40:35 INFO  - Found and added new actor: Björk 
-2021-12-08 16:40:35 INFO  - Found and added new actor: Catherine Deneuve
-2021-12-08 16:40:35 INFO  - Found and added new actor: David Morse
-2021-12-08 16:40:35 INFO  - Found and added new language: Welsh
-2021-12-08 16:40:35 INFO  - Found and added new film: The Dark
-2021-12-08 16:40:35 INFO  - Found and added new category: Mystery
-2021-12-08 16:40:35 INFO  - Found and added new actor: Sean Bean
-2021-12-08 16:40:35 INFO  - Found and added new actor: Maria Bello
-2021-12-08 16:40:35 INFO  - Found and added new actor: Sophie Stuckey
-2021-12-08 16:40:35 INFO  - Found and added new language: Swedish
-2021-12-08 16:40:35 INFO  - Found and added new film: The Fifth Element
-2021-12-08 16:40:35 INFO  - Found and added new category: Adventure
-2021-12-08 16:40:35 INFO  - Found and added new category: Fantasy
-2021-12-08 16:40:35 INFO  - Found and added new category: Science Fiction
-2021-12-08 16:40:35 INFO  - Found and added new actor: Bruce Willis
-2021-12-08 16:40:35 INFO  - Found and added new actor: Milla Jovovich
-2021-12-08 16:40:35 INFO  - Found and added new film: My Life Without Me
-2021-12-08 16:40:35 INFO  - Found and added new actor: Sarah Polley
-2021-12-08 16:40:35 INFO  - Found and added new actor: Scott Speedman
-2021-12-08 16:40:35 INFO  - Found and added new actor: Mark Ruffalo
-2021-12-08 16:40:36 INFO  - Found and added new film: Pirates of the Caribbean: The Curse of the Black Pearl
-2021-12-08 16:40:36 INFO  - Found and added new actor: Johnny Depp
-2021-12-08 16:40:36 INFO  - Found and added new actor: Geoffrey Rush
-2021-12-08 16:40:36 INFO  - Found and added new actor: Orlando Bloom
-2021-12-08 16:40:36 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:36 INFO  - Found and added new film: Kill Bill: Vol. 1
-2021-12-08 16:40:36 INFO  - Found and added new actor: Uma Thurman
-2021-12-08 16:40:36 INFO  - Found and added new actor: Daryl Hannah
-2021-12-08 16:40:36 INFO  - Found and added new language: Arabic
-2021-12-08 16:40:36 INFO  - Found and added new language: Latin
-2021-12-08 16:40:36 INFO  - Found and added new film: Jarhead
-2021-12-08 16:40:36 INFO  - Found and added new category: War
-2021-12-08 16:40:36 INFO  - Found and added new actor: Jake Gyllenhaal
-2021-12-08 16:40:36 INFO  - Found and added new actor: Jamie Foxx
-2021-12-08 16:40:36 INFO  - Found and added new actor: Lucas Black
-2021-12-08 16:40:36 INFO  - Found and added new language: Hebrew
-2021-12-08 16:40:36 INFO  - Found and added new language: Turkish
-2021-12-08 16:40:36 INFO  - Found and added new film: Walk on Water
-2021-12-08 16:40:36 INFO  - Found and added new actor: Lior Ashkenazi
-2021-12-08 16:40:36 INFO  - Found and added new actor: Knut Berger
-2021-12-08 16:40:36 INFO  - Found and added new actor: Caroline Peters
-2021-12-08 16:40:36 INFO  - Found and added new film: 9 Songs
-2021-12-08 16:40:36 INFO  - Found and added new actor: Kieran O'Brien
-2021-12-08 16:40:36 INFO  - Found and added new actor: Margo Stilley
-2021-12-08 16:40:36 INFO  - Found and added new actor: Black Rebel
-2021-12-08 16:40:36 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:36 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:36 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:36 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:36 INFO  - Found and added new film: Unforgiven
-2021-12-08 16:40:36 INFO  - Found and added new category: Western
-2021-12-08 16:40:37 INFO  - Found and added new actor: Clint Eastwood
-2021-12-08 16:40:37 INFO  - Found and added new actor: Gene Hackman
-2021-12-08 16:40:37 INFO  - Found and added new actor: Morgan Freeman
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 INFO  - Found and added new film: The Simpsons Movie
-2021-12-08 16:40:37 INFO  - Found and added new actor: Dan Castellaneta
-2021-12-08 16:40:37 INFO  - Found and added new actor: Julie Kavner
-2021-12-08 16:40:37 INFO  - Found and added new actor: Nancy Cartwright
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 INFO  - Found and added new film: Eternal Sunshine of the Spotless Mind
-2021-12-08 16:40:37 INFO  - Found and added new actor: Jim Carrey
-2021-12-08 16:40:37 INFO  - Found and added new actor: Kate Winslet
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:37 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:38 INFO  - Found and added new film: Amores Perros
-2021-12-08 16:40:38 INFO  - Found and added new actor: Gael García Bernal
-2021-12-08 16:40:38 INFO  - Found and added new actor: Goya Toledo
-2021-12-08 16:40:38 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:38 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:38 INFO  - Found and added new language: Greek
-2021-12-08 16:40:38 INFO  - Found and added new film: Pirates of the Caribbean: Dead Man's Chest
-2021-12-08 16:40:38 INFO  - Found and added new actor: Keira Knightley
-2021-12-08 16:40:38 INFO  - Found and added new film: A History of Violence
-2021-12-08 16:40:38 INFO  - Found and added new actor: Viggo Mortensen
-2021-12-08 16:40:38 INFO  - Found and added new actor: Ed Harris
-2021-12-08 16:40:38 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:38 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:38 INFO  - Found and added new film: Twelve Monkeys
-2021-12-08 16:40:38 INFO  - Found and added new actor: Madeleine Stowe
-2021-12-08 16:40:38 INFO  - Found and added new actor: Brad Pitt
-2021-12-08 16:40:38 INFO  - Found and added new film: Talk to Her
-2021-12-08 16:40:38 INFO  - Found and added new actor: Rosario Flores
-2021-12-08 16:40:38 INFO  - Found and added new actor: Javier Cámara
-2021-12-08 16:40:38 INFO  - Found and added new actor: Darío Grandinetti
-2021-12-08 16:40:38 INFO  - Found and added new film: 8 Mile
-2021-12-08 16:40:39 INFO  - Found and added new actor: Eminem 
-2021-12-08 16:40:39 INFO  - Found and added new actor: Brittany Murphy
-2021-12-08 16:40:39 INFO  - Found and added new actor: Kim Basinger
-2021-12-08 16:40:39 INFO  - Found and added new film: Absolute Power
-2021-12-08 16:40:39 INFO  - Found and added new film: Paradise Now
-2021-12-08 16:40:39 INFO  - Found and added new actor: Kais Nashif
-2021-12-08 16:40:39 INFO  - Found and added new actor: Ali Suliman
-2021-12-08 16:40:39 INFO  - Found and added new actor: Lubna Azabal
-2021-12-08 16:40:39 INFO  - Found and added new film: Walk the Line
-2021-12-08 16:40:39 INFO  - Found and added new actor: Joaquin Phoenix
-2021-12-08 16:40:39 INFO  - Found and added new actor: Reese Witherspoon
-2021-12-08 16:40:39 INFO  - Found and added new actor: Ginnifer Goodwin
-2021-12-08 16:40:39 INFO  - Found and added new language: Irish
-2021-12-08 16:40:39 INFO  - Found and added new film: Million Dollar Baby
-2021-12-08 16:40:39 INFO  - Found and added new actor: Hilary Swank
-2021-12-08 16:40:39 INFO  - Found and added new film: Billy Elliot
-2021-12-08 16:40:39 INFO  - Found and added new actor: Jean Heywood
-2021-12-08 16:40:39 WARN  - Skipped deleted movie from Moviedb
-2021-12-08 16:40:40 INFO  - Found and added new film: American History X
-2021-12-08 16:40:40 INFO  - Found and added new actor: Edward Norton
-2021-12-08 16:40:40 INFO  - Found and added new actor: Beverly D'Angelo
-2021-12-08 16:40:40 INFO  - Found and added new film: War of the Worlds
-2021-12-08 16:40:40 INFO  - Found and added new actor: Dakota Fanning
-2021-12-08 16:40:40 INFO  - Found and added new film: Mars Attacks!
-2021-12-08 16:40:40 INFO  - Found and added new actor: Jack Nicholson
-2021-12-08 16:40:40 INFO  - Found and added new actor: Pierce Brosnan
-2021-12-08 16:40:40 INFO  - Found and added new film: Before Sunrise
-2021-12-08 16:40:40 INFO  - Found and added new actor: Ethan Hawke
-2021-12-08 16:40:40 INFO  - Found and added new actor: Andrea Eckert
-2021-12-08 16:40:40 INFO  - Found and added new film: Memento
-2021-12-08 16:40:40 INFO  - Found and added new actor: Guy Pearce
-2021-12-08 16:40:40 INFO  - Found and added new actor: Carrie-Anne Moss
-2021-12-08 16:40:40 INFO  - Found and added new actor: Joe Pantoliano
-2021-12-08 16:40:40 INFO  - Found and added new film: Hero
-2021-12-08 16:40:40 INFO  - Found and added new category: History
-2021-12-08 16:40:40 INFO  - Found and added new actor: Jet Li
-2021-12-08 16:40:40 INFO  - Found and added new actor: Tony Chiu-Wai Leung
-2021-12-08 16:40:40 INFO  - Found and added new actor: Maggie Cheung
-2021-12-08 16:40:40 INFO  - Found and added new film: Before Sunset
-2021-12-08 16:40:41 INFO  - Found and added new actor: Vernon Dobtcheff
-2021-12-08 16:40:41 INFO  - Found and added new film: Miami Vice
-2021-12-08 16:40:41 INFO  - Found and added new actor: Colin Farrell
+2021-12-09 12:17:39 INFO  - Updating database has begun
+2021-12-09 12:17:39 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:17:39 INFO  - Found and added new film: Four Rooms
+2021-12-09 12:17:39 INFO  - Found and added new category: Crime
+2021-12-09 12:17:39 INFO  - Found and added new actor: Tim Roth
+2021-12-09 12:17:39 INFO  - Found and added new actor: Antonio Banderas
+2021-12-09 12:17:39 INFO  - Found and added new actor: Sammi Davis
+2021-12-09 12:17:39 INFO  - Found and added new film: Judgment Night
+2021-12-09 12:17:39 INFO  - Found and added new category: Thriller
+2021-12-09 12:17:39 INFO  - Found and added new actor: Emilio Estevez
+2021-12-09 12:17:39 INFO  - Found and added new actor: Cuba Gooding Jr.
+2021-12-09 12:17:39 INFO  - Found and added new actor: Denis Leary
+2021-12-09 12:17:39 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:17:39 INFO  - Found and added new language: Hindi
+2021-12-09 12:17:39 INFO  - Found and added new language: Russian
+2021-12-09 12:17:39 INFO  - Found and added new language: Spanish
+2021-12-09 12:17:39 INFO  - Found and added new film: Life in Loops (A Megacities RMX)
+2021-12-09 12:17:40 INFO  - Found and added new film: Sunday in August
+2021-12-09 12:17:40 INFO  - Found and added new actor: Rita Lengyel
+2021-12-09 12:17:40 INFO  - Found and added new actor: Milton Welsh
+2021-12-09 12:17:40 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:17:40 INFO  - Found and added new film: Finding Nemo
+2021-12-09 12:17:40 INFO  - Found and added new actor: Albert Brooks
+2021-12-09 12:17:40 INFO  - Found and added new actor: Ellen DeGeneres
+2021-12-09 12:17:40 INFO  - Found and added new actor: Alexander Gould
+2021-12-09 12:17:40 INFO  - Found and added new film: Forrest Gump
+2021-12-09 12:17:40 INFO  - Found and added new category: Romance
+2021-12-09 12:17:40 INFO  - Found and added new actor: Tom Hanks
+2021-12-09 12:17:40 INFO  - Found and added new actor: Robin Wright
+2021-12-09 12:17:40 INFO  - Found and added new actor: Gary Sinise
+2021-12-09 12:17:40 INFO  - Found and added new film: American Beauty
+2021-12-09 12:17:40 INFO  - Found and added new actor: Kevin Spacey
+2021-12-09 12:17:40 INFO  - Found and added new actor: Annette Bening
+2021-12-09 12:17:40 INFO  - Found and added new actor: Thora Birch
+2021-12-09 12:17:40 INFO  - Found and added new film: Dancer in the Dark
+2021-12-09 12:18:17 INFO  - Updating database has begun
+2021-12-09 12:18:18 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:18 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:18 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:19 INFO  - Found and added new actor: Björk 
+2021-12-09 12:18:19 INFO  - Found and added new actor: Catherine Deneuve
+2021-12-09 12:18:19 INFO  - Found and added new actor: David Morse
+2021-12-09 12:18:19 INFO  - Found and added new language: Welsh
+2021-12-09 12:18:19 INFO  - Found and added new film: The Dark
+2021-12-09 12:18:19 INFO  - Found and added new category: Mystery
+2021-12-09 12:18:19 INFO  - Found and added new actor: Sean Bean
+2021-12-09 12:18:19 INFO  - Found and added new actor: Maria Bello
+2021-12-09 12:18:19 INFO  - Found and added new actor: Sophie Stuckey
+2021-12-09 12:18:19 INFO  - Found and added new language: Swedish
+2021-12-09 12:18:19 INFO  - Found and added new film: The Fifth Element
+2021-12-09 12:18:19 INFO  - Found and added new category: Adventure
+2021-12-09 12:18:19 INFO  - Found and added new category: Fantasy
+2021-12-09 12:18:19 INFO  - Found and added new category: Science Fiction
+2021-12-09 12:18:19 INFO  - Found and added new actor: Bruce Willis
+2021-12-09 12:18:19 INFO  - Found and added new actor: Milla Jovovich
+2021-12-09 12:18:20 INFO  - Found and added new film: My Life Without Me
+2021-12-09 12:18:20 INFO  - Found and added new actor: Sarah Polley
+2021-12-09 12:18:20 INFO  - Found and added new actor: Scott Speedman
+2021-12-09 12:18:20 INFO  - Found and added new actor: Mark Ruffalo
+2021-12-09 12:18:20 INFO  - Found and added new film: Pirates of the Caribbean: The Curse of the Black Pearl
+2021-12-09 12:18:20 INFO  - Found and added new actor: Johnny Depp
+2021-12-09 12:18:20 INFO  - Found and added new actor: Geoffrey Rush
+2021-12-09 12:18:20 INFO  - Found and added new actor: Orlando Bloom
+2021-12-09 12:18:20 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:20 INFO  - Found and added new film: Kill Bill: Vol. 1
+2021-12-09 12:18:20 INFO  - Found and added new actor: Uma Thurman
+2021-12-09 12:18:20 INFO  - Found and added new actor: Daryl Hannah
+2021-12-09 12:18:20 INFO  - Found and added new language: Arabic
+2021-12-09 12:18:20 INFO  - Found and added new language: Latin
+2021-12-09 12:18:20 INFO  - Found and added new film: Jarhead
+2021-12-09 12:18:20 INFO  - Found and added new category: War
+2021-12-09 12:18:20 INFO  - Found and added new actor: Jake Gyllenhaal
+2021-12-09 12:18:20 INFO  - Found and added new actor: Jamie Foxx
+2021-12-09 12:18:20 INFO  - Found and added new actor: Lucas Black
+2021-12-09 12:18:20 INFO  - Found and added new language: Hebrew
+2021-12-09 12:18:20 INFO  - Found and added new language: Turkish
+2021-12-09 12:18:20 INFO  - Found and added new film: Walk on Water
+2021-12-09 12:18:20 INFO  - Found and added new actor: Lior Ashkenazi
+2021-12-09 12:18:20 INFO  - Found and added new actor: Knut Berger
+2021-12-09 12:18:20 INFO  - Found and added new actor: Caroline Peters
+2021-12-09 12:18:20 INFO  - Found and added new film: 9 Songs
+2021-12-09 12:18:20 INFO  - Found and added new actor: Kieran O'Brien
+2021-12-09 12:18:20 INFO  - Found and added new actor: Margo Stilley
+2021-12-09 12:18:20 INFO  - Found and added new actor: Black Rebel
+2021-12-09 12:18:20 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:20 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:20 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:20 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:20 INFO  - Found and added new film: Unforgiven
+2021-12-09 12:18:21 INFO  - Found and added new category: Western
+2021-12-09 12:18:21 INFO  - Found and added new actor: Clint Eastwood
+2021-12-09 12:18:21 INFO  - Found and added new actor: Gene Hackman
+2021-12-09 12:18:21 INFO  - Found and added new actor: Morgan Freeman
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 INFO  - Found and added new film: The Simpsons Movie
+2021-12-09 12:18:21 INFO  - Found and added new actor: Dan Castellaneta
+2021-12-09 12:18:21 INFO  - Found and added new actor: Julie Kavner
+2021-12-09 12:18:21 INFO  - Found and added new actor: Nancy Cartwright
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 INFO  - Found and added new film: Eternal Sunshine of the Spotless Mind
+2021-12-09 12:18:21 INFO  - Found and added new actor: Jim Carrey
+2021-12-09 12:18:21 INFO  - Found and added new actor: Kate Winslet
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 INFO  - Found and added new film: Amores Perros
+2021-12-09 12:18:21 INFO  - Found and added new actor: Gael García Bernal
+2021-12-09 12:18:21 INFO  - Found and added new actor: Goya Toledo
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 INFO  - Found and added new language: Greek
+2021-12-09 12:18:21 INFO  - Found and added new film: Pirates of the Caribbean: Dead Man's Chest
+2021-12-09 12:18:21 INFO  - Found and added new actor: Keira Knightley
+2021-12-09 12:18:21 INFO  - Found and added new film: A History of Violence
+2021-12-09 12:18:21 INFO  - Found and added new actor: Viggo Mortensen
+2021-12-09 12:18:21 INFO  - Found and added new actor: Ed Harris
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:21 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:22 INFO  - Found and added new film: Twelve Monkeys
+2021-12-09 12:18:22 INFO  - Found and added new actor: Madeleine Stowe
+2021-12-09 12:18:22 INFO  - Found and added new actor: Brad Pitt
+2021-12-09 12:18:22 INFO  - Found and added new film: Talk to Her
+2021-12-09 12:18:22 INFO  - Found and added new actor: Rosario Flores
+2021-12-09 12:18:22 INFO  - Found and added new actor: Javier Cámara
+2021-12-09 12:18:22 INFO  - Found and added new actor: Darío Grandinetti
+2021-12-09 12:18:22 INFO  - Found and added new film: 8 Mile
+2021-12-09 12:18:22 INFO  - Found and added new actor: Eminem 
+2021-12-09 12:18:22 INFO  - Found and added new actor: Brittany Murphy
+2021-12-09 12:18:22 INFO  - Found and added new actor: Kim Basinger
+2021-12-09 12:18:22 INFO  - Found and added new film: Absolute Power
+2021-12-09 12:18:22 INFO  - Found and added new film: Paradise Now
+2021-12-09 12:18:22 INFO  - Found and added new actor: Kais Nashif
+2021-12-09 12:18:22 INFO  - Found and added new actor: Ali Suliman
+2021-12-09 12:18:22 INFO  - Found and added new actor: Lubna Azabal
+2021-12-09 12:18:22 INFO  - Found and added new film: Walk the Line
+2021-12-09 12:18:22 INFO  - Found and added new actor: Joaquin Phoenix
+2021-12-09 12:18:22 INFO  - Found and added new actor: Reese Witherspoon
+2021-12-09 12:18:22 INFO  - Found and added new actor: Ginnifer Goodwin
+2021-12-09 12:18:22 INFO  - Found and added new language: Irish
+2021-12-09 12:18:22 INFO  - Found and added new film: Million Dollar Baby
+2021-12-09 12:18:22 INFO  - Found and added new actor: Hilary Swank
+2021-12-09 12:18:23 INFO  - Found and added new film: Billy Elliot
+2021-12-09 12:18:23 INFO  - Found and added new actor: Jean Heywood
+2021-12-09 12:18:23 WARN  - Skipped deleted movie from Moviedb
+2021-12-09 12:18:23 INFO  - Found and added new film: American History X
+2021-12-09 12:18:23 INFO  - Found and added new actor: Edward Norton
+2021-12-09 12:18:23 INFO  - Found and added new actor: Beverly D'Angelo
+2021-12-09 12:18:23 INFO  - Found and added new film: War of the Worlds
+2021-12-09 12:18:23 INFO  - Found and added new actor: Dakota Fanning
+2021-12-09 12:18:23 INFO  - Found and added new film: Mars Attacks!
+2021-12-09 12:18:23 INFO  - Found and added new actor: Jack Nicholson
+2021-12-09 12:18:23 INFO  - Found and added new actor: Pierce Brosnan
+2021-12-09 12:18:23 INFO  - Found and added new film: Before Sunrise
+2021-12-09 12:18:23 INFO  - Found and added new actor: Ethan Hawke
+2021-12-09 12:18:23 INFO  - Found and added new actor: Andrea Eckert
+2021-12-09 12:18:23 INFO  - Found and added new film: Memento
+2021-12-09 12:18:23 INFO  - Found and added new actor: Guy Pearce
+2021-12-09 12:18:23 INFO  - Found and added new actor: Carrie-Anne Moss
+2021-12-09 12:18:23 INFO  - Found and added new actor: Joe Pantoliano
+2021-12-09 12:18:23 INFO  - Found and added new film: Hero
+2021-12-09 12:18:23 INFO  - Found and added new category: History
+2021-12-09 12:18:23 INFO  - Found and added new actor: Jet Li
+2021-12-09 12:18:23 INFO  - Found and added new actor: Tony Chiu-Wai Leung
+2021-12-09 12:18:23 INFO  - Found and added new actor: Maggie Cheung
+2021-12-09 12:18:23 INFO  - Found and added new film: Before Sunset
+2021-12-09 12:18:24 INFO  - Found and added new actor: Vernon Dobtcheff
+2021-12-09 12:18:24 INFO  - Found and added new film: Miami Vice
+2021-12-09 12:18:24 INFO  - Found and added new actor: Colin Farrell
+2021-12-09 12:20:01 INFO  - Updating database has begun

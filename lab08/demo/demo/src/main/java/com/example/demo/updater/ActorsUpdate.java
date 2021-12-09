@@ -9,6 +9,8 @@ import com.example.demo.repositories.FilmActorsRepo;
 import com.example.demo.repositories.FilmRepo;
 import com.example.demo.repositories.projections.IActors;
 import com.example.demo.repositories.projections.IFilm;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ActorsUpdate implements Chain {
+    private final Logger logger = Logger.getLogger(ActorsUpdate.class.getName());
+
     private Chain nextInChain;
     private ActorsRepo repo;
     private FilmRepo filmRepo;
@@ -65,6 +69,7 @@ public class ActorsUpdate implements Chain {
                 }
 
                 repo.save(a);
+                logger.log(Level.INFO, "Found and added new actor: " + a.getFirstName() + " " + a.getLastName());
             }
             dbListFirstName = repo.getAllActors().stream().map(IActors::getFirstName).collect(Collectors.toList());
 

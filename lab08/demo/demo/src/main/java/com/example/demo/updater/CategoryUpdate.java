@@ -10,6 +10,8 @@ import com.example.demo.repositories.FilmCategoryRepo;
 import com.example.demo.repositories.FilmRepo;
 import com.example.demo.repositories.projections.ICategoryName;
 import com.example.demo.repositories.projections.IFilm;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -17,6 +19,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CategoryUpdate implements Chain {
+    private final Logger logger = Logger.getLogger(Category.class.getName());
+
     private Chain nextInChain;
     private CategoryRepo repo;
     private FilmCategoryRepo catRepo;
@@ -47,6 +51,7 @@ public class CategoryUpdate implements Chain {
                 c.setLastUpdate(new Timestamp(time));
 
                 repo.save(c);
+                logger.log(Level.INFO, "Found and added new category: " + genre.getName());
                 dbList = repo.getAllCategories().stream().map(ICategoryName::getName).collect(Collectors.toList());
             }
             FilmCategory filmCategory = new FilmCategory();

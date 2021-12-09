@@ -9,6 +9,8 @@ import com.example.demo.repositories.FilmRepo;
 import com.example.demo.repositories.LanguageRepo;
 import com.example.demo.repositories.projections.IFilm;
 import com.example.demo.repositories.projections.ILanguages;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -16,6 +18,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FilmUpdate implements Chain {
+    private final Logger logger = Logger.getLogger(FilmUpdate.class.getName());
+
     private Chain nextInChain;
     private FilmRepo repo;
     private LanguageRepo langRepo;
@@ -69,6 +73,7 @@ public class FilmUpdate implements Chain {
             f.setLastUpdate(new Timestamp(time));
 
             repo.save(f);
+            logger.log(Level.INFO, "Found and added new film: " + f.getTitle());
         }
         nextInChain.query(movieDto, omDbDto);
     }

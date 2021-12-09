@@ -36,9 +36,7 @@ public class FilmActorPK implements Serializable {
         FilmActorPK that = (FilmActorPK) o;
 
         if (actorId != that.actorId) return false;
-        if (filmId != that.filmId) return false;
-
-        return true;
+        return filmId == that.filmId;
     }
 
     @Override

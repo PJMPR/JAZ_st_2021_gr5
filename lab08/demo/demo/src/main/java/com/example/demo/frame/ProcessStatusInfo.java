@@ -1,4 +1,4 @@
-package com.example.demo.Frame;
+package com.example.demo.frame;
 
 public class ProcessStatusInfo {
     int ramUsed;

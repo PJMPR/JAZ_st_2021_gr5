@@ -1,4 +1,4 @@
-package com.example.demo.Frame;
+package com.example.demo.frame;
 
 import com.example.demo.contract.MovieDto;
 

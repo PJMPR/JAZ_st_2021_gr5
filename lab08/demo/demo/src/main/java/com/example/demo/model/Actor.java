@@ -3,14 +3,26 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Actor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int actorId;
     private String firstName;
     private String lastName;
     private Timestamp lastUpdate;
     private Collection<FilmActor> filmActors;
+
+    public Actor(String firstName,String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Actor() {
+
+    }
 
     @Id
     @Column(name = "actor_id")
@@ -60,11 +72,9 @@ public class Actor {
         Actor actor = (Actor) o;
 
         if (actorId != actor.actorId) return false;
-        if (firstName != null ? !firstName.equals(actor.firstName) : actor.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(actor.lastName) : actor.lastName != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(actor.lastUpdate) : actor.lastUpdate != null) return false;
-
-        return true;
+        if (!Objects.equals(firstName, actor.firstName)) return false;
+        if (!Objects.equals(lastName, actor.lastName)) return false;
+        return Objects.equals(lastUpdate, actor.lastUpdate);
     }
 
     @Override

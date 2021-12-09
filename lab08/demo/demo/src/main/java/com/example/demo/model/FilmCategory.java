@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 @Table(name = "film_category", schema = "sakila", catalog = "")
@@ -52,9 +53,7 @@ public class FilmCategory {
 
         if (filmId != that.filmId) return false;
         if (categoryId != that.categoryId) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(that.lastUpdate) : that.lastUpdate != null) return false;
-
-        return true;
+        return Objects.equals(lastUpdate, that.lastUpdate);
     }
 
     @Override

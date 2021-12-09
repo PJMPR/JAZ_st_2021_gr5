@@ -1,26 +1,46 @@
 package com.example.demo.contract;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.demo.model.Actor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.util.List;
 
 public class MovieDto {
 
-    String title;
-    String release_date;
-    int id;
-    @JsonIgnore
-    int runtime;
+    private String title;
+    private int id;
+    @JsonProperty("runtime")
+    private int runtime;
     @JsonProperty("overview")
-    String description;
+    private String overview;
+    private int year;
+    private String rating;
 
-    public String getDescription() {
-        return description;
+    private List<Actor> actors;
+
+    private String imdb_id;
+
+    public MovieDto(String title, int id, int runtime, String overview, int year, String rating, List<Actor> actors, String imdb_id) {
+        this.title = title;
+        this.id = id;
+        this.runtime = runtime;
+        this.overview = overview;
+        this.year = year;
+        this.rating = rating;
+        this.actors = actors;
+        this.imdb_id = imdb_id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public String getTitle() {
@@ -47,11 +67,31 @@ public class MovieDto {
         this.runtime = runtime;
     }
 
-    public String getRelease_date() {
-        return release_date;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setRelease_date(String release_date) {
-        this.release_date = release_date;
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getImdb_id() {
+        return imdb_id;
+    }
+
+    public void setImdb_id(String imdb_id) {
+        this.imdb_id = imdb_id;
     }
 }

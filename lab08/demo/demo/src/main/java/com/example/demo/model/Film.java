@@ -101,9 +101,7 @@ public class Film {
         if (!Objects.equals(title, film.title)) return false;
         if (!Objects.equals(description, film.description)) return false;
         if (!Objects.equals(rating, film.rating)) return false;
-        if (!Objects.equals(lastUpdate, film.lastUpdate)) return false;
-
-        return true;
+        return Objects.equals(lastUpdate, film.lastUpdate);
     }
 
     @Override

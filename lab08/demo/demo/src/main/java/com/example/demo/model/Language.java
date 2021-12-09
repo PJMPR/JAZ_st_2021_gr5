@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 public class Language {
@@ -50,10 +51,8 @@ public class Language {
         Language language = (Language) o;
 
         if (languageId != language.languageId) return false;
-        if (name != null ? !name.equals(language.name) : language.name != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(language.lastUpdate) : language.lastUpdate != null) return false;
-
-        return true;
+        if (!Objects.equals(name, language.name)) return false;
+        return Objects.equals(lastUpdate, language.lastUpdate);
     }
 
     @Override

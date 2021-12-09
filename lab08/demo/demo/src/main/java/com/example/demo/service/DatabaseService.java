@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.Frame.MovieDPage;
-import com.example.demo.Frame.SystemStatusInfo;
+import com.example.demo.frame.MovieDPage;
+import com.example.demo.frame.SystemStatusInfo;
 import com.example.demo.contract.MovieDto;
 import com.example.demo.info.TimerInfo;
 import com.example.demo.job.DatabaseChecker;
@@ -22,7 +22,7 @@ public class DatabaseService {
     FileHandler fh;
     private final SystemStatusInfo systemStatusInfo;
 
-    RestTemplate rest;
+    final RestTemplate rest;
     private final SchedulerService scheduler;
 
     @Autowired

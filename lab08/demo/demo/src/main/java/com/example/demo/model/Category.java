@@ -3,6 +3,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Category {
@@ -49,10 +50,8 @@ public class Category {
         Category category = (Category) o;
 
         if (categoryId != category.categoryId) return false;
-        if (name != null ? !name.equals(category.name) : category.name != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(category.lastUpdate) : category.lastUpdate != null) return false;
-
-        return true;
+        if (!Objects.equals(name, category.name)) return false;
+        return Objects.equals(lastUpdate, category.lastUpdate);
     }
 
     @Override

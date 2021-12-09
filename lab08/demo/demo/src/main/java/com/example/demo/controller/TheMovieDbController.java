@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.contract.IMDBMovieDto;
 import com.example.demo.service.DatabaseService;
+import com.example.demo.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,11 +23,13 @@ public class TheMovieDbController{
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(TheMovieDbController.class));
     FileHandler fh;
 
-    DatabaseService databaseService;
+    final DatabaseService databaseService;
+    final FilmService filmService;
 
     @Autowired
-    public TheMovieDbController(DatabaseService databaseService) {
+    public TheMovieDbController(DatabaseService databaseService, FilmService filmService) {
         this.databaseService = databaseService;
+        this.filmService = filmService;
         try {
             fh = new FileHandler("demo/src/main/java/com/example/demo/Log.txt", true);
             LOGGER.addHandler(fh);
@@ -59,5 +63,11 @@ public class TheMovieDbController{
     @RequestMapping("/updater/reload/{year}")
     public ResponseEntity reloadDataByYear(@PathVariable int year) {
         return ResponseEntity.ok(databaseService.reloadDataByYear(year));
+    }
+
+    @GetMapping
+    @RequestMapping("/imdb/{id}")
+    public ResponseEntity<IMDBMovieDto> getDataIMDB(@PathVariable("id") String id){
+        return ResponseEntity.ok(filmService.getMovieInfoFromIMDB(id));
     }
 }

@@ -1,23 +1,20 @@
 package com.example.demo.contract;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MovieDto {
-
-    String title;
+public class MovieFromMovieDb {
     int id;
-    @JsonIgnore
     int runtime;
-    @JsonProperty("overview")
-    String description;
+    String title;
+    @JsonProperty("success")
+    boolean response;
 
-    public String getDescription() {
-        return description;
+    public boolean isResponse() {
+        return response;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setResponse(boolean response) {
+        this.response = response;
     }
 
     public String getTitle() {

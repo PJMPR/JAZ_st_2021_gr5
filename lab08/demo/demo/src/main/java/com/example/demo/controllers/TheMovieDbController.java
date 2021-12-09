@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.contract.MovieDto;
+import com.example.demo.contract.MovieFromMovieDb;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
-@RequestMapping("moviesclient")
+@RequestMapping("moviesClient")
 public class TheMovieDbController {
 
     RestTemplate rest;
+    String title;
 
     public TheMovieDbController(RestTemplate rest) {
         this.rest = rest;
@@ -20,12 +21,11 @@ public class TheMovieDbController {
 
     @GetMapping
     @RequestMapping("{id}")
-    public ResponseEntity getData(@PathVariable("id") int id){
-        var env = System.getenv();
+    public ResponseEntity getDataByMovieId(@PathVariable("id") int id){
         var movie = rest.getForEntity("https://api.themoviedb.org/3/movie/" +
                 id +
-                "?api_key=" + System.getenv("TheMovieDbApiKey"), MovieDto.class).getBody();
-        return ResponseEntity.ok(movie);
+                "?api_key=" + System.getenv("apiKey"), MovieFromMovieDb.class).getBody().getTitle();
+        title = movie;
+        return ResponseEntity.ok(title);
     }
-
 }

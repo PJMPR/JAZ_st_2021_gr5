@@ -1,6 +1,5 @@
 package com.example.demo.info;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.Serializable;

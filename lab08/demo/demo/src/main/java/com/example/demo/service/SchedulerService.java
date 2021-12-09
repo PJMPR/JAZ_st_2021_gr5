@@ -2,12 +2,12 @@ package com.example.demo.service;
 
 import com.example.demo.info.TimerInfo;
 import com.example.demo.util.TimerUtil;
-import org.quartz.JobDetail;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.Trigger;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -24,10 +24,11 @@ public class SchedulerService {
     private final Scheduler scheduler;
 
     @Autowired
-    public SchedulerService(final Scheduler scheduler) {
-        this.scheduler = scheduler;
+    public SchedulerService() throws SchedulerException {
+        this.scheduler = new StdSchedulerFactory().getScheduler();
     }
 
+    @Bean
     public void schedule(final Class jobClass, final TimerInfo info){
         final JobDetail jobDetail = TimerUtil.buildJobDetail(jobClass, info);
         final Trigger trigger = TimerUtil.buildTrigger(jobClass, info);

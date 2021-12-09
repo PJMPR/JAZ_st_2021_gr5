@@ -54,7 +54,7 @@ public class FilmService {
 
     public IMDBMovieDto getMovieInfoFromIMDB(String id) {
 
-        return rest.getForEntity("http://www.omdbapi.com/?apikey="
+        return rest.getForEntity("https://www.omdbapi.com/?apikey="
                 + System.getenv("OMDBapiKey") +
                 "&i=" + id, IMDBMovieDto.class).getBody();
     }

@@ -16,7 +16,7 @@ public class FilmsRepository {
     public List<Film> getFilmsByPage(int page, int size){
 
         var films =entityManager.createQuery("" +
-                "SELECT film FROM Film film")
+                "SELECT film FROM Film film", Film.class)
                 .setFirstResult((page-1)*size)
                 .setMaxResults(size)
                 .getResultList();

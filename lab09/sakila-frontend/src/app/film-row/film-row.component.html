@@ -1,0 +1,40 @@
+
+  <td style="background-color: aquamarine;" >{{film.id}}</td>
+  <td *ngIf="!editModeEnable">{{film.title}}</td>
+  <td *ngIf="!editModeEnable">{{film.language?.name}}</td>
+  <td *ngIf="!editModeEnable">{{film.releaseYear}}</td>
+  <td *ngIf="!editModeEnable">{{film.rentalDuration}}</td>
+  <td *ngIf="!editModeEnable">{{film.rentalRate}}</td>
+  <td *ngIf="!editModeEnable">{{film.replacementCosts}}</td>
+  <td *ngIf="!editModeEnable"><button pButton type="button" label="Edit" (click)="turnToEditMode()"></button></td>
+
+
+  <td *ngIf="editModeEnable"><input type="text" pInputText [(ngModel)]="film.title" /></td>
+  <td *ngIf="editModeEnable"><p-dropdown [options]="languages" [(ngModel)]="film.language" optionLabel="name"></p-dropdown></td>
+  <td *ngIf="editModeEnable" style="padding: 10px;"><p-inputNumber [(ngModel)]="film.releaseYear" 
+    mode="decimal" 
+    [showButtons]="true" 
+    buttonLayout="vertical" 
+    spinnerMode="vertical"
+    decrementButtonClass="p-button-secondary" 
+    incrementButtonClass="p-button-secondary" 
+    incrementButtonIcon="pi pi-plus" 
+    decrementButtonIcon="pi pi-minus"
+    [min]="0"></p-inputNumber></td>
+  <td *ngIf="editModeEnable" ><p-inputNumber [(ngModel)]="film.rentalDuration"
+    mode="decimal" 
+    [showButtons]="true" 
+    buttonLayout="vertical" 
+    spinnerMode="vertical"
+    decrementButtonClass="p-button-secondary" 
+    incrementButtonClass="p-button-secondary" 
+    incrementButtonIcon="pi pi-plus" 
+    decrementButtonIcon="pi pi-minus"
+    [min]="0"></p-inputNumber></td>
+  <td *ngIf="editModeEnable"><p-inputNumber [(ngModel)]="film.rentalRate" [showButtons]="true" mode="currency" currency="USD" spinnerMode="vertical" [min]="0"></p-inputNumber></td>
+  <td *ngIf="editModeEnable"><p-inputNumber [(ngModel)]="film.replacementCosts" [showButtons]="true" mode="currency" currency="USD" spinnerMode="vertical" [min]="0"></p-inputNumber></td>
+  <td *ngIf="editModeEnable">
+    <button pButton pRipple type="button" label="Update" class="p-button-outlined p-button-success" (click)="updateFilm()"></button>
+    <button pButton pRipple type="button" label="Cancel" class="p-button-outlined p-button-secondary" (click)="turnToEditMode()"></button>
+    <button pButton pRipple type="button" label="Delete" class="p-button-outlined p-button-danger" (click)="deleteFilm()"></button>
+  </td>

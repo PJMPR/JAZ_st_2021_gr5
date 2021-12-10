@@ -35,7 +35,7 @@ import { FilmsHttpService } from './services/FilmsHttpService';
     DropdownModule,
     ProgressBarModule,
     HttpClientModule
-    ,HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, {dataEncapsulation: false, delay:1200})
+    //,HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, {dataEncapsulation: false, delay:1200})
   ],
   providers: [FilmsHttpService],
   bootstrap: [AppComponent]

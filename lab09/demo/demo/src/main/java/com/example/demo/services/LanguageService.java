@@ -3,11 +3,11 @@ package com.example.demo.services;
 import com.example.demo.contracts.LanguageProjection;
 import com.example.demo.repositories.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class LanguageService {
     private final LanguageRepository repo;
 

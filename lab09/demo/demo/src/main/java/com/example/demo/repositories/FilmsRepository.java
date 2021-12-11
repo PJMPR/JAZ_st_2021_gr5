@@ -13,4 +13,6 @@ import java.util.List;
 public interface FilmsRepository extends PagingAndSortingRepository<Film, Integer> {
     @Query(value = "select f from Film f")
     List<FilmProjection> findAllFilms(Pageable pageable);
+
+    Film findById(int id);
 }

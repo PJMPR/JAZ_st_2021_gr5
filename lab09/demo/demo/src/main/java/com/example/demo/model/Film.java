@@ -6,23 +6,23 @@ import java.sql.Timestamp;
 
 @Entity
 public class Film {
-    private int filmId;
+    private int id;
     private String title;
     private int releaseYear;
     private int rentalDuration;
     private BigDecimal rentalRate;
-    private BigDecimal replacementCost;
+    private BigDecimal replacementCosts;
     private Timestamp lastUpdate;
     private Language language;
 
     @Id
     @Column(name = "film_id")
-    public int getFilmId() {
-        return filmId;
+    public int getId() {
+        return id;
     }
 
-    public void setFilmId(int filmId) {
-        this.filmId = filmId;
+    public void setId(int filmId) {
+        this.id = filmId;
     }
 
     @Basic
@@ -67,12 +67,12 @@ public class Film {
 
     @Basic
     @Column(name = "replacement_cost")
-    public BigDecimal getReplacementCost() {
-        return replacementCost;
+    public BigDecimal getReplacementCosts() {
+        return replacementCosts;
     }
 
-    public void setReplacementCost(BigDecimal replacementCost) {
-        this.replacementCost = replacementCost;
+    public void setReplacementCosts(BigDecimal replacementCost) {
+        this.replacementCosts = replacementCost;
     }
 
     @Basic
@@ -92,12 +92,12 @@ public class Film {
 
         Film film = (Film) o;
 
-        if (filmId != film.filmId) return false;
+        if (id != film.id) return false;
         if (releaseYear != film.releaseYear) return false;
         if (rentalDuration != film.rentalDuration) return false;
         if (title != null ? !title.equals(film.title) : film.title != null) return false;
         if (rentalRate != null ? !rentalRate.equals(film.rentalRate) : film.rentalRate != null) return false;
-        if (replacementCost != null ? !replacementCost.equals(film.replacementCost) : film.replacementCost != null)
+        if (replacementCosts != null ? !replacementCosts.equals(film.replacementCosts) : film.replacementCosts != null)
             return false;
         if (lastUpdate != null ? !lastUpdate.equals(film.lastUpdate) : film.lastUpdate != null) return false;
 
@@ -106,12 +106,12 @@ public class Film {
 
     @Override
     public int hashCode() {
-        int result = filmId;
+        int result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + releaseYear;
         result = 31 * result + rentalDuration;
         result = 31 * result + (rentalRate != null ? rentalRate.hashCode() : 0);
-        result = 31 * result + (replacementCost != null ? replacementCost.hashCode() : 0);
+        result = 31 * result + (replacementCosts != null ? replacementCosts.hashCode() : 0);
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
     }

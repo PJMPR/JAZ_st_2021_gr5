@@ -1,13 +1,13 @@
 package com.example.demo.controllers;
 
 import com.example.demo.contracts.FilmProjection;
+import com.example.demo.model.Film;
 import com.example.demo.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +22,14 @@ public class FilmsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<FilmProjection>> getFilms(@RequestParam(defaultValue = "0", required = false) int page){
+    public ResponseEntity<List<FilmProjection>> getFilms(@RequestParam(defaultValue = "0", required = false) int page) {
         List<FilmProjection> films = service.getAllFilms(page);
-        return ResponseEntity.ok(films);
+        return new ResponseEntity<>(films, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Integer> updateFilm(@PathVariable int id, @RequestBody Film film) {
+        int updatedId = service.putFilm(id, film);
+        return new ResponseEntity<>(updatedId, HttpStatus.OK);
     }
 }

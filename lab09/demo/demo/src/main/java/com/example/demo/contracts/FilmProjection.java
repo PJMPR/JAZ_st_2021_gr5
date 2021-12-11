@@ -1,9 +1,6 @@
 package com.example.demo.contracts;
 
-import org.springframework.beans.factory.annotation.Value;
-
 public interface FilmProjection {
-    @Value("#{target.filmId}")
     int getId();
 
     String getTitle();
@@ -16,6 +13,5 @@ public interface FilmProjection {
 
     int getRentalRate();
 
-    @Value("#{target.replacementCost}")
     int getReplacementCosts();
 }

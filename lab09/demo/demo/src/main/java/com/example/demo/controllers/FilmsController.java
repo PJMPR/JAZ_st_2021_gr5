@@ -22,9 +22,15 @@ public class FilmsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<FilmProjection>> getFilms(@RequestParam(defaultValue = "0", required = false) int page) {
-        List<FilmProjection> films = service.getAllFilms(page);
+    public ResponseEntity<List<FilmProjection>> getFilms(@RequestParam(defaultValue = "1", required = false) int page) {
+        List<FilmProjection> films = service.getAllFilms(page - 1);
         return new ResponseEntity<>(films, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Long> createFilm(@RequestBody Film film) {
+        long createdId = service.addFilm(film);
+        return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

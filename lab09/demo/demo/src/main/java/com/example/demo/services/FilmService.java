@@ -20,7 +20,6 @@ public class FilmService {
     }
 
     public List<FilmProjection> getAllFilms(int page) {
-        if (page != 0) page -= 1;
         if (page > 49) page = 49;
 
         Pageable pageable = PageRequest.of(page, 20);
@@ -44,5 +43,9 @@ public class FilmService {
     public int deleteFilm(int id) {
         repo.deleteById(id);
         return id;
+    }
+
+    public long addFilm(Film film) {
+        return repo.save(film).getId();
     }
 }

@@ -19,8 +19,9 @@ public class FilmService {
         this.repo = repo;
     }
 
-    public List<FilmProjection> getAllFilms(int page){
+    public List<FilmProjection> getAllFilms(int page) {
         if (page != 0) page -= 1;
+        if (page > 49) page = 49;
 
         Pageable pageable = PageRequest.of(page, 20);
         return repo.findAllFilms(pageable);
@@ -38,5 +39,10 @@ public class FilmService {
         repoFilm.setReplacementCosts(film.getReplacementCosts());
 
         return repo.save(repoFilm).getId();
+    }
+
+    public int deleteFilm(int id) {
+        repo.deleteById(id);
+        return id;
     }
 }

@@ -32,4 +32,10 @@ public class FilmsController {
         int updatedId = service.putFilm(id, film);
         return new ResponseEntity<>(updatedId, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Integer> deleteFilm(@PathVariable int id) {
+        int deletedId = service.deleteFilm(id);
+        return new ResponseEntity<>(deletedId, HttpStatus.OK);
+    }
 }

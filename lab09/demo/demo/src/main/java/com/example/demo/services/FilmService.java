@@ -31,7 +31,6 @@ public class FilmService {
         Film repoFilm = repo.findById(id);
 
         repoFilm.setTitle(film.getTitle());
-        repoFilm.setTitle(film.getTitle());
         repoFilm.setLanguage(film.getLanguage());
         repoFilm.setReleaseYear(film.getReleaseYear());
         repoFilm.setRentalDuration(film.getRentalDuration());

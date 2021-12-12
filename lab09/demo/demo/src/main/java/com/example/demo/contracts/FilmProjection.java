@@ -1,5 +1,7 @@
 package com.example.demo.contracts;
 
+import java.math.BigDecimal;
+
 public interface FilmProjection {
     int getId();
 
@@ -11,7 +13,7 @@ public interface FilmProjection {
 
     int getRentalDuration();
 
-    int getRentalRate();
+    BigDecimal getRentalRate();
 
-    int getReplacementCosts();
+    BigDecimal getReplacementCosts();
 }

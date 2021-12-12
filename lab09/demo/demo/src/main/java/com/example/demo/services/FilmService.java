@@ -2,12 +2,14 @@ package com.example.demo.services;
 
 import com.example.demo.contracts.FilmProjection;
 import com.example.demo.model.Film;
+import com.example.demo.model.Language;
 import com.example.demo.repositories.FilmsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -19,11 +21,10 @@ public class FilmService {
         this.repo = repo;
     }
 
-    public List<FilmProjection> getAllFilms(int page) {
-        if (page > 49) page = 49;
+    public List<FilmProjection> getAllFilms(int page, Language language, Integer release_year, Integer id, String title, Integer rental_duration, BigDecimal rental_rate, BigDecimal replacement_costs) {
+        Pageable pageable = PageRequest.of(page, 15);
 
-        Pageable pageable = PageRequest.of(page, 20);
-        return repo.findAllFilms(pageable);
+        return repo.findAllFilms(pageable, id, release_year, title, rental_duration, rental_rate, replacement_costs, language).getContent();
     }
 
     public int putFilm(int id, Film film) {

@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.contracts.LanguageProjection;
 import com.example.demo.repositories.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,8 @@ public class LanguageService {
         this.repo = repo;
     }
 
-    public List<LanguageProjection> getLanguages(){
+    @Cacheable(value = "languages")
+    public List<LanguageProjection> getLanguages() {
         return repo.findAllLanguages();
     }
 }

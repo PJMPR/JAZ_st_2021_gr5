@@ -9,7 +9,7 @@ public class Language {
     private int languageId;
     private String name;
     private Timestamp lastUpdate;
-    private Collection<Film> filmsByLanguageId;
+    //private Collection<Film> filmsByLanguageId;
 
     @Id
     @Column(name = "language_id")
@@ -63,12 +63,12 @@ public class Language {
         return result;
     }
 
-    @OneToMany(mappedBy = "language")
-    public Collection<Film> getFilmsByLanguageId() {
-        return filmsByLanguageId;
-    }
-
-    public void setFilmsByLanguageId(Collection<Film> filmsByLanguageId) {
-        this.filmsByLanguageId = filmsByLanguageId;
-    }
+//    @OneToMany(mappedBy = "language")
+//    public Collection<Film> getFilmsByLanguageId() {
+//        return filmsByLanguageId;
+//    }
+//
+//    public void setFilmsByLanguageId(Collection<Film> filmsByLanguageId) {
+//        this.filmsByLanguageId = filmsByLanguageId;
+//    }
 }

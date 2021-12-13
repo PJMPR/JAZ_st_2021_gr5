@@ -13,14 +13,13 @@ public class FilmsRepository {
 
     private final EntityManager entityManager;
 
-    public List<Film> getFilmsByPage(int page, int size){
+    public List<Film> getFilmsByPage(int page, int size) {
 
-        var films =entityManager.createQuery("" +
-                "SELECT film FROM Film film", Film.class)
-                .setFirstResult((page-1)*size)
+        return entityManager.createQuery("" +
+                        "SELECT film FROM Film film", Film.class)
+                .setFirstResult((page - 1) * size)
                 .setMaxResults(size)
                 .getResultList();
-        return films;
 /*
        return entityManager.createNativeQuery("" +
                        "SELECT * " +
@@ -34,5 +33,9 @@ public class FilmsRepository {
                ;
                *
  */
+    }
+
+    public void deleteFilmById(int id) {
+        entityManager.createQuery("DELETE from Film where filmId=:id").setParameter("id", id).executeUpdate();
     }
 }

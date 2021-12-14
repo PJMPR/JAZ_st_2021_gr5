@@ -8,23 +8,20 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Repository
 @RequiredArgsConstructor
 public class LanguageRepository {
     private final EntityManager entityManager;
 
-    public List<Language> getLanguages(){
+    public List<LanguageDto> getLanguages(){
         return entityManager.createQuery(
                 "SELECT language from Language language", Language.class
-        ).getResultList();
+        ).getResultList()
+                .stream()
+                .map(language -> new LanguageDto(language.getLanguageId(), language.getName()))
+                .collect(Collectors.toList());
     }
-
-    /*
-    return entityManager.createQuery("" +
-                "SELECT film FROM Film film", Film.class)
-                .setFirstResult((page-1)*size)
-                .setMaxResults(size)
-                .getResultList();
-     */
 }

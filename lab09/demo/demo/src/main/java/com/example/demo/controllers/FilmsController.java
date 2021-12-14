@@ -7,6 +7,7 @@ import com.example.demo.repositories.FilmsRepository;
 import com.example.demo.service.FilmService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,13 +25,31 @@ public class FilmsController {
 
 
     @GetMapping
-    public ResponseEntity<List<Film>> getFilms(@RequestParam int page){
-        List<Film> films = filmsRepository.getFilmsByPage(page,10);
-        return ResponseEntity.ok(films);
+    public ResponseEntity<List<FilmDto>> getFilms(@RequestParam @Nullable Integer page,
+                                                  @RequestParam @Nullable Integer languageId,
+                                                  @RequestParam @Nullable Integer filmId,
+                                                  @RequestParam @Nullable String filmTitle,
+                                                  @RequestParam @Nullable Integer releaseYear,
+                                                  @RequestParam @Nullable Integer rentalDuration,
+                                                  @RequestParam @Nullable Double rentalRate,
+                                                  @RequestParam @Nullable Double replacementCost){
+        if(page != null){
+            return ResponseEntity.ok(filmsRepository.getFilmsByPage(page,10));
+        }
+        else {
+            return ResponseEntity.ok(filmsRepository.getAllFilms());
+        }
     }
 
-    @DeleteMapping()
-    public ResponseEntity deleteFilm(@RequestParam int id){
+    @PostMapping
+    public ResponseEntity createFilm(@RequestBody FilmDto newFilm){
+        filmsRepository.createFilm(newFilm);
+        return ResponseEntity.ok().build();
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteFilm(@PathVariable int id){
         filmsRepository.deleteFilmById(id);
         return ResponseEntity.noContent().build();
     }
@@ -43,10 +62,10 @@ public class FilmsController {
 //        return ResponseEntity.noContent().build();
 //    }
 
-    @GetMapping("db")
-    public ResponseEntity getFilmsFromDb(@RequestParam int page, @RequestParam int size){
-        var films = filmsRepository.getFilmsByPage(page,size);
-        return ResponseEntity.ok(films);
-    }
+//    @GetMapping("db")
+//    public ResponseEntity getFilmsFromDb(@RequestParam int page, @RequestParam int size){
+//        var films = filmsRepository.getFilmsByPage(page,size);
+//        return ResponseEntity.ok(films);
+//    }
 
 }

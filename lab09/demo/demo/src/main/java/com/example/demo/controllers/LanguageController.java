@@ -18,7 +18,6 @@ public class LanguageController {
                 new LanguageDto(1,"polish"),
                 new LanguageDto(2,"english"),
                 new LanguageDto(3,"french")
-
                 ));
     }
 

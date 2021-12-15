@@ -20,7 +20,7 @@ export class FilmsHttpService{
 
     getFilms(query?: any): Observable<Film[]>{
         //return this.http.get<Film[]>(this.filmsUrl+'?page='+page.page+'&size='+page.size);
-        return this.http.get<Film[]>(this.filmsUrl, {params:query});
+        return this.http.get<Film[]>(this.filmsUrl);
     }
 
     updateFilm(film:Film):Observable<any>{

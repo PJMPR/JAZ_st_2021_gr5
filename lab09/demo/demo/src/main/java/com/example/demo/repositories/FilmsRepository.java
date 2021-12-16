@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class FilmsRepository {
 
     private final EntityManager entityManager;
+    private final Calendar timestamp = Calendar.getInstance();
 
     public List<FilmDto> getAllFilms(){
         return entityManager.createQuery("select film from Film film",Film.class)
@@ -72,7 +73,6 @@ public class FilmsRepository {
      */
     @Transactional
     public void createFilm(FilmDto newFilm){
-        Calendar timestamp = Calendar.getInstance();
 
         entityManager.joinTransaction();
         entityManager.createNativeQuery("INSERT INTO Film " +
@@ -93,5 +93,28 @@ public class FilmsRepository {
 
         entityManager.joinTransaction();
         entityManager.createQuery("DELETE from Film f where f.filmId=:id").setParameter("id", id).executeUpdate();
+    }
+
+    @Transactional
+    public void updateFilm(FilmDto film) {
+        entityManager.joinTransaction();
+        entityManager.createQuery("update Film f set " +
+                "f.title=:title," +
+                "f.language.languageId=:languageId," +
+                "f.releaseYear=:releaseYear," +
+                "f.rentalDuration=:rentalDuration," +
+                "f.rentalRate=:rentalRate," +
+                "f.replacementCost=:replacementCost," +
+                "f.lastUpdate=:lastUpdate " +
+                "where f.filmId=:id")
+                .setParameter("title",film.getTitle())
+                .setParameter("languageId",film.getLanguage().getId())
+                .setParameter("releaseYear",film.getReleaseYear())
+                .setParameter("rentalDuration",film.getRentalDuration().intValue())
+                .setParameter("rentalRate",film.getRentalRate())
+                .setParameter("replacementCost",film.getReplacementCosts())
+                .setParameter("lastUpdate",Timestamp.from(timestamp.getTime().toInstant()))
+                .setParameter("id",film.getId())
+                .executeUpdate();
     }
 }

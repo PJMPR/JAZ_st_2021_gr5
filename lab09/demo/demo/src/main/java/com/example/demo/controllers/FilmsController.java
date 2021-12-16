@@ -48,9 +48,15 @@ public class FilmsController {
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity deleteFilm(@PathVariable int id){
         filmsRepository.deleteFilmById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity updateFilm(@PathVariable int id,@RequestBody FilmDto film){
+        filmsRepository.updateFilm(film);
         return ResponseEntity.noContent().build();
     }
 

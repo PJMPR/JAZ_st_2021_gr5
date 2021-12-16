@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="p-mb-3">
+    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" styleClass="p-button-text"></p-button>
+    <input type="text" pInputText disabled [(ngModel)]="page" class="p-inputtext-sm"/>
+    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" styleClass="p-button-text"></p-button>
+</div>
+
+</div>
+<div class="card">
+<p-progressBar *ngIf="isProgressVisible" mode="indeterminate"  [style]="{'height': '6px'}"></p-progressBar>
+  <p-table [value]="films">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+              <span class="p-float-label">
+                <input id="float-input" type="text" [(ngModel)]="queryParameters.id" pInputText style="width: 75px;"> 
+                <label for="float-input">Id</label>
+            </span>
+            </th>
+            <th>
+              <span class="p-float-label">
+                <input id="float-input" type="text" [(ngModel)]="queryParameters.title" pInputText style="width: 100px;"> 
+                <label for="float-input">Title</label>
+            </span></th>
+            <th>
+              <span class="p-float-label">
+                <p-dropdown id="float-input" optionLabel="name"  [(ngModel)]="queryParameters.language"  [options]="languages" style="width: 100px;"></p-dropdown>
+                <label for="float-input">Language</label>
+            </span>
+
+            </th>
+            <th><span class="p-float-label">
+              <input id="float-input" type="text"  [(ngModel)]="queryParameters.release_year"  pInputText style="width: 120px;"> 
+              <label for="float-input">Release Year</label>
+          </span></th>
+            <th><span class="p-float-label">
+              <input id="float-input" type="text"  [(ngModel)]="queryParameters.rental_duration"  pInputText style="width: 150px;"> 
+              <label for="float-input">Rental Duration</label>
+          </span></th>
+            <th><span class="p-float-label">
+              <input id="float-input" type="text"  [(ngModel)]="queryParameters.rental_rate"  pInputText style="width: 110px;"> 
+              <label for="float-input">Rental Rate</label>
+          </span></th>
+            <th><span class="p-float-label">
+              <input id="float-input" type="text"  [(ngModel)]="queryParameters.replacement_costs"  pInputText style="width: 170px;"> 
+              <label for="float-input">Replacement Costs</label>
+          </span></th>
+            <th>
+              <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success" (click)="search()"></button>
+              <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-danger" (click)="save()"></button>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-film>
+      <tr film-row [film]="film" (refresh)="reset()"></tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+  </ng-template>
+  <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+  </ng-template>
+  </p-table>
+</div>

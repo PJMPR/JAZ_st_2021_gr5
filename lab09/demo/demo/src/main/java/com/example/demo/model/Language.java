@@ -3,22 +3,23 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Language {
-    private int languageId;
+    private int id;
     private String name;
     private Timestamp lastUpdate;
     private Collection<Film> filmsByLanguageId;
 
     @Id
     @Column(name = "language_id")
-    public int getLanguageId() {
-        return languageId;
+    public int getId() {
+        return id;
     }
 
-    public void setLanguageId(int languageId) {
-        this.languageId = languageId;
+    public void setId(int languageId) {
+        this.id = languageId;
     }
 
     @Basic
@@ -48,16 +49,14 @@ public class Language {
 
         Language language = (Language) o;
 
-        if (languageId != language.languageId) return false;
-        if (name != null ? !name.equals(language.name) : language.name != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(language.lastUpdate) : language.lastUpdate != null) return false;
-
-        return true;
+        if (id != language.id) return false;
+        if (!Objects.equals(name, language.name)) return false;
+        return Objects.equals(lastUpdate, language.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        int result = languageId;
+        int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;

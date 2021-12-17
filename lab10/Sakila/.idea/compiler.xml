@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sakila-data" />
+        <module name="sakila-films-updater" />
+        <module name="sakila-diagnostics" />
+        <module name="sakila-report-service" />
+        <module name="sakila-business-logic" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sakila-business-logic" target="16" />
+      <module name="sakila-data" target="11" />
+      <module name="sakila-diagnostics" target="17" />
+      <module name="sakila-films-updater" target="17" />
+      <module name="sakila-report-service" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sakila-business-logic" options="-parameters" />
+      <module name="sakila-data" options="-parameters" />
+      <module name="sakila-diagnostics" options="-parameters" />
+      <module name="sakila-films-updater" options="-parameters" />
+      <module name="sakila-report-service" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -15,6 +15,8 @@ public class Film {
     private Timestamp lastUpdate;
     private Language language;
 
+    
+
     @Id
     @Column(name = "film_id")
     public int getFilmId() {
@@ -125,4 +127,6 @@ public class Film {
     public void setLanguage(Language language) {
         this.language = language;
     }
+
+
 }

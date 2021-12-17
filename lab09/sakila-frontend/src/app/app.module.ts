@@ -17,7 +17,7 @@ import { InMemoryDataService } from './services/in-memory-data-service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmsHttpService } from './services/FilmsHttpService';
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     FilmsTableComponent,
       FilmRowComponent
@@ -35,7 +35,7 @@ import { FilmsHttpService } from './services/FilmsHttpService';
     DropdownModule,
     ProgressBarModule,
     HttpClientModule
-    //,HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, {dataEncapsulation: false, delay:1200})
+    ,HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, {dataEncapsulation: false, delay:1200})
   ],
   providers: [FilmsHttpService],
   bootstrap: [AppComponent]

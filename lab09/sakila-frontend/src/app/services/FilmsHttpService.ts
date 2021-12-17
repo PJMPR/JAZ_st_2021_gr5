@@ -12,7 +12,7 @@ export class FilmsHttpService{
      *
      */
     constructor(private http: HttpClient) {
-        
+
     }
 
     private filmsUrl = '/api/films';
@@ -20,7 +20,7 @@ export class FilmsHttpService{
 
     getFilms(query?: any): Observable<Film[]>{
         //return this.http.get<Film[]>(this.filmsUrl+'?page='+page.page+'&size='+page.size);
-        return this.http.get<Film[]>(this.filmsUrl, {params:query});
+        return this.http.get<Film[]>(this.filmsUrl);
     }
 
     updateFilm(film:Film):Observable<any>{
@@ -31,14 +31,14 @@ export class FilmsHttpService{
         return this.http.delete(this.filmsUrl+'/'+id);
     }
     getLanguages(): Observable<Language[]>{
-        
+
         return this.http.get<Language[]>(this.languagesUrl);
     }
 
     saveFilm(film:Film):Observable<any>{
         return this.http.post(this.filmsUrl, film);
     }
-    
+
 }
 
 export interface QueryParamaters{

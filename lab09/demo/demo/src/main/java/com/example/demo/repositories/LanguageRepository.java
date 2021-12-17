@@ -2,10 +2,8 @@ package com.example.demo.repositories;
 
 import com.example.demo.contracts.LanguageDto;
 import com.example.demo.model.Language;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,5 +21,11 @@ public class LanguageRepository {
                 .stream()
                 .map(language -> new LanguageDto(language.getLanguageId(), language.getName()))
                 .collect(Collectors.toList());
+    }
+
+    public Language getLanguageById(int id){
+        return entityManager.createQuery(
+                "select language from Language language where language.languageId=:id",Language.class)
+                .setParameter("id",id).getSingleResult();
     }
 }

@@ -2,19 +2,15 @@ package com.example.demo.controllers;
 
 import com.example.demo.contracts.FilmDto;
 import com.example.demo.contracts.LanguageDto;
-import com.example.demo.model.Film;
 import com.example.demo.repositories.FilmsRepository;
-import com.example.demo.service.FilmService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("api/films")
@@ -25,53 +21,44 @@ public class FilmsController {
 
 
     @GetMapping
-    public ResponseEntity<List<FilmDto>> getFilms(@RequestParam @Nullable Integer page,
-                                                  @RequestParam @Nullable Integer languageId,
-                                                  @RequestParam @Nullable Integer filmId,
-                                                  @RequestParam @Nullable String filmTitle,
-                                                  @RequestParam @Nullable Integer releaseYear,
-                                                  @RequestParam @Nullable Integer rentalDuration,
-                                                  @RequestParam @Nullable Double rentalRate,
-                                                  @RequestParam @Nullable Double replacementCost){
-        if(page != null){
-            return ResponseEntity.ok(filmsRepository.getFilmsByPage(page,10));
-        }
-        else {
-            return ResponseEntity.ok(filmsRepository.getAllFilms());
-        }
+    public ResponseEntity<List<FilmDto>> getFilms(@RequestParam(defaultValue = "1")  Integer page,
+                                                  @RequestParam(required = false)  Integer language,
+                                                  @RequestParam(required = false) Integer id,
+                                                  @RequestParam(required = false) String title,
+                                                  @RequestParam(required = false) Integer release_year,
+                                                  @RequestParam(required = false) BigDecimal rental_duration,
+                                                  @RequestParam(required = false) BigDecimal rental_rate,
+                                                  @RequestParam(required = false) BigDecimal replacement_costs) {
+        FilmDto film = FilmDto.builder()
+                .id(id)
+                .title(title)
+                .releaseYear(release_year)
+                .rentalDuration(rental_duration)
+                .rentalRate(rental_rate)
+                .replacementCosts(replacement_costs)
+                .language(LanguageDto.builder().id(language).name("").build()).build();
+
+
+        return ResponseEntity.ok(filmsRepository.getFilmsByPage(page, 10,film));
     }
 
     @PostMapping
-    public ResponseEntity createFilm(@RequestBody FilmDto newFilm){
-        filmsRepository.createFilm(newFilm);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<HttpStatus> createFilm(@RequestBody FilmDto newFilm) {
+        if (newFilm.getLanguage().getId() == 7) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+        }
+        return ResponseEntity.status(filmsRepository.createFilm(newFilm)).build();
+
     }
 
 
     @DeleteMapping("{id}")
-    public ResponseEntity deleteFilm(@PathVariable int id){
-        filmsRepository.deleteFilmById(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<HttpStatus> deleteFilm(@PathVariable int id) {
+        return ResponseEntity.status(filmsRepository.deleteFilmById(id)).build();
     }
 
     @PutMapping("{id}")
-    public ResponseEntity updateFilm(@PathVariable int id,@RequestBody FilmDto film){
-        filmsRepository.updateFilm(film);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<HttpStatus> updateFilm(@PathVariable int id, @RequestBody FilmDto film) {
+        return ResponseEntity.status(filmsRepository.updateFilm(film)).build();
     }
-
-//    @PutMapping("{id}")
-//    public ResponseEntity updateFilm(@PathVariable int id,@RequestBody FilmDto film){
-//        var filmToUpdate = films.stream().filter(x->x.getId()==film.getId()).findFirst().get();
-//        films.remove(filmToUpdate);
-//        films.add(film);
-//        return ResponseEntity.noContent().build();
-//    }
-
-//    @GetMapping("db")
-//    public ResponseEntity getFilmsFromDb(@RequestParam int page, @RequestParam int size){
-//        var films = filmsRepository.getFilmsByPage(page,size);
-//        return ResponseEntity.ok(films);
-//    }
-
 }

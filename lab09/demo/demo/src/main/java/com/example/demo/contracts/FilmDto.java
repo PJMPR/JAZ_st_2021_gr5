@@ -17,4 +17,5 @@ public class FilmDto {
     private BigDecimal rentalDuration;
     private BigDecimal rentalRate;
     private BigDecimal replacementCosts;
+
 }

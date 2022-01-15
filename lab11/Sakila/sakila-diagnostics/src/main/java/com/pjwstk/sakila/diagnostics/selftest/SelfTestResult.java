@@ -1,14 +1,13 @@
 package com.pjwstk.sakila.diagnostics.selftest;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 public class SelfTestResult {
     String name;
     String description;

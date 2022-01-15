@@ -2,15 +2,13 @@ package com.pjwstk.sakila.diagnostics.selftest;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class CheckDiskSpaceSelfTest extends SelfTestBase {
 
-    public CheckDiskSpaceSelfTest(String name, String description){
-        super.name=name;
-        super.description=description;
-    }
+@Component
+public class CheckDiskSpaceSelfTest implements iSelfTest {
 
     public SelfTestResult run(){
-        return new SelfTestResult("","",true,null);
+        return new SelfTestResult("Disk space check",
+                "Checking if at least 5% free disk space is avaliable"
+                ,true,null);
     }
 }

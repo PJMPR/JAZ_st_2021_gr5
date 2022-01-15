@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DbConnectionSelfTest implements iSelfTest {
 
-    private final EntityManager entityManager = new EntityManager().getEntityManagerFactory().createEntityManager();
+    private final EntityManager entityManager;
 
     @Override
     public SelfTestResult run() {

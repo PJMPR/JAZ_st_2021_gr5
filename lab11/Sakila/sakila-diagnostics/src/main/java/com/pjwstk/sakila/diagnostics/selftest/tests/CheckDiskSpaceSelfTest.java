@@ -13,12 +13,7 @@ import java.util.List;
 public class CheckDiskSpaceSelfTest implements iSelfTest {
 
     public SelfTestResult run() {
-        File diskPartition = new File("C:");
-
-        double totalCapacity = diskPartition.getTotalSpace();
-        double freePartitionSpace = diskPartition.getFreeSpace();
-        double percentage = freePartitionSpace/totalCapacity*100;
-
+        double percentage = checkDiskSpace();
         SelfTestResult result;
         try {
             if (percentage < 5) {
@@ -41,7 +36,15 @@ public class CheckDiskSpaceSelfTest implements iSelfTest {
                                     .getMessage()))
                     .build();
         }
-
         return result;
+    }
+
+    private double checkDiskSpace(){
+        File diskPartition = new File("C:");
+
+        double totalCapacity = diskPartition.getTotalSpace();
+        double freePartitionSpace = diskPartition.getFreeSpace();
+        return freePartitionSpace/totalCapacity*100;
+
     }
 }

@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sakila-data" />
-        <module name="sakila-films-updater" />
         <module name="sakila-diagnostics" />
+        <module name="sakila-films-updater" />
         <module name="sakila-report-service" />
         <module name="sakila-business-logic" />
         <module name="sakila-diagnostics-service" />
@@ -18,9 +18,9 @@
     <bytecodeTargetLevel>
       <module name="sakila-business-logic" target="16" />
       <module name="sakila-data" target="11" />
-      <module name="sakila-diagnostics" target="17" />
-      <module name="sakila-diagnostics-service" target="17" />
-      <module name="sakila-films-updater" target="17" />
+      <module name="sakila-diagnostics" target="16" />
+      <module name="sakila-diagnostics-service" target="16" />
+      <module name="sakila-films-updater" target="16" />
       <module name="sakila-report-service" target="11" />
     </bytecodeTargetLevel>
   </component>

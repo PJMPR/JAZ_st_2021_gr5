@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/sakila-business-logic/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-data/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-report-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-films-updater/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-diagnostics/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-diagnostics-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sakila-security-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
